@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyBuddy - Mësuese Mira | Tribute to Mira Murati</title>
+<meta name="description" content="Mësuese Mira - Asistentja AI për nxënësit shqiptarë. Personazh virtual i krijuar për nder të Mira Muratit. Teacher Mira AI tutor inspired by Mira Murati.">
+<meta name="theme-color" content="#9C27B0">
+<style>
+body{font-family:sans-serif;background:#f5f5f5;padding:10px}
+.card{background:#fff;padding:15px;border-radius:10px;margin-bottom:10px;box-shadow:0 1px 3px #ccc}
+button{border:0;padding:12px;border-radius:8px;width:100%;font-weight:bold;margin-top:6px;cursor:pointer}
+.pdf-full{white-space:pre-wrap;line-height:1.8;background:#fffef0;border:2px solid #FF9800;padding:20px}
+#mira-bubble{background:#F3E5F5;border-left:4px solid #9C27B0;padding:10px;border-radius:8px;margin-bottom:8px;font-weight:bold;color:#4A148C;min-height:20px}
+@media print{ button,input,details,.lang-switch{display:none}.pdf-full{border:none} }
+details{margin-top:15px;background:#fff;padding:10px;border-radius:8px}
+.karta-studimi{background:#fff;border:1px solid #e2e8f0;border-left:4px solid #0f2d52;border-radius:10px;margin-bottom:10px;cursor:pointer;box-shadow:0 1px 3px #ccc;overflow:hidden;transition:0.2s}
+.karta-studimi:hover{box-shadow:0 3px 10px rgba(0,0,0,0.1)}
+.pyetja{padding:15px;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:#1e293b}
+.pergjigja{display:none;padding:12px 15px 15px 15px;margin:0 15px 15px 15px;border-top:1px solid #f1f5f9;color:#334155;line-height:1.7;background:#f8fafc;border-radius:8px}
+.karta-studimi.hapur .pergjigja{display:block}
+.karta-studimi.hapur .ikona{transform:rotate(180deg)}
+.ikona{transition:0.2s;color:#0f2d52}
+.badge-pyetje{background:#0f2d52;color:white;font-size:10px;padding:3px 8px;border-radius:20px;margin-right:8px}
+.lang-switch{position:fixed;top:10px;right:10px;z-index:1000;background:#fff;border-radius:20px;box-shadow:0 2px 8px #ccc;padding:4px;display:flex}
+.lang-switch button{width:auto;padding:6px 14px;margin:0;border-radius:20px;font-size:13px}
+.lang-switch button.active{background:#9C27B0;color:#fff}
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button id="btn-sq" class="active" onclick="window.setLang('sq')">AL</button>
+  <button id="btn-en" onclick="window.setLang('en')">EN</button>
+</div>
+
+<h1 style="text-align:center" id="mainTitle">📚 StudyBuddy</h1>
+
+<div style="text-align:center; padding:15px; background:#f8f9ff; border-radius:12px; margin-bottom:15px; border:1px solid #E1BEE7;">
+  <div style="font-size:20px; font-weight:bold; color:#4A148C;" id="miraTitle">Mësuesja Mira 🤖 - Asistentja jote me IA</div>
+  <div style="font-size:13px; color:#666; margin-top:6px; font-style:italic;" id="miraSub">*Personazh virtual i inspiruar dhe krijuar për nder të Mira Muratit - ish-CTO e OpenAI, krenaria shqiptare</div>
+</div>
+
+<div class="card" style="text-align:center">
+<button onclick="document.getElementById('file').click()" style="background:#2196F3;color:#fff" id="uploadBtn">📄 PREK KËTU - Ngarko PDF ose PowerPoint</button>
+<input type="file" id="file" hidden accept=".pdf,.pptx" onchange="window.ngarko(this)">
+<div id="status" style="margin-top:10px;color:green;font-weight:bold"></div>
+</div>
+
+<div id="pdfFull"></div>
+<div id="r"></div>
+
+<div class="card" style="border:2px solid #9C27B0;">
+<b id="askTitle">👩‍🏫 Pyet Mësuese Mira</b><br>
+<span style="font-size:12px;color:#666" id="askSub">Për nder të Mira Muratit</span><br><br>
+<div id="mira-bubble">Pyetmë Çfarë të duash, jam këtu! </div>
+<input id="pyetja" placeholder="Mësuese Mira, çfarë janë antihistaminikët?" style="width:100%;padding:12px;border-radius:8px;border:1px solid #9C27B0;margin-bottom:8px">
+<button onclick="window.pyetIA()" style="background:#9C27B0;color:#fff" id="btnAsk">Pyet Mësuese Mirën</button>
+<button onclick="window.kerko(document.getElementById('pyetja').value)" style="background:#fff;color:#9C27B0;border:1px solid #9C27B0" id="btnSearch">🔍 Vetëm Kërko në karta</button>
+<button onclick="window.print()" style="background:#4CAF50;color:#fff" id="btnPrint">🖨️ Printo / Ruaj si PDF</button>
+<div id="pergjigjaIA" style="margin-top:12px;background:#F3E5F5;padding:12px;border-radius:8px;display:none"></div>
+</div>
+
+<details>
+<summary style="font-weight:bold;cursor:pointer" id="privacyTitle">⚖️ Politika e Privatësisë / Privacy Policy</summary>
+<div style="font-size:13px;line-height:1.8;margin-top:10px;color:#334155">
+<div id="privacy-sq">
+<b>Përditësuar: 19 Tetor 2026</b><br><br>
+<b>1. Çfarë është StudyBuddy - Mësuese Mira?</b><br>
+Aplikacion edukativ falas që ndihmon nxënësit të mësojnë nga PDF dhe PowerPoint. Krijuar për nder të <b>Mira Muratit</b>, inxhiniere shqiptare dhe ish-CTO e OpenAI.<br><br>
+<b>2. Dokumentet tuaja - 100% Private:</b><br>
+Të gjitha PDF dhe PPTX përpunohen 100% lokalisht në shfletuesin tuaj. Ne NUK i ngarkojmë në server, NUK i ruajmë, NUK i shesim, NUK i ndajmë. Kur mbyllni faqen, fshihen automatikisht.<br><br>
+<b>3. Google AdSense, Cookies dhe DART Cookie:</b><br>
+Ne përdorim Google AdSense për të mbajtur aplikacionin falas. Google, si shitës i palës së tretë, përdor cookies për të shfaqur reklama. Përdorimi i DART cookie i mundëson Google të shfaqë reklama bazuar në vizitat tuaja. Mund të çaktivizoni DART cookie te <a href="https://policies.google.com/technologies/ads" target="_blank">policies.google.com/technologies/ads</a>. Shitës të palëve të treta, përfshirë Google, përdorin cookies për reklama bazuar në vizitat e mëparshme.<br><br>
+<b>4. Si të menaxhoni Cookies:</b><br>
+Mund t'i çaktivizoni nga cilësimet e shfletuesit. Reklamat e personalizuara: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a> dhe <a href="https://www.aboutads.info/choices/" target="_blank">aboutads.info/choices</a>.<br><br>
+<b>5. GDPR:</b> Nuk mbledhim emra, email. Të dhënat janë anonime. Kontakt: studbuddy.al@gmail.com<br><br>
+<b>6. Fëmijët:</b> Nuk mbledhim të dhëna nga fëmijët nën 13 vjeç pa mbikëqyrje prindërore.<br><br>
+<b>7. Pëlqimi:</b> Duke përdorur StudyBuddy, pranoni këtë politikë dhe përdorimin e cookies.<br><br>
+<i>Krijuar me dashuri për arsimin shqip 🇦🇱 | Tribute to Mira Murati 🇦🇱</i>
+</div>
+<div id="privacy-en" style="display:none">
+<b>Updated: October 19, 2026</b><br><br>
+<b>1. What is StudyBuddy - Teacher Mira?</b><br>
+Free educational app that helps students learn from PDF and PowerPoint. Created in honor of <b>Mira Murati</b>, Albanian engineer and former CTO of OpenAI.<br><br>
+<b>2. Your Documents - 100% Private:</b><br>
+All PDFs and PPTX are processed 100% locally in your browser. We do NOT upload to any server, we do NOT store, sell, or share them. When you close the page, they are deleted.<br><br>
+<b>3. Google AdSense, Cookies and DART Cookie:</b><br>
+We use Google AdSense to keep the app free. Google, as a third-party vendor, uses cookies to serve ads. Google's use of the DART cookie enables it to serve ads based on your visits. You may opt out at <a href="https://policies.google.com/technologies/ads" target="_blank">policies.google.com/technologies/ads</a>. Third-party vendors, including Google, use cookies to serve ads based on prior visits.<br><br>
+<b>4. How to manage Cookies:</b><br>
+You can disable cookies in browser settings. Opt out of personalized ads: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a> and <a href="https://www.aboutads.info/choices/" target="_blank">aboutads.info/choices</a>.<br><br>
+<b>5. GDPR:</b> We do not collect names, emails. Data is anonymous. Contact: studbuddy.al@gmail.com<br><br>
+<b>6. Children's Data:</b> We do not knowingly collect data from children under 13 without parental supervision.<br><br>
+<b>7. Consent:</b> By using StudyBuddy, you agree to this policy and use of cookies.<br><br>
+<i>Made with love for Albanian education 🇦🇱 | Tribute to Mira Murati 🇦🇱</i>
+</div>
+</div>
+</details>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+// VETEM KETU U RREGULLUA - ASGJE TJETER NUK U HOQ
+const i18n = {
+  sq: {
+    mainTitle: "📚 StudyBuddy",
+    miraTitle: "Mësuesja Mira 🤖 - Asistentja jote me IA",
+    miraSub: "*Personazh virtual i inspiruar dhe krijuar për nder të Mira Muratit - ish-CTO e OpenAI, krenaria shqiptare",
+    uploadBtn: "📄 PREK KËTU - Ngarko PDF ose PowerPoint",
+    askTitle: "👩‍🏫 Pyet Mësuese Mira",
+    askSub: "Për nder të Mira Muratit",
+    bubble: "Pyetmë Çfarë të duash, jam këtu!",
+    placeholder: "Mësuese Mira, çfarë janë antihistaminikët?",
+    btnAsk: "Pyet Mësuese Mirën",
+    btnSearch: "🔍 Vetëm Kërko në karta",
+    btnPrint: "🖨️ Printo / Ruaj si PDF",
+    privacyTitle: "⚖️ Politika e Privatësisë / Privacy Policy",
+    statusReading: "⏳ Duke lexuar...",
+    statusDone: n => `✅ ${n} pika mësimore u gjetën!`,
+    badgeQ: "PYETJE",
+    answer: "Përgjigja:",
+    summary: "📄 PËRMBLEDHJA",
+    fullMaterial: "📄 Materiali i plotë:",
+    questionLabel: "Pyetja:",
+    answerNum: i => `Përgjigja ${i}:`,
+    noQuestion: "Ju lutem shkruani pyetjen!",
+    noMaterial: "Ngarkoni materialin më parë!",
+    searching: "⏳ Mësuese Mira po kërkon..."
+  },
+  en: {
+    mainTitle: "📚 StudyBuddy",
+    miraTitle: "Teacher Mira 🤖 - Your AI Tutor",
+    miraSub: "*Virtual character inspired and created in honor of Mira Murati - former CTO of OpenAI, Albanian pride",
+    uploadBtn: "📄 TAP HERE - Upload PDF or PowerPoint",
+    askTitle: "👩‍🏫 Ask Teacher Mira",
+    askSub: "In honor of Mira Murati",
+    bubble: "Ask me anything, I'm here!",
+    placeholder: "Teacher Mira, what are antihistamines?",
+    btnAsk: "Ask Teacher Mira",
+    btnSearch: "🔍 Search in cards only",
+    btnPrint: "🖨️ Print / Save as PDF",
+    privacyTitle: "⚖️ Privacy Policy",
+    statusReading: "⏳ Reading...",
+    statusDone: n => `✅ ${n} learning points found!`,
+    badgeQ: "QUESTION",
+    answer: "Answer:",
+    summary: "📄 SUMMARY",
+    fullMaterial: "📄 Full material:",
+    questionLabel: "Question:",
+    answerNum: i => `Answer ${i}:`,
+    noQuestion: "Please write your question!",
+    noMaterial: "Please upload material first!",
+    searching: "⏳ Teacher Mira is searching..."
+  }
+};
+let currentLang = 'sq';
+window.setLang = function(l){
+  currentLang = l;
+  document.documentElement.lang = l;
+  document.getElementById('btn-sq').classList.toggle('active', l==='sq');
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  const t = i18n[l];
+  document.getElementById('mainTitle').innerText = t.mainTitle;
+  document.getElementById('miraTitle').innerText = t.miraTitle;
+  document.getElementById('miraSub').innerText = t.miraSub;
+  document.getElementById('uploadBtn').innerText = t.uploadBtn;
+  document.getElementById('askTitle').innerText = t.askTitle;
+  document.getElementById('askSub').innerText = t.askSub;
+  document.getElementById('mira-bubble').innerText = t.bubble;
+  document.getElementById('pyetja').placeholder = t.placeholder;
+  document.getElementById('btnAsk').innerText = t.btnAsk;
+  document.getElementById('btnSearch').innerText = t.btnSearch;
+  document.getElementById('btnPrint').innerText = t.btnPrint;
+  document.getElementById('privacyTitle').innerText = t.privacyTitle;
+  document.getElementById('privacy-sq').style.display = l==='sq' ? 'block' : 'none';
+  document.getElementById('privacy-en').style.display = l==='en' ? 'block' : 'none';
+  if(fjalite.length>0) shfaq(fjalite);
+  tregoMesazhMira('pyetje');
+}
+
+const mesazheMira = {
+  sq: {
+    hapPDF: ["Bravo! Le të mësojmë bashkë këtë! 🚀", "Uau, ky material qenka thesar! 📚"],
+    vonese: ["Një sekondë, po i lexoj fjalët për ty… ☕", "Durim, po bëhet magjia... ✨"],
+    pyetje: ["Pyetmë Çfarë të duash, jam këtu! 🤗", "E gjete! Je super e zgjuar! 🌟"]
+  },
+  en: {
+    hapPDF: ["Great! Let's learn this together! 🚀", "Wow, this material is a treasure! 📚"],
+    vonese: ["One second, I'm reading the words for you... ☕", "Patience, magic is happening... ✨"],
+    pyetje: ["Ask me anything, I'm here! 🤗", "You found it! You're super smart! 🌟"]
+  }
+};
+function tregoMesazhMira(tipi) {
+  const bubble = document.getElementById('mira-bubble');
+  if (!bubble) return;
+  const lista = mesazheMira[currentLang][tipi];
+  bubble.innerText = lista[Math.floor(Math.random() * lista.length)];
+}
+function rregullojeShqip(teksti) {
+  if(!teksti) return "";
+  return teksti.replace(/Ã«/g, 'ë').replace(/Ã§/g, 'ç').replace(/Ã‹/g, 'Ë').replace(/Ã‡/g, 'Ç').replace(/\uFFFD/g, 'ë');
+}
+let fjalite=[]; let tekstiPlote="";
+window.ngarko = async function(input){
+ let f=input.files[0]; if(!f) return;
+ tregoMesazhMira('hapPDF');
+ document.getElementById('status').innerText = i18n[currentLang].statusReading;
+ tregoMesazhMira('vonese');
+ let t="";
+ if(f.name.toLowerCase().endsWith(".pdf")){
+   let buf=await f.arrayBuffer();
+   let pdf=await pdfjsLib.getDocument({data: buf}).promise;
+   for(let i=1;i<=pdf.numPages;i++){ 
+     let p=await pdf.getPage(i); 
+     let c=await p.getTextContent(); 
+     let raw = c.items.map(s=>s.str).join(" ");
+     t+= rregullojeShqip(raw) +" \n\n"; 
+   }
+ } else if(f.name.toLowerCase().endsWith(".pptx")){
+   const zip = await JSZip.loadAsync(f);
+   const slideFiles = Object.keys(zip.files).filter(n=>n.startsWith("ppt/slides/slide")).sort();
+   for(let name of slideFiles){
+     const xml = await zip.files[name].async("string");
+     const matches = xml.match(/<a:t>(.*?)<\/a:t>/g);
+     if(matches){ matches.forEach(m=>{ 
+       let txt = m.replace(/<.*?>/g,"");
+       t+= rregullojeShqip(txt) + " "; 
+     }); t+="\n\n"; }
+   }
+ }
+ tekstiPlote=t;
+ fjalite=t.split(/[.!?]+/).map(s=>s.trim()).filter(s=>s.length>30);
+ shfaq(fjalite);
+ document.getElementById('pdfFull').innerHTML="<div class='card pdf-full'><b style='color:#FF9800'>"+i18n[currentLang].fullMaterial+"</b><hr>"+tekstiPlote.substring(0,10000)+"</div>";
+ document.getElementById('status').innerText = i18n[currentLang].statusDone(fjalite.length);
+ tregoMesazhMira('pyetje');
+}
+function shfaq(lista){
+ let r=document.getElementById('r');
+ let t = i18n[currentLang];
+ let permbledhja=lista.length? "• "+[...lista].sort((a,b)=>b.length-a.length).slice(0,7).join("<br><br>• ") : "";
+ let kartatHTML = lista.slice(0,25).map((f,i)=>{
+   let pyetjeShkurt = f.split(' ').slice(0,6).join(' ') + "...?";
+   return `<div class="karta-studimi" onclick="this.classList.toggle('hapur')">
+     <div class="pyetja"><div><span class="badge-pyetje">${t.badgeQ}</span> ${pyetjeShkurt}</div><span class="ikona">▼</span></div>
+     <div class="pergjigja"><b style="color:#0f2d52">${t.answer}</b><br>${f}</div>
+   </div>`;
+ }).join("");
+ r.innerHTML="<div class='card' style='border-left:5px solid #2196F3;background:#E3F2FD;padding:15px'><b>"+t.summary+"</b><div style='margin-top:12px;line-height:1.7'>"+permbledhja+"</div></div>"+kartatHTML;
+}
+window.kerko = function(q){ if(!q||q.length<2){ shfaq(fjalite); return; } let res=fjalite.filter(f=>f.toLowerCase().includes(q.toLowerCase())); shfaq(res); }
+window.pyetIA = function(){
+ let q=document.getElementById('pyetja').value;
+ let box=document.getElementById('pergjigjaIA');
+ let t = i18n[currentLang];
+ if(!q){ box.style.display='block'; box.innerHTML=t.noQuestion; return; }
+ if(fjalite.length==0){ box.style.display='block'; box.innerHTML=t.noMaterial; return; }
+ box.style.display='block'; box.innerHTML=t.searching;
+ let relevante = fjalite.filter(f=> q.toLowerCase().split(' ').some(w=> w.length>3 && f.toLowerCase().includes(w))).slice(0,3);
+ if(relevante.length==0) relevante = fjalite.slice(0,3);
+ box.innerHTML = `<b style="color:#9C27B0">👩‍🏫 ${currentLang==='sq'?'Mësuese Mira':'Teacher Mira'}</b><br><br><b>${t.questionLabel}</b> "${q}"<br><br>` + relevante.map((f,i)=>`<b>${t.answerNum(i+1)}</b> ${f}<br><br>`).join('');
+}
+</script>
+</body>
+</html>
