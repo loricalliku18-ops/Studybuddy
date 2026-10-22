@@ -1,0 +1,16 @@
+{
+  "name": "StudyBuddy - Mësuesja Mira",
+  "short_name": "StudyBuddy",
+  "description": "Asistentja jote per studime me IA",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3135/3135755.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
