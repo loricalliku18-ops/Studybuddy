@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro Timer - StudyBuddy</title>
+<style>
+body{font-family:Arial;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;display:flex;align-items:center;justify-content:center;margin:0}
+.box{background:white;padding:40px;border-radius:25px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.2);max-width:350px;width:90%}
+h1{color:#4f46e5;margin:0 0 10px}
+#timer{font-size:80px;font-weight:bold;color:#1f2937;margin:20px 0}
+button{padding:15px 30px;margin:5px;border:none;border-radius:12px;font-size:18px;cursor:pointer;font-weight:bold}
+#start{background:#10b981;color:white}
+#pause{background:#f59e0b;color:white}
+#reset{background:#ef4444;color:white}
+#status{margin-top:15px;color:#6b7280;font-size:16px}
+.back{display:block;margin-top:25px;color:#4f46e5;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>🍅 Pomodoro</h1>
+<p id="status">Gati për të studiuar?</p>
+<div id="timer">25:00</div>
+<button id="start" onclick="start()">START</button>
+<button id="pause" onclick="pause()">PAUZË</button>
+<button id="reset" onclick="reset()">RESET</button>
+<p style="margin-top:20px">📚 25 min studim | ☕ 5 min pushim</p>
+<a class="back" href="index.html">← Kthehu te StudyBuddy</a>
+</div>
+<script>
+let time=25*60, interval=null, isStudy=true;
+function update(){
+let m=Math.floor(time/60), s=time%60;
+document.getElementById('timer').innerText=`${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+}
+function start(){
+if(interval) return;
+document.getElementById('status').innerText=isStudy?"Duke studiuar... përqendrohu! 📚":"Pushim... merr frymë! ☕";
+interval=setInterval(()=>{
+time--; update();
+if(time<=0){
+clearInterval(interval); interval=null;
+if(isStudy){ time=5*60; isStudy=false; alert("Bravo! Koha për pushim 5 min! 🎉"); }
+else{ time=25*60; isStudy=true; alert("Pushimi mbaroi! Hajt studim! 💪"); }
+document.getElementById('status').innerText=isStudy?"Gati për studim?":"Koha për pushim!";
+update();
+}
+},1000);
+}
+function pause(){ clearInterval(interval); interval=null; document.getElementById('status').innerText="Në pauzë ⏸️"; }
+function reset(){ clearInterval(interval); interval=null; time=25*60; isStudy=true; document.getElementById('status').innerText="Gati për të studiuar?"; update(); }
+update();
+</script>
+</body>
+</html>
