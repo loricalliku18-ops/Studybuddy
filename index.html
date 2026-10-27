@@ -272,5 +272,42 @@ window.pyetIA = function(){
  box.innerHTML = `<b style="color:#9C27B0">👩‍🏫 ${currentLang==='sq'?'Mësuese Mira':'Teacher Mira'}</b><br><br><b>${t.questionLabel}</b> "${q}"<br><br>` + relevante.map((f,i)=>`<b>${t.answerNum(i+1)}</b> ${f}<br><br>`).join('');
 }
 </script>
-</body>
+<!-- POMODORO STUDYBUDDY -->
+<div class="card" style="margin-top:20px; text-align:center;">
+  <h2>🍅 Pomodoro - Mësuese Mira</h2>
+  <div id="timer" style="font-size:48px; font-weight:bold; margin:15px;">25:00</div>
+  <p id="status">Gati për të mësuar?</p>
+  <div style="display:flex; gap:10px; justify-content:center;">
+    <button onclick="startTimer()" style="background:#9C27B0;color:white;padding:10px 20px;border:none;border-radius:8px;">Start</button>
+    <button onclick="pauseTimer()" style="background:#666;color:white;padding:10px 20px;border:none;border-radius:8px;">Pause</button>
+    <button onclick="resetTimer()" style="background:#f5f5f5;padding:10px 20px;border:1px solid #ccc;border-radius:8px;">Reset</button>
+  </div>
+  <div style="margin-top:10px;">
+    <button onclick="setTime(25)" style="font-size:12px;">25 min Mësim</button>
+    <button onclick="setTime(5)" style="font-size:12px;">5 min Pushim</button>
+  </div>
+</div>
+
+<script>
+let time = 25*60, interval=null, isRunning=false;
+function updateDisplay(){
+  let m = Math.floor(time/60).toString().padStart(2,'0');
+  let s = (time%60).toString().padStart(2,'0');
+  document.getElementById('timer').innerText = m+":"+s;
+}
+function startTimer(){
+  if(isRunning) return;
+  isRunning=true;
+  document.getElementById('status').innerText="Duke mësuar... 📚";
+  interval=setInterval(()=>{
+    time--; updateDisplay();
+    if(time<=0){ clearInterval(interval); isRunning=false; alert("Bravo! Koha mbaroi - Merr pushim 5 min 🌸"); document.getElementById('status').innerText="Pushim!"; }
+  },1000);
+}
+function pauseTimer(){ clearInterval(interval); isRunning=false; document.getElementById('status').innerText="Pauzë ⏸️"; }
+function resetTimer(){ clearInterval(interval); isRunning=false; time=25*60; updateDisplay(); document.getElementById('status').innerText="Gati për të mësuar?"; }
+function setTime(min){ clearInterval(interval); isRunning=false; time=min*60; updateDisplay(); document.getElementById('status').innerText = min==5 ? "Koha për pushim ☕" : "Koha për mësim!"; }
+updateDisplay();
+</script>
+<!-- FUND POMODORO --></body>
 </html>
