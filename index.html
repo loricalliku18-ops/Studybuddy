@@ -215,7 +215,7 @@ function rregullojeShqip(teksti) {
     .replace(/\bDepresioni\s+Depresioni\b/gi, 'Depresioni')
     .replace(/pë\s+r/gi, 'për')
     .replace(/(\w+)\s*-\s*(\w+)/g, '$1-$2')
-    .replace(/\b(\w+)\s+\1\b/gi, '$1')
+   .replace(/\b([A-ZÇË][a-zëç]{2,})\s+([a-zëç]{2,4})\b/g, (m,a,b) => { if (b.length <= 3) return a + b; return m; })
     .replace(/\s+/g, ' ').trim();
 }
 let fjalite=[]; let tekstiPlote="";
