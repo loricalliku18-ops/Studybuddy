@@ -209,7 +209,14 @@ function tregoMesazhMira(tipi) {
 }
 function rregullojeShqip(teksti) {
   if(!teksti) return "";
-  return teksti.replace(/Ã«/g, 'ë').replace(/Ã§/g, 'ç').replace(/Ã‹/g, 'Ë').replace(/Ã‡/g, 'Ç').replace(/\uFFFD/g, 'ë');
+  return teksti
+    .replace(/Ã«/g, 'ë').replace(/Ã§/g, 'ç').replace(/Ã‡/g, 'Ç')
+    .replace(/Ã‰/g, 'Ë').replace(/Ã‹/g, 'Ë')
+    .replace(/\bDepresioni\s+Depresioni\b/gi, 'Depresioni')
+    .replace(/pë\s+r/gi, 'për')
+    .replace(/(\w+)\s*-\s*(\w+)/g, '$1-$2')
+    .replace(/\b(\w+)\s+\1\b/gi, '$1')
+    .replace(/\s+/g, ' ').trim();
 }
 let fjalite=[]; let tekstiPlote="";
 window.ngarko = async function(input){
