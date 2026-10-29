@@ -209,14 +209,15 @@ function tregoMesazhMira(tipi) {
 }
 function rregullojeShqip(teksti) {
   if(!teksti) return "";
-  return teksti
-    .replace(/Ã«/g, 'ë').replace(/Ã§/g, 'ç').replace(/Ã‡/g, 'Ç')
-    .replace(/Ã‰/g, 'Ë').replace(/Ã‹/g, 'Ë')
-    .replace(/\bDepresioni\s+Depresioni\b/gi, 'Depresioni')
-    .replace(/pë\s+r/gi, 'për')
-    .replace(/(\w+)\s*-\s*(\w+)/g, '$1-$2')
-   .replace(/soci alë/gi, 'sociale').replace(/\b([A-Za-zÇËçë]{3,})\s+([a-zëç]{2,3})\b/g, (m,a,b) => { if (b.length <= 3 && !['per','me','te','ne','qe','se','dhe','nje'].includes(b.toLowerCase())) return a + b; return m; })
-    .replace(/\s+/g, ' ').trim();
+  return teksti.normalize('NFC')
+    .replace(/Ã«/g,'ë').replace(/Ã§/g,'ç')
+    .replace(/Ã‹/g,'Ë').replace(/Ã‡/g,'Ç')
+    .replace(/ë/g,'ë').replace(/ç/g,'ç')
+    .replace(/\bDepresioni\s+Depresioni\b/gi,'Depresioni')
+    .replace(/prindinga/gi,'prindërit nga')
+    .replace(/pë\s+r/gi,'për')
+    .replace(/soci\s*alë/gi,'socialë')
+    .replace(/\s+/g,' ').trim();
 }
 let fjalite=[]; let tekstiPlote="";
 window.ngarko = async function(input){
