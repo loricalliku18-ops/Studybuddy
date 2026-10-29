@@ -211,22 +211,21 @@ function rregullojeShqip(teksti) {
   if(!teksti) return "";
   let t = teksti.normalize('NFC')
     .replace(/Ãë/g,'ë').replace(/Ãç/g,'ç').replace(/ÃË/g,'Ë').replace(/ÃÇ/g,'Ç')
-    .replace(/ë̈/g,'ë').replace(/ç̧/g,'ç');
-  t = t.replace(/([a-zëç]{2,})(një|për|në|nga|te|me|ose|dhe|që)\b/gi, "$1 $2")
-       .replace(/\b(një|për|në|nga|te|me|ose|dhe|që)([a-zëç]{2,})/gi, "$1 $2")
-       .replace(/ështënjë/gi,'është një')
-       .replace(/Depresionipërjetohet/gi,'Depresioni përjetohet')
-       .replace(/njësër/gi,'një sërë')
-       .replace(/ulëaftë/gi,'ulë aftësinë')
-       .replace(/personipër/gi,'personi për')
-       .replace(/pengesëpër/gi,'pengesë për')
-       .replace(/dukepërfshirë/gi,'duke përfshirë')
-       .replace(/abuzimitose/gi,'abuzimit ose')
-       .replace(/prindinga/gi,'prindërit nga')
-       .replace(/soci\s*alë/gi,'socialë')
-       .replace(/\bDepresioni\s+Depresioni\b/gi,'Depresioni')
-       .replace(/,\s*(?=[^\s])/g,', ')
-       .replace(/\s+/g,' ').trim();
+    .replace(/ë̈/g,'ë').replace(/ç̧/g,'ç')
+    .replace(/pë\s+r/gi,'për')
+    .replace(/ështënjë/gi,'është një')
+    .replace(/Depresionipërjetohet/gi,'Depresioni përjetohet')
+    .replace(/njësër/gi,'një sërë')
+    .replace(/ulëaftë/gi,'ulë aftësinë')
+    .replace(/personipër/gi,'personi për')
+    .replace(/pengesëpër/gi,'pengesë për')
+    .replace(/dukepërfshirë/gi,'duke përfshirë')
+    .replace(/abuzimitose/gi,'abuzimit ose')
+    .replace(/prindinga/gi,'prindërit nga')
+    .replace(/soci\s*alë/gi,'socialë')
+    .replace(/\bDepresioni\s+Depresioni\b/gi,'Depresioni')
+    .replace(/,\s*(?=[^\s])/g,', ')
+    .replace(/\s+/g,' ').trim();
   return t;
 }
 let fjalite=[]; let tekstiPlote="";
