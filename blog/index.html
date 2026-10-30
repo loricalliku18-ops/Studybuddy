@@ -1,27 +1,59 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog StudyBuddy - Këshilla për Studentët</title>
+<title>StudyBuddy Blog - Study Tips & Homework Help</title>
+<link rel="alternate" hreflang="en" href="https://loricalliku18-ops.github.io/Studybuddy/blog/" />
+<link rel="alternate" hreflang="sq" href="https://loricalliku18-ops.github.io/Studybuddy/blog/?lang=sq" />
+<link rel="alternate" hreflang="x-default" href="https://loricalliku18-ops.github.io/Studybuddy/blog/" />
 </head>
-<body style="font-family:Arial;max-width:800px;margin:auto;padding:20px;line-height:1.7">
-<h1>📚 Blog StudyBuddy</h1>
-<p>Këshilla për të bërë detyrat më shpejt dhe për të mësuar më zgjuar!</p>
+<body style="font-family:Arial;max-width:800px;margin:0 auto;padding:20px;">
 
-<div style="border:1px solid #ddd;padding:20px;border-radius:12px;margin:20px 0">
-<h2>🇦🇱 Si të Bëj Detyrat më Shpejt? 7 Këshilla</h2>
-<p>Mëso teknikat më të mira për studentët shqiptarë.</p>
-<a href="si-te-bej-detyrat-me-shpejt.html" style="background:#2563eb;color:white;padding:10px 20px;border-radius:8px;text-decoration:none">Lexo Artikullin →</a>
+<div style="display:flex;justify-content:flex-end;gap:8px;margin-bottom:20px;">
+<button onclick="setLang('sq')" id="btn-sq" style="padding:8px 20px;background:#f3f4f6;color:#6b7280;border:none;border-radius:9999px;font-weight:700;cursor:pointer;">AL</button>
+<button onclick="setLang('en')" id="btn-en" style="padding:8px 20px;background:#f3f4f6;color:#6b7280;border:none;border-radius:9999px;font-weight:700;cursor:pointer;">EN</button>
 </div>
 
-<div style="border:1px solid #ddd;padding:20px;border-radius:12px;margin:20px 0">
-<h2>🇬🇧 How to Do Homework Faster: 7 Tips</h2>
-<p>Proven tips to finish homework in half the time.</p>
-<a href="how-to-do-homework-faster.html" style="background:#10b981;color:white;padding:10px 20px;border-radius:8px;text-decoration:none">Read Article →</a>
+<h1>📚 StudyBuddy Blog</h1>
+
+<div id="en-post" style="border:1px solid #ddd;padding:20px;border-radius:10px;margin-bottom:20px;">
+<h2>🇬🇧 How to Do Homework Faster: 7 Proven Tips</h2>
+<p>Proven tips to finish homework in half the time and focus better with Pomodoro.</p>
+<a href="how-to-do-homework-faster.html" style="color:#2563eb;font-weight:bold;">Read more →</a>
+</div>
+
+<div id="sq-post" style="border:1px solid #ddd;padding:20px;border-radius:10px;margin-bottom:20px;">
+<h2>🇦🇱 Si Të Bëj Detyrat më Shpejt? 7 Këshilla</h2>
+<p>Mëso teknikat më të mira për studentët shqiptarë - teknika Pomodoro.</p>
+<a href="si-te-bej-detyrat-me-shpejt.html" style="color:#2563eb;font-weight:bold;">Lexo më shumë →</a>
 </div>
 
 <br><hr>
-<a href="../index.html" style="color:#2563eb">← Kthehu te StudyBuddy App</a>
+<a href="../index.html" style="color:#2563eb;"><- Back to StudyBuddy Timer</a>
+
+<script>
+function setLang(lang){
+  localStorage.setItem('studybuddy_lang', lang);
+  const enBtn = document.getElementById('btn-en');
+  const sqBtn = document.getElementById('btn-sq');
+  if(lang==='en'){
+    enBtn.style.background='#7c3aed'; enBtn.style.color='white';
+    sqBtn.style.background='#f3f4f6'; sqBtn.style.color='#6b7280';
+    document.getElementById('en-post').style.display='block';
+    document.getElementById('sq-post').style.display='none';
+    document.documentElement.lang='en';
+  } else {
+    sqBtn.style.background='#7c3aed'; sqBtn.style.color='white';
+    enBtn.style.background='#f3f4f6'; enBtn.style.color='#6b7280';
+    document.getElementById('en-post').style.display='none';
+    document.getElementById('sq-post').style.display='block';
+    document.documentElement.lang='sq';
+  }
+}
+const saved = localStorage.getItem('studybuddy_lang') || (new URLSearchParams(window.location.search).get('lang')==='sq' ? 'sq' : 'en');
+setLang(saved);
+</script>
+
 </body>
 </html>
