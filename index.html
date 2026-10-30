@@ -136,7 +136,14 @@ const i18n = {
     answerNum: i => `Përgjigja ${i}:`,
     noQuestion: "Ju lutem shkruani pyetjen!",
     noMaterial: "Ngarkoni materialin më parë!",
-    searching: "⏳ Mësuese Mira po kërkon..."
+        searching: "⏳ Mësuese Mira po kërkon...",
+    pomodoroTitle: "🍅 Pomodoro - Mësuese",
+    status: "Gati për të mësuar?",
+    btnPomodoroStart: "Fillo",
+    btnPomodoroPause: "Pauzë",
+    btnPomodoroReset: "Reseto",
+    btnPomodoro25: "25 min Mësim",
+    btnPomodoro5: "5 min Pushim"
   },
   en: {
     mainTitle: "📚 StudyBuddy",
@@ -161,7 +168,14 @@ const i18n = {
     answerNum: i => `Answer ${i}:`,
     noQuestion: "Please write your question!",
     noMaterial: "Please upload material first!",
-    searching: "⏳ Teacher Mira is searching..."
+        searching: "⏳ Teacher Mira is searching...",
+    pomodoroTitle: "🍅 Pomodoro - Study",
+    status: "Ready to learn?",
+    btnPomodoroStart: "Start",
+    btnPomodoroPause: "Pause",
+    btnPomodoroReset: "Reset",
+    btnPomodoro25: "25 min Study",
+    btnPomodoro5: "5 min Break"
   }
 };
 let currentLang = 'sq';
@@ -182,8 +196,16 @@ window.setLang = function(l){
   document.getElementById('btnAsk').innerText = t.btnAsk;
   document.getElementById('btnSearch').innerText = t.btnSearch;
   document.getElementById('btnPrint').innerText = t.btnPrint;
-  document.getElementById('privacyTitle').innerText = t.privacyTitle;
-  document.getElementById('privacy-sq').style.display = l==='sq' ? 'block' : 'none';
+      document.getElementById('privacyTitle').innerText = t.privacyTitle;
+    document.getElementById('pomodoroTitle').innerText = t.pomodoroTitle;
+    document.getElementById('status').innerText = t.status;
+    document.getElementById('btnPomodoroStart').innerText = t.btnPomodoroStart;
+    document.getElementById('btnPomodoroPause').innerText = t.btnPomodoroPause;
+    document.getElementById('btnPomodoroReset').innerText = t.btnPomodoroReset;
+    document.getElementById('btnPomodoro25').innerText = t.btnPomodoro25;
+    document.getElementById('btnPomodoro5').innerText = t.btnPomodoro5;
+    document.getElementById('privacy-sq').style.display = l==='sq' ? 'block' : 'none';
+  
   document.getElementById('privacy-en').style.display = l==='en' ? 'block' : 'none';
   if(fjalite.length>0) shfaq(fjalite);
   tregoMesazhMira('pyetje');
