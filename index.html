@@ -329,10 +329,10 @@ window.pyetIA = function(){
 
 <script>
 let time = 25*60, interval=null, isRunning=false;
-function updateDisplay(){let m=Math.floor(time/60).toString().padStart(2,'0');let s=(time%60).toString().padStart(2,'0');document.getElementById('timer').innerText=m+":"+s;}
-function startTimer(){if(isRunning) return;isRunning=true;document.getElementById('status').innerText="Duke mësuar... 📚";interval=setInterval(()=>{time--;updateDisplay();if(time<=0){clearInterval(interval);isRunning=false;document.getElementById('status').innerText="Pushim! 🎉";alert("Bravo! 25 min mbaruan!");}},1000);}
-function pauseTimer(){clearInterval(interval);isRunning=false;document.getElementById('status').innerText="Pauzë ⏸️";}
-function resetTimer(){clearInterval(interval);isRunning=false;time=25*60;updateDisplay();document.getElementById('status').innerText="Gati për të mësuar?";}
-function setTime(min){clearInterval(interval);isRunning=false;time=min*60;updateDisplay();document.getElementById('status').innerText="Gati: "+min+" min";}
+function updateDisplay(){let m=Math.floor(time/60), s=time%60; document.getElementById('timer').innerText = (m<10?'0'+m:m)+':'+(s<10?'0'+s:s);}
+function startTimer(){if(isRunning) return; isRunning=true; interval=setInterval(()=>{time--; updateDisplay(); if(time<=0){clearInterval(interval); isRunning=false; document.getElementById('status').innerText = currentLang==='en' ? 'Done! Take a break!' : 'Mbarove! Bëj një pushim!';}},1000); document.getElementById('status').innerText = currentLang==='en' ? 'Studying... Focus!' : 'Duke mësuar... Përqendrohu!';}
+function pauseTimer(){clearInterval(interval); isRunning=false; document.getElementById('status').innerText = currentLang==='en' ? 'Paused' : 'Pauzë';}
+function resetTimer(){clearInterval(interval); isRunning=false; time=25*60; updateDisplay(); document.getElementById('status').innerText = currentLang==='en' ? 'Ready to study?' : 'Gati për të mësuar?';}
+function setTime(min){clearInterval(interval); isRunning=false; time=min*60; updateDisplay(); document.getElementById('status').innerText = currentLang==='en' ? 'Ready to study?' : 'Gati për të mësuar?';}
 updateDisplay();
 </script>
