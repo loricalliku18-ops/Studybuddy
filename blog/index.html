@@ -3,38 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StudyBuddy Blog - Study Tips & Homework Help</title>
-<link rel="alternate" hreflang="en" href="https://loricalliku18-ops.github.io/Studybuddy/blog/" />
-<link rel="alternate" hreflang="sq" href="https://loricalliku18-ops.github.io/Studybuddy/blog/?lang=sq" />
-<link rel="alternate" hreflang="x-default" href="https://loricalliku18-ops.github.io/Studybuddy/blog/" />
+<title>StudyBuddy Blog</title>
 </head>
 <body style="font-family:Arial;max-width:800px;margin:0 auto;padding:20px;">
 
 <div style="display:flex;justify-content:flex-end;gap:8px;margin-bottom:20px;">
-<button onclick="setLang('sq')" id="btn-sq" style="padding:8px 20px;background:#f3f4f6;color:#6b7280;border:none;border-radius:9999px;font-weight:700;cursor:pointer;">AL</button>
-<button onclick="setLang('en')" id="btn-en" style="padding:8px 20px;background:#f3f4f6;color:#6b7280;border:none;border-radius:9999px;font-weight:700;cursor:pointer;">EN</button>
+<button onclick="setLang('sq')" id="btn-sq" style="padding:8px 20px;border:none;border-radius:9999px;font-weight:700;cursor:pointer;">AL</button>
+<button onclick="setLang('en')" id="btn-en" style="padding:8px 20px;border:none;border-radius:9999px;font-weight:700;cursor:pointer;">EN</button>
 </div>
 
 <h1>📚 StudyBuddy Blog</h1>
 
-<div id="en-post" style="border:1px solid #ddd;padding:20px;border-radius:10px;margin-bottom:20px;">
+<div class="en-post" style="border:1px solid #ddd;padding:20px;border-radius:10px;margin-bottom:20px;">
 <h2>🇬🇧 How to Do Homework Faster: 7 Proven Tips</h2>
 <p>Proven tips to finish homework in half the time and focus better with Pomodoro.</p>
 <a href="how-to-do-homework-faster.html" style="color:#2563eb;font-weight:bold;">Read more →</a>
 </div>
-<div id="en-post" style="border:1px solid #ddd;padding:15px;margin-bottom:15px;border-radius:8px;">
+
+<div class="en-post" style="border:1px solid #ddd;padding:15px;margin-bottom:15px;border-radius:8px;">
 <h2>🧠 Spaced Repetition: How to Remember Long Term</h2>
 <p>Learn how spaced repetition helps you remember information for weeks and months.</p>
 <a href="spaced-repetition-how-to-remember-long-term.html" style="color:#2563eb;">Read in English →</a>
 </div>
-<div id="sq-post" style="border:1px solid #ddd;padding:20px;border-radius:10px;margin-bottom:20px;">
+
+<div class="sq-post" style="border:1px solid #ddd;padding:20px;border-radius:10px;margin-bottom:20px;">
 <h2>🇦🇱 Si Të Bëj Detyrat më Shpejt? 7 Këshilla</h2>
 <p>Mëso teknikat më të mira për studentët shqiptarë - teknika Pomodoro.</p>
 <a href="si-te-bej-detyrat-me-shpejt.html" style="color:#2563eb;font-weight:bold;">Lexo më shumë →</a>
 </div>
 
 <div style="text-align:center; margin:50px 0 20px 0">
-<a href="https://loricalliku18-ops.github.io/Studybuddy/" style="background:#2563eb; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; display:inline-block;" data-sq="← Kthehu tek StudyBuddy App" data-en="← Back to StudyBuddy App">← Kthehu tek StudyBuddy App</a>
+<a id="back-btn" href="https://loricalliku18-ops.github.io/Studybuddy/" style="background:#2563eb; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; display:inline-block;">← Back to StudyBuddy App</a>
 </div>
 
 <script>
@@ -42,26 +41,26 @@ function setLang(lang){
   localStorage.setItem('studybuddy_lang', lang);
   const enBtn = document.getElementById('btn-en');
   const sqBtn = document.getElementById('btn-sq');
+  const backBtn = document.getElementById('back-btn');
+  
   if(lang==='en'){
     enBtn.style.background='#7c3aed'; enBtn.style.color='white';
     sqBtn.style.background='#f3f4f6'; sqBtn.style.color='black';
-    document.querySelectorAll('#en-post').forEach(el=>el.style.display='block');
-    document.querySelectorAll('#sq-post').forEach(el=>el.style.display='none');
+    document.querySelectorAll('.en-post').forEach(el=>el.style.display='block');
+    document.querySelectorAll('.sq-post').forEach(el=>el.style.display='none');
+    backBtn.textContent = '← Back to StudyBuddy App';
     document.documentElement.lang='en';
   } else {
     sqBtn.style.background='#7c3aed'; sqBtn.style.color='white';
     enBtn.style.background='#f3f4f6'; enBtn.style.color='black';
-    document.querySelectorAll('#sq-post').forEach(el=>el.style.display='block');
-    document.querySelectorAll('#en-post').forEach(el=>el.style.display='none');
+    document.querySelectorAll('.sq-post').forEach(el=>el.style.display='block');
+    document.querySelectorAll('.en-post').forEach(el=>el.style.display='none');
+    backBtn.textContent = '← Kthehu tek StudyBuddy App';
     document.documentElement.lang='sq';
   }
-  document.querySelectorAll('[data-sq]').forEach(el=>{
-    el.textContent = el.getAttribute('data-'+lang);
-  });
 }
 const saved = localStorage.getItem('studybuddy_lang') || (new URLSearchParams(window.location.search).get('lang')==='sq' ? 'sq' : 'en');
 setLang(saved);
 </script>
-
 </body>
 </html>
