@@ -33,8 +33,8 @@
 <a href="si-te-bej-detyrat-me-shpejt.html" style="color:#2563eb;font-weight:bold;">Lexo më shumë →</a>
 </div>
 
-<div style="text-align:center; margin:50px 0 20px 0; border-top:1px solid #eee; padding-top:30px;">
-<a href="https://loricalliku18-ops.github.io/Studybuddy/" style="display:inline-block;background:#2563eb;color:white;padding:16px 30px;border-radius:12px;text-decoration:none;font-weight:bold;font-size:19px;">← Kthehu tek StudyBuddy App</a>
+<div style="text-align:center; margin:50px 0 20px 0">
+<a href="https://loricalliku18-ops.github.io/Studybuddy/" style="background:#2563eb; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; display:inline-block;" data-sq="← Kthehu tek StudyBuddy App" data-en="← Back to StudyBuddy App">← Kthehu tek StudyBuddy App</a>
 </div>
 
 
@@ -45,18 +45,23 @@ function setLang(lang){
   const sqBtn = document.getElementById('btn-sq');
   if(lang==='en'){
     enBtn.style.background='#7c3aed'; enBtn.style.color='white';
-    sqBtn.style.background='#f3f4f6'; sqBtn.style.color='#6b7280';
-    document.getElementById('en-post').style.display='block';
-    document.getElementById('sq-post').style.display='none';
+    sqBtn.style.background='#f3f4f6'; sqBtn.style.color='black';
+    document.querySelectorAll('#en-post').forEach(el=>el.style.display='block');
+    document.querySelectorAll('#sq-post').forEach(el=>el.style.display='none');
     document.documentElement.lang='en';
   } else {
     sqBtn.style.background='#7c3aed'; sqBtn.style.color='white';
-    enBtn.style.background='#f3f4f6'; enBtn.style.color='#6b7280';
-    document.getElementById('en-post').style.display='none';
-    document.getElementById('sq-post').style.display='block';
+    enBtn.style.background='#f3f4f6'; enBtn.style.color='black';
+    document.querySelectorAll('#sq-post').forEach(el=>el.style.display='block');
+    document.querySelectorAll('#en-post').forEach(el=>el.style.display='none');
     document.documentElement.lang='sq';
   }
+  document.querySelectorAll('[data-sq]').forEach(el=>{
+    el.textContent = el.getAttribute('data-'+lang);
+  });
 }
+const saved = localStorage.getItem('studybuddy_lang') || 'sq';
+setLang(saved);
 const saved = localStorage.getItem('studybuddy_lang') || (new URLSearchParams(window.location.search).get('lang')==='sq' ? 'sq' : 'en');
 setLang(saved);
 </script>
