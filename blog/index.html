@@ -37,7 +37,6 @@
 <a href="https://loricalliku18-ops.github.io/Studybuddy/" style="background:#2563eb; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; display:inline-block;" data-sq="← Kthehu tek StudyBuddy App" data-en="← Back to StudyBuddy App">← Kthehu tek StudyBuddy App</a>
 </div>
 
-
 <script>
 function setLang(lang){
   localStorage.setItem('studybuddy_lang', lang);
@@ -60,8 +59,6 @@ function setLang(lang){
     el.textContent = el.getAttribute('data-'+lang);
   });
 }
-const saved = localStorage.getItem('studybuddy_lang') || 'sq';
-setLang(saved);
 const saved = localStorage.getItem('studybuddy_lang') || (new URLSearchParams(window.location.search).get('lang')==='sq' ? 'sq' : 'en');
 setLang(saved);
 </script>
