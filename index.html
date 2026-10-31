@@ -318,7 +318,7 @@ window.pyetIA = function(){
 <div class="card" style="margin-top:20px; text-align:center;">
   <h2 id="pomodoroTitle" data-sq="🍅 Pomodoro - Mësuese Mira" data-en="🍅 Pomodoro - Study with Mira">🍅 Pomodoro - Mësuese Mira</h2>
   <div id="timer" style="font-size:48px; font-weight:bold; margin:15px;">25:00</div>
-  <p id="status" data-sq="Gati për të mësuar?" data-en="Ready to study?">Gati për të mësuar?</p>
+  <p id="status" data-sq="Gati për të mësuar?" data-en="Ready to learn?">
   <div style="display:flex; gap:10px; justify-content:center;">
  <button onclick="startTimer()" id="btnPomodoroStart" style="background:green;color:white;padding:8px;border-radius:8px;">Fillo</button>
 <button onclick="pauseTimer()" id="btnPomodoroPause" style="background:orange;color:white;padding:8px;border-radius:8px;">Pauzë</button>
@@ -332,10 +332,11 @@ window.pyetIA = function(){
 
 <script>
 let time = 25*60, interval=null, isRunning=false;
+function getLang(){ return (typeof currentLang !== 'undefined' ? currentLang : localStorage.getItem('lang') || 'sq'); }
 function updateDisplay(){let m=Math.floor(time/60), s=time%60; document.getElementById('timer').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);}
-function startTimer(){if(isRunning) return; isRunning=true; document.getElementById('status').innerText=i18n[currentLang].statusReading; interval=setInterval(()=>{time--; updateDisplay(); if(time<=0){clearInterval(interval); isRunning=false; let t=i18n[currentLang]; document.getElementById('status').innerText=typeof t.statusDone==='function'?t.statusDone(5):t.statusDone;}},1000);}
-function pauseTimer(){clearInterval(interval); isRunning=false; document.getElementById('status').innerText=i18n[currentLang].status;}
-function resetTimer(){clearInterval(interval); isRunning=false; time=25*60; updateDisplay(); document.getElementById('status').innerText=i18n[currentLang].status;}
-function setTime(min){clearInterval(interval); isRunning=false; time=min*60; updateDisplay(); document.getElementById('status').innerText=i18n[currentLang].status;}
+function startTimer(){if(isRunning) return; isRunning=true; let L=getLang(); document.getElementById('status').innerText=L==='en'?'Studying...':'Duke mësuar...'; interval=setInterval(()=>{time--; updateDisplay(); if(time<=0){clearInterval(interval); isRunning=false; let L2=getLang(); document.getElementById('status').innerText=L2==='en'?'Break! 5 min':'Pushim! 5 min';}},1000);}
+function pauseTimer(){clearInterval(interval); isRunning=false; let L=getLang(); document.getElementById('status').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
+function resetTimer(){clearInterval(interval); isRunning=false; time=25*60; updateDisplay(); let L=getLang(); document.getElementById('status').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
+function setTime(min){clearInterval(interval); isRunning=false; time=min*60; updateDisplay(); let L=getLang(); document.getElementById('status').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
 updateDisplay();
 </script>
