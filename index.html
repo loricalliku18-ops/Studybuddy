@@ -55,7 +55,7 @@ details{margin-top:15px;background:#fff;padding:10px;border-radius:8px}
 <div class="card" style="text-align:center">
 <button onclick="document.getElementById('file').click()" style="background:#2196F3;color:#fff" id="uploadBtn">📄 PREK KËTU - Ngarko PDF ose PowerPoint</button>
 <input type="file" id="file" hidden accept=".pdf,.pptx" onchange="window.ngarko(this)">
-<div id="status" style="margin-top:10px;color:green;font-weight:bold"></div>
+<div id="uploadStatus" style="margin-top:10px;color:green;font-weight:bold"></div>
 </div>
 
 <div id="pdfFull"></div>
@@ -111,11 +111,11 @@ You can disable cookies in browser settings. Opt out of personalized ads: <a hre
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-// VETEM KETU U RREGULLUA - ASGJE TJETER NUK U HOQ
+// RREGULLIMET E VETME: emer funksioni + id status
 const i18n = {
   sq: {
     mainTitle: "📚 StudyBuddy",
-    miraTitle: "Mësuese Mira 🤖 - Asistentja jote me IA",
+    miraTitle: "Mësuesja Mira 🤖 - Asistentja jote me IA",
     miraSub: "*Personazh virtual i inspiruar dhe krijuar për nder të Mira Muratit - ish-CTO e OpenAI, krenaria shqiptare",
     uploadBtn: "📄 PREK KËTU - Ngarko PDF ose PowerPoint",
     askTitle: "👩‍🏫 Pyet Mësuese Mira",
@@ -126,8 +126,8 @@ const i18n = {
     btnSearch: "🔍 Vetëm Kërko në karta",
     btnPrint: "🖨️ Printo / Ruaj si PDF",
     privacyTitle: "📜 Politika e Privatësisë / Privacy Policy",
-blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →",
-    
+    blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →",
+    statusReading: "⏳ Duke lexuar...",
     statusDone: n => `✅ ${n} pika mësimore u gjetën!`,
     badgeQ: "PYETJE",
     answer: "Përgjigja:",
@@ -137,9 +137,9 @@ blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →",
     answerNum: i => `Përgjigja ${i}:`,
     noQuestion: "Ju lutem shkruani pyetjen!",
     noMaterial: "Ngarkoni materialin më parë!",
-        searching: "⏳ Mësuese Mira po kërkon...",
+    searching: "⏳ Mësuese Mira po kërkon...",
     pomodoroTitle: "🍅 Pomodoro - Mësuese",
-    status: "Gati për të mësuar?",
+    pomodoroStatus: "Gati për të mësuar?",
     btnPomodoroStart: "Fillo",
     btnPomodoroPause: "Pauzë",
     btnPomodoroReset: "Reseto",
@@ -158,8 +158,8 @@ blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →",
     btnAsk: "Ask Teacher Mira",
     btnSearch: "🔍 Search in cards only",
     btnPrint: "🖨️ Print / Save as PDF",
-     privacyTitle: "🔒 Privacy Policy",
-blogTitle: "📚 BLOG - Tips for homework",
+    privacyTitle: "🔒 Privacy Policy",
+    blogTitle: "📚 BLOG - Tips for homework",
     statusReading: "⏳ Reading...",
     statusDone: n => `✅ ${n} learning points found!`,
     badgeQ: "QUESTION",
@@ -170,9 +170,9 @@ blogTitle: "📚 BLOG - Tips for homework",
     answerNum: i => `Answer ${i}:`,
     noQuestion: "Please write your question!",
     noMaterial: "Please upload material first!",
-        searching: "⏳ Teacher Mira is searching...",
+    searching: "⏳ Teacher Mira is searching...",
     pomodoroTitle: "🍅 Pomodoro - Study",
-    status: "Ready to learn?",
+    pomodoroStatus: "Ready to learn?",
     btnPomodoroStart: "Start",
     btnPomodoroPause: "Pause",
     btnPomodoroReset: "Reset",
@@ -198,17 +198,16 @@ window.setLang = function(l){
   document.getElementById('btnAsk').innerText = t.btnAsk;
   document.getElementById('btnSearch').innerText = t.btnSearch;
   document.getElementById('btnPrint').innerText = t.btnPrint;
-    document.getElementById('blogTitle').innerText = t.blogTitle;
-document.getElementById('privacyTitle').innerText = t.privacyTitle;
-    document.getElementById('pomodoroTitle').innerText = t.pomodoroTitle;
-    document.getElementById('status').innerText = t.status;
-    document.getElementById('btnPomodoroStart').innerText = t.btnPomodoroStart;
-    document.getElementById('btnPomodoroPause').innerText = t.btnPomodoroPause;
-    document.getElementById('btnPomodoroReset').innerText = t.btnPomodoroReset;
-    document.getElementById('btnPomodoro25').innerText = t.btnPomodoro25;
-    document.getElementById('btnPomodoro5').innerText = t.btnPomodoro5;
-    document.getElementById('privacy-sq').style.display = l==='sq' ? 'block' : 'none';
-  
+  document.getElementById('blogTitle').innerText = t.blogTitle;
+  document.getElementById('privacyTitle').innerText = t.privacyTitle;
+  document.getElementById('pomodoroTitle').innerText = t.pomodoroTitle;
+  document.getElementById('pomodoroStatus').innerText = t.pomodoroStatus;
+  document.getElementById('btnPomodoroStart').innerText = t.btnPomodoroStart;
+  document.getElementById('btnPomodoroPause').innerText = t.btnPomodoroPause;
+  document.getElementById('btnPomodoroReset').innerText = t.btnPomodoroReset;
+  document.getElementById('btnPomodoro25').innerText = t.btnPomodoro25;
+  document.getElementById('btnPomodoro5').innerText = t.btnPomodoro5;
+  document.getElementById('privacy-sq').style.display = l==='sq' ? 'block' : 'none';
   document.getElementById('privacy-en').style.display = l==='en' ? 'block' : 'none';
   if(fjalite.length>0) shfaq(fjalite);
   tregoMesazhMira('pyetje');
@@ -257,21 +256,18 @@ let fjalite=[]; let tekstiPlote="";
 window.ngarko = async function(input){
  let f=input.files[0]; if(!f) return;
  tregoMesazhMira('hapPDF');
- document.getElementById('status').innerText = i18n[currentLang].statusReading;
+ document.getElementById('uploadStatus').innerText = i18n[currentLang].statusReading;
  tregoMesazhMira('vonese');
  let t="";
  if(f.name.toLowerCase().endsWith(".pdf")){
    let buf=await f.arrayBuffer();
    let pdf=await pdfjsLib.getDocument({data: buf}).promise;
-   
-  for(let i=1;i<=pdf.numPages;i++){
-let p=await pdf.getPage(i);
-let c=await p.getTextContent();
-let pageText = c.items.map(o=>o.str).join(" ");
-t+= rregulloJeShqip(pageText) + "\n\n";
-}
-
-        }
+   for(let i=1;i<=pdf.numPages;i++){
+     let p=await pdf.getPage(i);
+     let c=await p.getTextContent();
+     let pageText = c.items.map(o=>o.str).join(" ");
+     t+= rregullojeShqip(pageText) + "\n\n";
+   }
  } else if(f.name.toLowerCase().endsWith(".pptx")){
    const zip = await JSZip.loadAsync(f);
    const slideFiles = Object.keys(zip.files).filter(n=>n.startsWith("ppt/slides/slide")).sort();
@@ -288,7 +284,7 @@ t+= rregulloJeShqip(pageText) + "\n\n";
  fjalite=t.split(/[.!?]+/).map(s=>s.trim()).filter(s=>s.length>30);
  shfaq(fjalite);
  document.getElementById('pdfFull').innerHTML="<div class='card pdf-full'><b style='color:#FF9800'>"+i18n[currentLang].fullMaterial+"</b><hr>"+tekstiPlote.substring(0,10000)+"</div>";
- document.getElementById('status').innerText = i18n[currentLang].statusDone(fjalite.length);
+ document.getElementById('uploadStatus').innerText = i18n[currentLang].statusDone(fjalite.length);
  tregoMesazhMira('pyetje');
 }
 function shfaq(lista){
@@ -319,17 +315,17 @@ window.pyetIA = function(){
 </script>
 <!-- POMODORO STUDYBUDDY -->
 <div class="card" style="margin-top:20px; text-align:center;">
-  <h2 id="pomodoroTitle" data-sq="🍅 Pomodoro - Mësuese Mira" data-en="🍅 Pomodoro - Study with Mira">🍅 Pomodoro - Mësuese Mira</h2>
+  <h2 id="pomodoroTitle">🍅 Pomodoro - Mësuese Mira</h2>
   <div id="timer" style="font-size:48px; font-weight:bold; margin:15px;">25:00</div>
-  <p id="status" data-sq="Gati për të mësuar?" data-en="Ready to learn?">
+  <p id="pomodoroStatus">Gati për të mësuar?</p>
   <div style="display:flex; gap:10px; justify-content:center;">
  <button onclick="startTimer()" id="btnPomodoroStart" style="background:green;color:white;padding:8px;border-radius:8px;">Fillo</button>
 <button onclick="pauseTimer()" id="btnPomodoroPause" style="background:orange;color:white;padding:8px;border-radius:8px;">Pauzë</button>
 <button onclick="resetTimer()" id="btnPomodoroReset" style="background:red;color:white;padding:8px;border-radius:8px;">Reseto</button> 
   </div>
   <div style="margin-top:10px;">
-    <button onclick="setTime(25)"id="btnPomodoro25" style="font-size:12px;">25 min Mësim</button>
-    <button onclick="setTime(5)"id="btnPomodoro5" style="font-size:12px;">5 min Pushim</button>
+    <button onclick="setTime(25)" id="btnPomodoro25" style="font-size:12px;">25 min Mësim</button>
+    <button onclick="setTime(5)" id="btnPomodoro5" style="font-size:12px;">5 min Pushim</button>
   </div>
 </div>
 
@@ -337,9 +333,11 @@ window.pyetIA = function(){
 let time = 25*60, interval=null, isRunning=false;
 function getLang(){ return (typeof currentLang !== 'undefined' ? currentLang : localStorage.getItem('lang') || 'sq'); }
 function updateDisplay(){let m=Math.floor(time/60), s=time%60; document.getElementById('timer').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);}
-function startTimer(){if(isRunning) return; isRunning=true; let L=getLang(); document.getElementById('status').innerText=L==='en'?'Studying...':'Duke mësuar...'; interval=setInterval(()=>{time--; updateDisplay(); if(time<=0){clearInterval(interval); isRunning=false; let L2=getLang(); document.getElementById('status').innerText=L2==='en'?'Break! 5 min':'Pushim! 5 min';}},1000);}
-function pauseTimer(){clearInterval(interval); isRunning=false; let L=getLang(); document.getElementById('status').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
-function resetTimer(){clearInterval(interval); isRunning=false; time=25*60; updateDisplay(); let L=getLang(); document.getElementById('status').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
-function setTime(min){clearInterval(interval); isRunning=false; time=min*60; updateDisplay(); let L=getLang(); document.getElementById('status').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
+function startTimer(){if(isRunning) return; isRunning=true; let L=getLang(); document.getElementById('pomodoroStatus').innerText=L==='en'?'Studying...':'Duke mësuar...'; interval=setInterval(()=>{time--; updateDisplay(); if(time<=0){clearInterval(interval); isRunning=false; let L2=getLang(); document.getElementById('pomodoroStatus').innerText=L2==='en'?'Break! 5 min':'Pushim! 5 min';}},1000);}
+function pauseTimer(){clearInterval(interval); isRunning=false; let L=getLang(); document.getElementById('pomodoroStatus').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
+function resetTimer(){clearInterval(interval); isRunning=false; time=25*60; updateDisplay(); let L=getLang(); document.getElementById('pomodoroStatus').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
+function setTime(min){clearInterval(interval); isRunning=false; time=min*60; updateDisplay(); let L=getLang(); document.getElementById('pomodoroStatus').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
 updateDisplay();
 </script>
+</body>
+</html>
