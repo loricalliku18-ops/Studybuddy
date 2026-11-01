@@ -264,21 +264,12 @@ window.ngarko = async function(input){
    let buf=await f.arrayBuffer();
    let pdf=await pdfjsLib.getDocument({data: buf}).promise;
    
-    for(let i=1;i<=pdf.numPages;i++){
-  let p=await pdf.getPage(i);
-  let c=await p.getTextContent();
-  let lastY = null;
-  let pageText = "";
-  for(let item of c.items){
-    if(lastY !== null && Math.abs(lastY - item.transform[5]) > 2){
-      pageText += "\n";
-    }
-    lastY = item.transform[5];
-    pageText += item.str + " ";
-  }
-  let raw = pageText;
-  t+= rregulloJeShqip(raw) + "\n\n";
-}
+          for(let i=1;i<=pdf.numPages;i++){
+            let p=await pdf.getPage(i);
+            let c=await p.getTextContent();
+            let pageText = c.items.map(o=>o.str).join(" ") + "\n\n";
+            t+= rregulloJeShqip(pageText) + "\n\n";
+        }
  } else if(f.name.toLowerCase().endsWith(".pptx")){
    const zip = await JSZip.loadAsync(f);
    const slideFiles = Object.keys(zip.files).filter(n=>n.startsWith("ppt/slides/slide")).sort();
