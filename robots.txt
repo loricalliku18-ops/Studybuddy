@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loricalliku18-ops.github.io/Studybuddy/sitemap.xml
