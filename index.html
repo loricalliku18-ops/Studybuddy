@@ -264,11 +264,13 @@ window.ngarko = async function(input){
    let buf=await f.arrayBuffer();
    let pdf=await pdfjsLib.getDocument({data: buf}).promise;
    
-          for(let i=1;i<=pdf.numPages;i++){
-            let p=await pdf.getPage(i);
-            let c=await p.getTextContent();
-            let pageText = c.items.map(o=>o.str).join(" ") + "\n\n";
-            t+= rregulloJeShqip(pageText) + "\n\n";
+  for(let i=1;i<=pdf.numPages;i++){
+let p=await pdf.getPage(i);
+let c=await p.getTextContent();
+let pageText = c.items.map(o=>o.str).join(" ");
+t+= rregulloJeShqip(pageText) + "\n\n";
+}
+
         }
  } else if(f.name.toLowerCase().endsWith(".pptx")){
    const zip = await JSZip.loadAsync(f);
