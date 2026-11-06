@@ -290,7 +290,16 @@ window.ngarko = async function(input){
  tekstiPlote=t;
  fjalite=t.split(/[.!?]+/).map(s=>s.trim()).filter(s=>s.length>30);
  shfaq(fjalite);
- document.getElementById('pdfFull').innerHTML="<div class='card pdf-full'><b style='color:#FF9800'>"+i18n[currentLang].fullMaterial+"</b><hr>"+tekstiPlote.substring(0,10000)+"</div>";
+ const pdfBox = document.createElement('div');
+pdfBox.className = 'card pdf-full';
+const title = document.createElement('b');
+title.style.color = '#FF9800';
+title.textContent = i18n[currentLang].fullMaterial;
+const hr = document.createElement('hr');
+const content = document.createElement('div');
+content.textContent = tekstiPlote.substring(0, 10000);
+pdfBox.append(title, hr, content);
+document.getElementById('pdfFull').replaceChildren(pdfBox);
  document.getElementById('uploadStatus').innerText = i18n[currentLang].statusDone(fjalite.length);
  tregoMesazhMira('pyetje');
 }
