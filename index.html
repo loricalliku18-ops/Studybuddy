@@ -104,7 +104,7 @@ Free educational app that helps students learn from PDF and PowerPoint. Created 
 <b>2. Your Documents - 100% Private:</b><br>
 All PDFs and PPTX are processed 100% locally in your browser. We do NOT upload to any server, we do NOT store, sell, or share them. When you close the page, they are deleted.<br><br>
 <b>3. Google AdSense, Cookies and DART Cookie:</b><br>
-We use Google AdSense to keep the app free. Google, as a third-party vendor, uses cookies to serve ads. Google's use of the DART cookie enables it to serve ads based on your visits. You may opt out at <a href="https://policies.google.com/technologies/ads" target="_blank">policies.google.com/technologies/ads</a>. Third-party vendors, including Google, use cookies to serve ads based on prior visits.<br><br>
+We use Google AdSense to keep the app free. Google, as a third-party vendor, uses cookies to serve ads. Google's use of the DART cookie enables it to to serve ads based on your visits. You may opt out at <a href="https://policies.google.com/technologies/ads" target="_blank">policies.google.com/technologies/ads</a>. Third-party vendors, including Google, use cookies to serve ads based on prior visits.<br><br>
 <b>4. How to manage Cookies:</b><br>
 You can disable cookies in browser settings. Opt out of personalized ads: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a> and <a href="https://www.aboutads.info/choices/" target="_blank">aboutads.info/choices</a>.<br><br>
 <b>5. GDPR:</b> We do not collect names, emails. Data is anonymous. Contact: studbuddy.al@gmail.com<br><br>
@@ -259,9 +259,13 @@ function rregullojeShqip(teksti) {
     .replace(/\s+/g,' ').trim();
   return t;
 }
+function escapeHTML(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+// FIX PDF: pdf.js ka nevoje per worker, ndryshe nuk ngarkon fare
+if(window.pdfjsLib){ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; }
 let fjalite=[]; let tekstiPlote="";
 window.ngarko = async function(input){
  let f=input.files[0]; if(!f) return;
+ try{
  tregoMesazhMira('hapPDF');
  document.getElementById('uploadStatus').innerText = i18n[currentLang].statusReading;
  tregoMesazhMira('vonese');
@@ -302,16 +306,22 @@ pdfBox.append(title, hr, content);
 document.getElementById('pdfFull').replaceChildren(pdfBox);
  document.getElementById('uploadStatus').innerText = i18n[currentLang].statusDone(fjalite.length);
  tregoMesazhMira('pyetje');
-}function escapeHTML(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+ }catch(err){
+   console.error(err);
+   document.getElementById('uploadStatus').innerText = '❌ Gabim: ' + (err && err.message ? err.message : err);
+   document.getElementById('uploadStatus').style.color = 'red';
+ }
+ input.value = '';
+}
 function shfaq(lista){
  let r=document.getElementById('r');
  let t = i18n[currentLang];
- let permbledhja=lista.length? "• "+[...lista].sort((a,b)=>b.length-a.length).slice(0,7).join("<br><br>• ") : "";
+ let permbledhja=lista.length? "• "+[...lista].sort((a,b)=>b.length-a.length).slice(0,7).map(x=>escapeHTML(x)).join("<br><br>• ") : "";
  let kartatHTML = lista.slice(0,25).map((f,i)=>{
    let pyetjeShkurt = escapeHTML(f).split(' ').slice(0,6).join(' ');
    return `<div class="karta-studimi" onclick="this.classList.toggle('hapur')">
      <div class="pyetja"><div><span class="badge-pyetje">${t.badgeQ}</span> ${pyetjeShkurt}</div><span class="ikona">▼</span></div>
-     <div class="pergjigja"><b style="color:#0f2d52">${t.answer}</b><br>${f}</div>
+     <div class="pergjigja"><b style="color:#0f2d52">${t.answer}</b><br>${escapeHTML(f)}</div>
    </div>`;
  }).join("");
  r.innerHTML="<div class='card' style='border-left:5px solid #2196F3;background:#E3F2FD;padding:15px'><b>"+t.summary+"</b><div style='margin-top:12px;line-height:1.7'>"+permbledhja+"</div></div>"+kartatHTML;
@@ -326,7 +336,7 @@ window.pyetIA = function(){
  box.style.display='block'; box.innerHTML=t.searching;
  let relevante = fjalite.filter(f=> q.toLowerCase().split(' ').some(w=> w.length>3 && f.toLowerCase().includes(w))).slice(0,3);
  if(relevante.length==0) relevante = fjalite.slice(0,3);
- box.innerHTML = `<b style="color:#9C27B0">👩‍🏫 ${currentLang==='sq'?'Mësuese Mira':'Teacher Mira'}</b><br><br><b>${t.questionLabel}</b> "${q}"<br><br>` + relevante.map((f,i)=>`<b>${t.answerNum(i+1)}</b> ${f}<br><br>`).join('');
+ box.innerHTML = `<b style="color:#9C27B0">👩‍🏫 ${currentLang==='sq'?'Mësuese Mira':'Teacher Mira'}</b><br><br><b>${t.questionLabel}</b> "${escapeHTML(q)}"<br><br>` + relevante.map((f,i)=>`<b>${t.answerNum(i+1)}</b> ${escapeHTML(f)}<br><br>`).join('');
 }
 </script>
 <!-- POMODORO STUDYBUDDY -->
