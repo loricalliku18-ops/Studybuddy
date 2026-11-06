@@ -302,13 +302,13 @@ pdfBox.append(title, hr, content);
 document.getElementById('pdfFull').replaceChildren(pdfBox);
  document.getElementById('uploadStatus').innerText = i18n[currentLang].statusDone(fjalite.length);
  tregoMesazhMira('pyetje');
-}
+}function escapeHTML(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function shfaq(lista){
  let r=document.getElementById('r');
  let t = i18n[currentLang];
  let permbledhja=lista.length? "• "+[...lista].sort((a,b)=>b.length-a.length).slice(0,7).join("<br><br>• ") : "";
  let kartatHTML = lista.slice(0,25).map((f,i)=>{
-   let pyetjeShkurt = f.split(' ').slice(0,6).join(' ') + "...?";
+   let pyetjeShkurt = escapeHTML(f).split(' ').slice(0,6).join(' ');
    return `<div class="karta-studimi" onclick="this.classList.toggle('hapur')">
      <div class="pyetja"><div><span class="badge-pyetje">${t.badgeQ}</span> ${pyetjeShkurt}</div><span class="ikona">▼</span></div>
      <div class="pergjigja"><b style="color:#0f2d52">${t.answer}</b><br>${f}</div>
