@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="sq">
-<head><!-- Google tag (gtag.js) -->
+<head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJGX69JD3Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -8,17 +8,12 @@
   gtag('js', new Date());
   gtag('config', 'G-YJGX69JD3Z');
 </script>
-<!-- CANONICAL - Faqja Kryesore -->
 <link rel="canonical" href="https://loricalliku18-ops.github.io/Studybuddy/" />
-
-<!-- Per Google Europe - AL / EN -->
 <link rel="alternate" hreflang="sq" href="https://loricalliku18-ops.github.io/Studybuddy/" />
 <link rel="alternate" hreflang="en" href="https://loricalliku18-ops.github.io/Studybuddy/?lang=en" />
 <link rel="alternate" hreflang="x-default" href="https://loricalliku18-ops.github.io/Studybuddy/?lang=en" />
-
 <title>StudyBuddy - Teacher Mira | AI Tutor for European Students</title>
 <meta name="description" content="StudyBuddy - Teacher Mira AI Tutor for European students. Upload PDF or PowerPoint, learn faster, ask questions, study with Pomodoro. Free bilingual Albanian-English AI tutor for students in Europe." />
-
 <meta name="theme-color" content="#9C27B0">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -51,34 +46,31 @@ details{margin-top:15px;background:#fff;padding:10px;border-radius:8px}
   <button id="btn-sq" class="active" onclick="window.setLang('sq')">AL</button>
   <button id="btn-en" onclick="window.setLang('en')">EN</button>
 </div>
-
 <h1 style="text-align:center" id="mainTitle">📚 StudyBuddy</h1>
-
 <div style="text-align:center; padding:15px; background:#f8f9ff; border-radius:12px; margin-bottom:15px; border:1px solid #E1BEE7;">
   <div style="font-size:20px; font-weight:bold; color:#4A148C;" id="miraTitle">Mësuesja Mira 🤖 - Asistentja jote me IA</div>
   <div style="font-size:13px; color:#444; margin-top:6px; font-style:italic;" id="miraSub">*Personazh virtual i inspiruar dhe krijuar për nder të Mira Muratit - ish-CTO e OpenAI, krenaria shqiptare</div>
 </div>
-
 <div class="card" style="text-align:center">
 <button onclick="document.getElementById('file').click()" style="background:#2196F3;color:#fff" id="uploadBtn">📄 PREK KËTU - Ngarko PDF ose PowerPoint</button>
 <input type="file" id="file" hidden accept=".pdf,.pptx" onchange="window.ngarko(this)">
-<div id="uploadStatus" style="margin-top:10px;color:green;font-weight:bold"></div>
+<!-- FIX: aria-live + role status -->
+<div id="uploadStatus" aria-live="polite" role="status" style="margin-top:10px;color:green;font-weight:bold"></div>
+<!-- FIX: butoni Pastro që mungonte -->
+<button onclick="window.pastroMaterialin()" style="background:#fff;color:#666;border:1px solid #ccc;font-size:13px" id="btnClear">🧹 Pastro materialin e ngarkuar</button>
 </div>
-
 <div id="pdfFull"></div>
 <div id="r"></div>
-
 <div class="card" style="border:2px solid #9C27B0;">
 <b id="askTitle">👩‍🏫 Pyet Mësuese Mira</b><br>
 <span style="font-size:12px;color:#444" id="askSub">Për nder të Mira Muratit</span><br><br>
-<div id="mira-bubble">Pyetmë Çfarë të duash, jam këtu! </div>
+<div id="mira-bubble" aria-live="polite">Pyetmë Çfarë të duash, jam këtu! </div>
 <input id="pyetja" placeholder="Mësuese Mira, çfarë janë antihistaminikët?" style="width:100%;padding:12px;border-radius:8px;border:1px solid #9C27B0;margin-bottom:8px">
 <button onclick="window.pyetIA()" style="background:#9C27B0;color:#fff" id="btnAsk">Pyet Mësuese Mirën</button>
 <button onclick="window.kerko(document.getElementById('pyetja').value)" style="background:#fff;color:#9C27B0;border:1px solid #9C27B0" id="btnSearch">🔍 Vetëm Kërko në karta</button>
 <button onclick="window.print()" style="background:#4CAF50;color:#fff" id="btnPrint">🖨️ Printo / Ruaj si PDF</button>
-<div id="pergjigjaIA" style="margin-top:12px;background:#F3E5F5;padding:12px;border-radius:8px;display:none"></div>
+<div id="pergjigjaIA" aria-live="polite" role="status" style="margin-top:12px;background:#F3E5F5;padding:12px;border-radius:8px;display:none"></div>
 </div>
-
 <details>
 <summary style="font-weight:bold;cursor:pointer" id="privacyTitle">⚖️ Politika e Privatësisë / Privacy Policy</summary>
 <div style="font-size:13px;line-height:1.8;margin-top:10px;color:#334155">
@@ -114,123 +106,44 @@ You can disable cookies in browser settings. Opt out of personalized ads: <a hre
 </div>
 </div>
 </details>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-// RREGULLIMET E VETME: emer funksioni + id status
 const i18n = {
-  sq: {
-    mainTitle: "📚 StudyBuddy",
-    miraTitle: "Mësuesja Mira 🤖 - Asistentja jote me IA",
-    miraSub: "*Personazh virtual i inspiruar dhe krijuar për nder të Mira Muratit - ish-CTO e OpenAI, krenaria shqiptare",
-    uploadBtn: "📄 PREK KËTU - Ngarko PDF ose PowerPoint",
-    askTitle: "👩‍🏫 Pyet Mësuese Mira",
-    askSub: "Për nder të Mira Muratit",
-    bubble: "Pyetmë Çfarë të duash, jam këtu!",
-    placeholder: "Mësuese Mira, çfarë janë antihistaminikët?",
-    btnAsk: "Pyet Mësuese Mirën",
-    btnSearch: "🔍 Vetëm Kërko në karta",
-    btnPrint: "🖨️ Printo / Ruaj si PDF",
-    privacyTitle: "📜 Politika e Privatësisë / Privacy Policy",
-    blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →",
-    statusReading: "⏳ Duke lexuar...",
-    statusDone: n => `✅ ${n} pika mësimore u gjetën!`,
-    badgeQ: "PYETJE",
-    answer: "Përgjigja:",
-    summary: "📄 PËRMBLEDHJA",
-    fullMaterial: "📄 Materiali i plotë:",
-    questionLabel: "Pyetja:",
-    answerNum: i => `Përgjigja ${i}:`,
-    noQuestion: "Ju lutem shkruani pyetjen!",
-    noMaterial: "Ngarkoni materialin më parë!",
-    searching: "⏳ Mësuese Mira po kërkon...",
-    pomodoroTitle: "🍅 Pomodoro - Mësuese",
-    pomodoroStatus: "Gati për të mësuar?",
-    btnPomodoroStart: "Fillo",
-    btnPomodoroPause: "Pauzë",
-    btnPomodoroReset: "Reseto",
-    btnPomodoro25: "25 min Mësim",
-    btnPomodoro5: "5 min Pushim"
-  },
-  en: {
-    mainTitle: "📚 StudyBuddy",
-    miraTitle: "Teacher Mira 🤖 - Your AI Tutor",
-    miraSub: "*Virtual character inspired and created in honor of Mira Murati - former CTO of OpenAI, Albanian pride",
-    uploadBtn: "📄 TAP HERE - Upload PDF or PowerPoint",
-    askTitle: "👩‍🏫 Ask Teacher Mira",
-    askSub: "In honor of Mira Murati",
-    bubble: "Ask me anything, I'm here!",
-    placeholder: "Teacher Mira, what are antihistamines?",
-    btnAsk: "Ask Teacher Mira",
-    btnSearch: "🔍 Search in cards only",
-    btnPrint: "🖨️ Print / Save as PDF",
-    privacyTitle: "🔒 Privacy Policy",
-    blogTitle: "📚 BLOG - Tips for homework",
-    statusReading: "⏳ Reading...",
-    statusDone: n => `✅ ${n} learning points found!`,
-    badgeQ: "QUESTION",
-    answer: "Answer:",
-    summary: "📄 SUMMARY",
-    fullMaterial: "📄 Full material:",
-    questionLabel: "Question:",
-    answerNum: i => `Answer ${i}:`,
-    noQuestion: "Please write your question!",
-    noMaterial: "Please upload material first!",
-    searching: "⏳ Teacher Mira is searching...",
-    pomodoroTitle: "🍅 Pomodoro - Study",
-    pomodoroStatus: "Ready to learn?",
-    btnPomodoroStart: "Start",
-    btnPomodoroPause: "Pause",
-    btnPomodoroReset: "Reset",
-    btnPomodoro25: "25 min Study",
-    btnPomodoro5: "5 min Break"
-  }
+  sq: { mainTitle: "📚 StudyBuddy", miraTitle: "Mësuesja Mira 🤖 - Asistentja jote me IA", miraSub: "*Personazh virtual i inspiruar dhe krijuar për nder të Mira Muratit - ish-CTO e OpenAI, krenaria shqiptare", uploadBtn: "📄 PREK KËTU - Ngarko PDF ose PowerPoint", askTitle: "👩‍🏫 Pyet Mësuese Mira", askSub: "Për nder të Mira Muratit", bubble: "Pyetmë Çfarë të duash, jam këtu!", placeholder: "Mësuese Mira, çfarë janë antihistaminikët?", btnAsk: "Pyet Mësuese Mirën", btnSearch: "🔍 Vetëm Kërko në karta", btnPrint: "🖨️ Printo / Ruaj si PDF", privacyTitle: "📜 Politika e Privatësisë / Privacy Policy", blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →", statusReading: "⏳ Duke lexuar...", statusDone: n => `✅ ${n} pika mësimore u gjetën!`, badgeQ: "PYETJE", answer: "Përgjigja:", summary: "📄 PËRMBLEDHJA", fullMaterial: "📄 Materiali i plotë:", questionLabel: "Pyetja:", answerNum: i => `Përgjigja ${i}:`, noQuestion: "Ju lutem shkruani pyetjen!", noMaterial: "Ngarkoni materialin më parë!", searching: "⏳ Mësuese Mira po kërkon...", pomodoroTitle: "🍅 Pomodoro - Mësuese", pomodoroStatus: "Gati për të mësuar?", btnPomodoroStart: "Fillo", btnPomodoroPause: "Pauzë", btnPomodoroReset: "Reseto", btnPomodoro25: "25 min Mësim", btnPomodoro5: "5 min Pushim", btnClear: "🧹 Pastro materialin e ngarkuar", cleared: "Materiali u pastrua. Ngarko një dokument të ri.", iosNote: "🍎 iPhone: Nëse nuk dëgjohet zëri, aktivizo butonin anësor (Silent) në iPhone." },
+  en: { mainTitle: "📚 StudyBuddy", miraTitle: "Teacher Mira 🤖 - Your AI Tutor", miraSub: "*Virtual character inspired and created in honor of Mira Murati - former CTO of OpenAI, Albanian pride", uploadBtn: "📄 TAP HERE - Upload PDF or PowerPoint", askTitle: "👩‍🏫 Ask Teacher Mira", askSub: "In honor of Mira Murati", bubble: "Ask me anything, I'm here!", placeholder: "Teacher Mira, what are antihistamines?", btnAsk: "Ask Teacher Mira", btnSearch: "🔍 Search in cards only", btnPrint: "🖨️ Print / Save as PDF", privacyTitle: "🔒 Privacy Policy", blogTitle: "📚 BLOG - Tips for homework", statusReading: "⏳ Reading...", statusDone: n => `✅ ${n} learning points found!`, badgeQ: "QUESTION", answer: "Answer:", summary: "📄 SUMMARY", fullMaterial: "📄 Full material:", questionLabel: "Question:", answerNum: i => `Answer ${i}:`, noQuestion: "Please write your question!", noMaterial: "Please upload material first!", searching: "⏳ Teacher Mira is searching...", pomodoroTitle: "🍅 Pomodoro - Study", pomodoroStatus: "Ready to learn?", btnPomodoroStart: "Start", btnPomodoroPause: "Pause", btnPomodoroReset: "Reset", btnPomodoro25: "25 min Study", btnPomodoro5: "5 min Break", btnClear: "🧹 Clear uploaded material", cleared: "Material cleared. Upload a new document.", iosNote: "🍎 iPhone: If no sound, turn off the side Silent switch on iPhone." }
 };
 let currentLang = 'sq';
+function setEl(id, val, isText){ var el=document.getElementById(id); if(!el) return; if(isText==='placeholder'){ el.placeholder=val; } else { el.innerText=val; } }
+// FIX: setLang me guard + confirm, nuk crash-on nëse mungon elementi
 window.setLang = function(l){
+  var kaDokument = (typeof fjalite !== 'undefined' && fjalite.length > 0);
+  if(kaDokument){
+    if(!confirm(l==='en' ? 'You have a document loaded. Language will change on this same page. Continue?' : 'Ke një dokument të ngarkuar. Gjuha do të ndërrohet në të njëjtën faqe. Të vazhdoj?')) return;
+  }
   currentLang = l;
+  try{ localStorage.setItem('sb-lang', l); }catch(e){}
   document.documentElement.lang = l;
-  document.getElementById('btn-sq').classList.toggle('active', l==='sq');
-  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  setEl('btn-sq', '', ''); var bSq=document.getElementById('btn-sq'); if(bSq) bSq.classList.toggle('active', l==='sq');
+  var bEn=document.getElementById('btn-en'); if(bEn) bEn.classList.toggle('active', l==='en');
   const t = i18n[l];
-  document.getElementById('mainTitle').innerText = t.mainTitle;
-  document.getElementById('miraTitle').innerText = t.miraTitle;
-  document.getElementById('miraSub').innerText = t.miraSub;
-  document.getElementById('uploadBtn').innerText = t.uploadBtn;
-  document.getElementById('askTitle').innerText = t.askTitle;
-  document.getElementById('askSub').innerText = t.askSub;
-  document.getElementById('mira-bubble').innerText = t.bubble;
-  document.getElementById('pyetja').placeholder = t.placeholder;
-  document.getElementById('btnAsk').innerText = t.btnAsk;
-  document.getElementById('btnSearch').innerText = t.btnSearch;
-  document.getElementById('btnPrint').innerText = t.btnPrint;
-  document.getElementById('blogTitle').innerText = t.blogTitle;
-  document.getElementById('privacyTitle').innerText = t.privacyTitle;
-  document.getElementById('pomodoroTitle').innerText = t.pomodoroTitle;
-  document.getElementById('pomodoroStatus').innerText = t.pomodoroStatus;
-  document.getElementById('btnPomodoroStart').innerText = t.btnPomodoroStart;
-  document.getElementById('btnPomodoroPause').innerText = t.btnPomodoroPause;
-  document.getElementById('btnPomodoroReset').innerText = t.btnPomodoroReset;
-  document.getElementById('btnPomodoro25').innerText = t.btnPomodoro25;
-  document.getElementById('btnPomodoro5').innerText = t.btnPomodoro5;
-  document.getElementById('privacy-sq').style.display = l==='sq' ? 'block' : 'none';
-  document.getElementById('privacy-en').style.display = l==='en' ? 'block' : 'none';
-  if(fjalite.length>0) shfaq(fjalite);
+  setEl('mainTitle', t.mainTitle); setEl('miraTitle', t.miraTitle); setEl('miraSub', t.miraSub);
+  setEl('uploadBtn', t.uploadBtn); setEl('askTitle', t.askTitle); setEl('askSub', t.askSub);
+  setEl('mira-bubble', t.bubble); setEl('pyetja', t.placeholder, 'placeholder');
+  setEl('btnAsk', t.btnAsk); setEl('btnSearch', t.btnSearch); setEl('btnPrint', t.btnPrint);
+  setEl('blogTitle', t.blogTitle); setEl('privacyTitle', t.privacyTitle);
+  setEl('pomodoroTitle', t.pomodoroTitle); setEl('pomodoroStatus', t.pomodoroStatus);
+  setEl('btnPomodoroStart', t.btnPomodoroStart); setEl('btnPomodoroPause', t.btnPomodoroPause);
+  setEl('btnPomodoroReset', t.btnPomodoroReset); setEl('btnPomodoro25', t.btnPomodoro25); setEl('btnPomodoro5', t.btnPomodoro5);
+  setEl('btnClear', t.btnClear); setEl('iosNote', t.iosNote);
+  var ps=document.getElementById('privacy-sq'); if(ps) ps.style.display = l==='sq' ? 'block' : 'none';
+  var pe=document.getElementById('privacy-en'); if(pe) pe.style.display = l==='en' ? 'block' : 'none';
+  if(typeof fjalite !== 'undefined' && fjalite.length>0) shfaq(fjalite);
   tregoMesazhMira('pyetje');
 }
-
 const mesazheMira = {
-  sq: {
-    hapPDF: ["Bravo! Le të mësojmë bashkë këtë! 🚀", "Uau, ky material qenka thesar! 📚"],
-    vonese: ["Një sekondë, po i lexoj fjalët për ty… ☕", "Durim, po bëhet magjia... ✨"],
-    pyetje: ["Pyetmë Çfarë të duash, jam këtu! 🤗", "E gjete! Je super e zgjuar! 🌟"]
-  },
-  en: {
-    hapPDF: ["Great! Let's learn this together! 🚀", "Wow, this material is a treasure! 📚"],
-    vonese: ["One second, I'm reading the words for you... ☕", "Patience, magic is happening... ✨"],
-    pyetje: ["Ask me anything, I'm here! 🤗", "You found it! You're super smart! 🌟"]
-  }
+  sq: { hapPDF: ["Bravo! Le të mësojmë bashkë këtë! 🚀", "Uau, ky material qenka thesar! 📚"], vonese: ["Një sekondë, po i lexoj fjalët për ty… ☕", "Durim, po bëhet magjia... ✨"], pyetje: ["Pyetmë Çfarë të duash, jam këtu! 🤗", "E gjete! Je super e zgjuar! 🌟"] },
+  en: { hapPDF: ["Great! Let's learn this together! 🚀", "Wow, this material is a treasure! 📚"], vonese: ["One second, I'm reading the words for you... ☕", "Patience, magic is happening... ✨"], pyetje: ["Ask me anything, I'm here! 🤗", "You found it! You're super smart! 🌟"] }
 };
 function tregoMesazhMira(tipi) {
   const bubble = document.getElementById('mira-bubble');
@@ -243,26 +156,31 @@ function rregullojeShqip(teksti) {
   let t = teksti.normalize('NFC')
     .replace(/Ãë/g,'ë').replace(/Ãç/g,'ç').replace(/ÃË/g,'Ë').replace(/ÃÇ/g,'Ç')
     .replace(/ë̈/g,'ë').replace(/ç̧/g,'ç')
-    .replace(/pë\s+r/gi,'për')
-    .replace(/ështënjë/gi,'është një')
-    .replace(/Depresionipërjetohet/gi,'Depresioni përjetohet')
-    .replace(/njësër/gi,'një sërë')
-    .replace(/ulëaftë/gi,'ulë aftësinë')
-    .replace(/personipër/gi,'personi për')
-    .replace(/pengesëpër/gi,'pengesë për')
-    .replace(/dukepërfshirë/gi,'duke përfshirë')
-    .replace(/abuzimitose/gi,'abuzimit ose')
-    .replace(/prindinga/gi,'prindërit nga')
+    .replace(/pë\s+r/gi,'për').replace(/ështënjë/gi,'është një')
+    .replace(/Depresionipërjetohet/gi,'Depresioni përjetohet').replace(/njësër/gi,'një sërë')
+    .replace(/ulëaftë/gi,'ulë aftësinë').replace(/personipër/gi,'personi për')
+    .replace(/pengesëpër/gi,'pengesë për').replace(/dukepërfshirë/gi,'duke përfshirë')
+    .replace(/abuzimitose/gi,'abuzimit ose').replace(/prindinga/gi,'prindërit nga')
     .replace(/soci\s*alë/gi,'socialë')
     .replace(/\bDepresioni\s+Depresioni\b/gi,'Depresioni')
-    .replace(/,\s*(?=[^\s])/g,', ')
-    .replace(/\s+/g,' ').trim();
+    .replace(/,\s*(?=[^\s])/g,', ').replace(/\s+/g,' ').trim();
   return t;
 }
 function escapeHTML(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-// FIX PDF: pdf.js ka nevoje per worker, ndryshe nuk ngarkon fare
 if(window.pdfjsLib){ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; }
 let fjalite=[]; let tekstiPlote="";
+// FIX: pastrimi i plotë - pastron edhe uploadStatus
+window.pastroMaterialin = function(){
+  fjalite=[]; tekstiPlote="";
+  var rEl=document.getElementById('r'); if(rEl) rEl.innerHTML='';
+  var pEl=document.getElementById('pdfFull'); if(pEl) pEl.innerHTML='';
+  var py=document.getElementById('pyetja'); if(py) py.value='';
+  var box=document.getElementById('pergjigjaIA'); if(box){ box.style.display='none'; box.innerHTML=''; }
+  var f=document.getElementById('file'); if(f) f.value='';
+  var up=document.getElementById('uploadStatus');
+  if(up){ up.style.color='#333'; up.innerText = i18n[currentLang].cleared; }
+  tregoMesazhMira('pyetje');
+};
 window.ngarko = async function(input){
  let f=input.files[0]; if(!f) return;
  try{
@@ -276,7 +194,22 @@ window.ngarko = async function(input){
    for(let i=1;i<=pdf.numPages;i++){
      let p=await pdf.getPage(i);
      let c=await p.getTextContent();
-     let pageText = c.items.map(o=>o.str).join(" ");
+     // FIX PDF: grupim sipas Y, jo gjithmonë me hapësirë
+     let items=(c.items||[]).slice();
+     items.sort((a,b)=>{
+       let ya=a.transform?a.transform[5]:0, yb=b.transform?b.transform[5]:0;
+       let xa=a.transform?a.transform[4]:0, xb=b.transform?b.transform[4]:0;
+       let dy=Math.round(yb/8)-Math.round(ya/8);
+       if(dy!==0) return dy; return xa-xb;
+     });
+     let pageText=""; let lastY=null;
+     items.forEach(it=>{
+       if(!it.str) return;
+       let y=it.transform?Math.round(it.transform[5]/8):0;
+       if(lastY!==null && y!==lastY){ pageText=pageText.replace(/[ ]+$/,'')+"\n"; }
+       else if(pageText.length>0 && !pageText.endsWith(' ') && !pageText.endsWith('\n')){ pageText+=" "; }
+       pageText+=it.str; lastY=y;
+     });
      t+= rregullojeShqip(pageText) + "\n\n";
    }
  } else if(f.name.toLowerCase().endsWith(".pptx")){
@@ -285,25 +218,23 @@ window.ngarko = async function(input){
    for(let name of slideFiles){
      const xml = await zip.files[name].async("string");
      const matches = xml.match(/<a:t>(.*?)<\/a:t>/g);
-     if(matches){ matches.forEach(m=>{ 
-       let txt = m.replace(/<.*?>/g,"");
-       t+= rregullojeShqip(txt) + " "; 
-     }); t+="\n\n"; }
+     if(matches){ matches.forEach(m=>{ let txt = m.replace(/<.*?>/g,""); t+= rregullojeShqip(txt) + " "; }); t+="\n\n"; }
    }
  }
  tekstiPlote=t;
  fjalite=t.split(/[.!?]+/).map(s=>s.trim()).filter(s=>s.length>30);
  shfaq(fjalite);
  const pdfBox = document.createElement('div');
-pdfBox.className = 'card pdf-full';
-const title = document.createElement('b');
-title.style.color = '#FF9800';
-title.textContent = i18n[currentLang].fullMaterial;
-const hr = document.createElement('hr');
-const content = document.createElement('div');
-content.textContent = tekstiPlote.substring(0, 10000);
-pdfBox.append(title, hr, content);
-document.getElementById('pdfFull').replaceChildren(pdfBox);
+ pdfBox.className = 'card pdf-full';
+ const title = document.createElement('b');
+ title.style.color = '#FF9800';
+ title.textContent = i18n[currentLang].fullMaterial;
+ const hr = document.createElement('hr');
+ const content = document.createElement('div');
+ content.textContent = tekstiPlote.substring(0, 10000);
+ pdfBox.append(title, hr, content);
+ document.getElementById('pdfFull').replaceChildren(pdfBox);
+ document.getElementById('uploadStatus').style.color='green';
  document.getElementById('uploadStatus').innerText = i18n[currentLang].statusDone(fjalite.length);
  tregoMesazhMira('pyetje');
  }catch(err){
@@ -339,10 +270,10 @@ window.pyetIA = function(){
  box.innerHTML = `<b style="color:#9C27B0">👩‍🏫 ${currentLang==='sq'?'Mësuese Mira':'Teacher Mira'}</b><br><br><b>${t.questionLabel}</b> "${escapeHTML(q)}"<br><br>` + relevante.map((f,i)=>`<b>${t.answerNum(i+1)}</b> ${escapeHTML(f)}<br><br>`).join('');
 }
 </script>
-<!-- POMODORO STUDYBUDDY -->
+<!-- POMODORO - FIX: id="pomodoroTime" + id="iosNote" -->
 <div class="card" style="margin-top:20px; text-align:center;">
   <h2 id="pomodoroTitle">🍅 Pomodoro - Mësuese Mira</h2>
-  <div id="timer" style="font-size:48px; font-weight:bold; margin:15px;">25:00</div>
+  <div id="pomodoroTime" style="font-size:48px; font-weight:bold; margin:15px;">25:00</div>
   <p id="pomodoroStatus">Gati për të mësuar?</p>
   <div style="display:flex; gap:10px; justify-content:center;">
  <button onclick="startTimer()" id="btnPomodoroStart" style="background:green;color:white;padding:8px;border-radius:8px;">Fillo</button>
@@ -353,16 +284,16 @@ window.pyetIA = function(){
     <button onclick="setTime(25)" id="btnPomodoro25" style="font-size:12px;">25 min Mësim</button>
     <button onclick="setTime(5)" id="btnPomodoro5" style="font-size:12px;">5 min Pushim</button>
   </div>
+  <div id="iosNote" style="font-size:12px;color:#555;margin-top:8px">🍎 iPhone: Nëse nuk dëgjohet zëri, aktivizo butonin anësor (Silent) në iPhone.</div>
 </div>
-
 <script>
 let time = 25*60, interval=null, isRunning=false;
 function getLang(){ return (typeof currentLang !== 'undefined' ? currentLang : localStorage.getItem('lang') || 'sq'); }
-function updateDisplay(){let m=Math.floor(time/60), s=time%60; document.getElementById('timer').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);}
-function startTimer(){if(isRunning) return; isRunning=true; let L=getLang(); document.getElementById('pomodoroStatus').innerText=L==='en'?'Studying...':'Duke mësuar...'; interval=setInterval(()=>{time--; updateDisplay(); if(time<=0){clearInterval(interval); isRunning=false; let L2=getLang(); document.getElementById('pomodoroStatus').innerText=L2==='en'?'Break! 5 min':'Pushim! 5 min';}},1000);}
-function pauseTimer(){clearInterval(interval); isRunning=false; let L=getLang(); document.getElementById('pomodoroStatus').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
-function resetTimer(){clearInterval(interval); isRunning=false; time=25*60; updateDisplay(); let L=getLang(); document.getElementById('pomodoroStatus').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
-function setTime(min){clearInterval(interval); isRunning=false; time=min*60; updateDisplay(); let L=getLang(); document.getElementById('pomodoroStatus').innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
+function updateDisplay(){let m=Math.floor(time/60), s=time%60; var el=document.getElementById('pomodoroTime'); if(el) el.innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);}
+function startTimer(){if(isRunning) return; isRunning=true; let L=getLang(); var st=document.getElementById('pomodoroStatus'); if(st) st.innerText=L==='en'?'Studying...':'Duke mësuar...'; interval=setInterval(()=>{time--; updateDisplay(); if(time<=0){clearInterval(interval); isRunning=false; let L2=getLang(); var st2=document.getElementById('pomodoroStatus'); if(st2) st2.innerText=L2==='en'?'Break! 5 min':'Pushim! 5 min';}},1000);}
+function pauseTimer(){clearInterval(interval); isRunning=false; let L=getLang(); var st=document.getElementById('pomodoroStatus'); if(st) st.innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
+function resetTimer(){clearInterval(interval); isRunning=false; time=25*60; updateDisplay(); let L=getLang(); var st=document.getElementById('pomodoroStatus'); if(st) st.innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
+function setTime(min){clearInterval(interval); isRunning=false; time=min*60; updateDisplay(); let L=getLang(); var st=document.getElementById('pomodoroStatus'); if(st) st.innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
 updateDisplay();
 </script>
 </body>
