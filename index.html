@@ -1,32 +1,71 @@
+<!-- KUJDES: Ka kopje në /en/index.html. Çdo rregullim bëje në TË DY skedarët! -->
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YJGX69JD3Z"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { 'ad_storage': 'denied', 'analytics_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied' });
   gtag('js', new Date());
-  gtag('config', 'G-YJGX69JD3Z');
+  window.__SB_GA_ID = 'G-YJGX69JD3Z';
+  window.__SB_GA_LOADED = false;
+  window.__SB_GA_CONFIGURED = false;
+  window.__SB_GA_DISABLED = false;
+  window.loadGA = function(){
+    if(window.__SB_GA_DISABLED) return;
+    gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied' });
+    if(!window.__SB_GA_LOADED){
+      window.__SB_GA_LOADED = true;
+      var s=document.createElement('script');
+      s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+window.__SB_GA_ID;
+      document.head.appendChild(s);
+    }
+    if(!window.__SB_GA_CONFIGURED){
+      window.__SB_GA_CONFIGURED = true;
+      gtag('config', window.__SB_GA_ID);
+    }
+  };
 </script>
 <link rel="canonical" href="https://loricalliku18-ops.github.io/Studybuddy/" />
 <link rel="alternate" hreflang="sq" href="https://loricalliku18-ops.github.io/Studybuddy/" />
-<link rel="alternate" hreflang="en" href="https://loricalliku18-ops.github.io/Studybuddy/?lang=en" />
-<link rel="alternate" hreflang="x-default" href="https://loricalliku18-ops.github.io/Studybuddy/?lang=en" />
-<title>StudyBuddy - Teacher Mira | AI Tutor for European Students</title>
-<meta name="description" content="StudyBuddy - Teacher Mira AI Tutor for European students. Upload PDF or PowerPoint, learn faster, ask questions, study with Pomodoro. Free bilingual Albanian-English AI tutor for students in Europe." />
+<link rel="alternate" hreflang="en" href="https://loricalliku18-ops.github.io/Studybuddy/en/" />
+<link rel="alternate" hreflang="x-default" href="https://loricalliku18-ops.github.io/Studybuddy/" />
+<title>StudyBuddy – Mësuese Mira | Asistent Inteligjent Studimi</title>
+<meta name="description" content="StudyBuddy – Mësuese Mira | Kërkim inteligjent në materialin tënd. Ngarko PDF ose PowerPoint, kërko në materialin tënd, mëso më shpejt me Pomodoro. Asistent falas dygjuhësh shqip-anglisht." />
 <meta name="theme-color" content="#9C27B0">
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="StudyBuddy" />
+<meta property="og:url" content="https://loricalliku18-ops.github.io/Studybuddy/" />
+<meta property="og:title" content="StudyBuddy – Mësuese Mira | Asistent Inteligjent Studimi" />
+<meta property="og:description" content="Ngarko PDF ose PowerPoint, kërko në materialin tënd, mëso më shpejt me Pomodoro. Falas, dygjuhësh shqip-anglisht." />
+<meta property="og:image" content="https://loricalliku18-ops.github.io/Studybuddy/icon-512.png" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="StudyBuddy – Mësuese Mira" />
+<meta property="og:locale" content="sq_AL" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="StudyBuddy – Mësuese Mira | Asistent Inteligjent Studimi" />
+<meta name="twitter:description" content="Ngarko PDF ose PowerPoint, kërko në materialin tënd, mëso më shpejt me Pomodoro. Falas, dygjuhësh shqip-anglisht." />
+<meta name="twitter:image" content="https://loricalliku18-ops.github.io/Studybuddy/icon-512.png" />
+<meta name="twitter:image:alt" content="StudyBuddy – Mësuese Mira" />
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
 body{font-family:sans-serif;background:#f5f5f5;padding:10px}
 .card{background:#fff;padding:15px;border-radius:10px;margin-bottom:10px;box-shadow:0 1px 3px #ccc}
 button{border:0;padding:12px;border-radius:8px;width:100%;font-weight:bold;margin-top:6px;cursor:pointer}
+#btnPomodoroStart, #btnPomodoroPause, #btnPomodoroReset{ width:auto; flex:1; }
+#btnPomodoro25, #btnPomodoro5{ width:auto; flex:1; }
 .pdf-full{white-space:pre-wrap;line-height:1.8;background:#fffef0;border:2px solid #FF9800;padding:20px}
 #mira-bubble{background:#F3E5F5;border-left:4px solid #9C27B0;padding:10px;border-radius:8px;margin-bottom:8px;font-weight:bold;color:#4A148C;min-height:20px}
-@media print{ button,input,details,.lang-switch{display:none}.pdf-full{border:none} }
+@media print{ button,input,details,.lang-switch,#blogStrip,#cookie-banner{display:none !important} .pdf-full{border:none} body{padding:0;background:#fff} #mira-bubble{display:none} .karta-studimi .pergjigja{display:block !important} .karta-studimi{break-inside:avoid} }
 details{margin-top:15px;background:#fff;padding:10px;border-radius:8px}
 .karta-studimi{background:#fff;border:1px solid #e2e8f0;border-left:4px solid #0f2d52;border-radius:10px;margin-bottom:10px;cursor:pointer;box-shadow:0 1px 3px #ccc;overflow:hidden;transition:0.2s}
 .karta-studimi:hover{box-shadow:0 3px 10px rgba(0,0,0,0.1)}
+.karta-studimi:focus{outline:3px solid #9C27B0;outline-offset:2px}
 .pyetja{padding:15px;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:#1e293b}
 .pergjigja{display:none;padding:12px 15px 15px 15px;margin:0 15px 15px 15px;border-top:1px solid #f1f5f9;color:#334155;line-height:1.7;background:#f8fafc;border-radius:8px}
 .karta-studimi.hapur .pergjigja{display:block}
@@ -36,10 +75,16 @@ details{margin-top:15px;background:#fff;padding:10px;border-radius:8px}
 .lang-switch{position:fixed;top:10px;right:10px;z-index:1000;background:#fff;border-radius:20px;box-shadow:0 2px 8px #ccc;padding:4px;display:flex}
 .lang-switch button{width:auto;padding:6px 14px;margin:0;border-radius:20px;font-size:13px}
 .lang-switch button.active{background:#9C27B0;color:#fff}
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#1e293b;color:#fff;padding:14px;text-align:center;font-size:13px;z-index:2000;display:none}
+#cookie-banner button{width:auto;padding:9px 18px;margin:4px}
+#progressBarWrap{height:8px;background:#eee;border-radius:10px;overflow:hidden;margin-top:8px;display:none}
+#progressBar{height:100%;width:0%;background:#2196F3;transition:width .2s}
+.limit-box{background:#F3E5F5;border:1px solid #E1BEE7;border-radius:8px;padding:8px 10px;font-size:12px;color:#4A148C;margin-top:8px;line-height:1.6;text-align:center}
 </style>
 </head>
 <body>
-<div style="background:#2563eb;color:white;text-align:center;padding:10px;position:sticky;top:0;z-index:999">
+<noscript><div style="background:#fff3cd;padding:12px;text-align:center">StudyBuddy - Mësuese Mira / Teacher Mira - Smart Study Assistant falas. Shqip: kjo faqe. English version available at: https://loricalliku18-ops.github.io/Studybuddy/en/ - Upload PDF or PowerPoint, learn faster.</div></noscript>
+<div id="blogStrip" style="background:#2563eb;color:white;text-align:center;padding:10px;position:sticky;top:0;z-index:999">
 <a href="blog/" id="blogTitle" style="color:white;text-decoration:none;">📚 BLOGU - Këshilla si të bësh detyrat →</a>
 </div>
 <div class="lang-switch">
@@ -48,128 +93,375 @@ details{margin-top:15px;background:#fff;padding:10px;border-radius:8px}
 </div>
 <h1 style="text-align:center" id="mainTitle">📚 StudyBuddy</h1>
 <div style="text-align:center; padding:15px; background:#f8f9ff; border-radius:12px; margin-bottom:15px; border:1px solid #E1BEE7;">
-  <div style="font-size:20px; font-weight:bold; color:#4A148C;" id="miraTitle">Mësuesja Mira 🤖 - Asistentja jote me IA</div>
-  <div style="font-size:13px; color:#444; margin-top:6px; font-style:italic;" id="miraSub">*Personazh virtual i inspiruar dhe krijuar për nder të Mira Muratit - ish-CTO e OpenAI, krenaria shqiptare</div>
+  <div style="font-size:20px; font-weight:bold; color:#4A148C;" id="miraTitle">Mësuesja Mira 🤖 - Kërkim Inteligjent në Materialin Tënd</div>
+  <div style="font-size:13px; color:#444; margin-top:6px; font-style:italic;" id="miraSub">*Mësuese Mira është një personazh virtual, i frymëzuar nga Mira Murati - ish-CTO e OpenAI, krenaria shqiptare</div>
 </div>
 <div class="card" style="text-align:center">
 <button onclick="document.getElementById('file').click()" style="background:#2196F3;color:#fff" id="uploadBtn">📄 PREK KËTU - Ngarko PDF ose PowerPoint</button>
+<div class="limit-box" id="limitBox">📏 <b>Max: 15 MB</b> • Max 150 faqe PDF • Max 100 slide PPTX • Max 2 milionë karaktere • Max 5000 fjali analizohen<br><span style="color:#666">Nëse dokumenti ka më shumë se 5000 fjali, ndajeni në pjesë më të vogla për të analizuar pjesën tjetër.</span></div>
 <input type="file" id="file" hidden accept=".pdf,.pptx" onchange="window.ngarko(this)">
-<!-- FIX: aria-live + role status -->
 <div id="uploadStatus" aria-live="polite" role="status" style="margin-top:10px;color:green;font-weight:bold"></div>
-<!-- FIX: butoni Pastro që mungonte -->
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+<div style="font-size:12px;color:#666;margin-top:4px" id="progressText"></div>
 <button onclick="window.pastroMaterialin()" style="background:#fff;color:#666;border:1px solid #ccc;font-size:13px" id="btnClear">🧹 Pastro materialin e ngarkuar</button>
 </div>
 <div id="pdfFull"></div>
 <div id="r"></div>
 <div class="card" style="border:2px solid #9C27B0;">
 <b id="askTitle">👩‍🏫 Pyet Mësuese Mira</b><br>
-<span style="font-size:12px;color:#444" id="askSub">Për nder të Mira Muratit</span><br><br>
+<span style="font-size:12px;color:#444" id="askSub">Personazh virtual, i frymëzuar nga Mira Murati</span><br><br>
 <div id="mira-bubble" aria-live="polite">Pyetmë Çfarë të duash, jam këtu! </div>
 <input id="pyetja" placeholder="Mësuese Mira, çfarë janë antihistaminikët?" style="width:100%;padding:12px;border-radius:8px;border:1px solid #9C27B0;margin-bottom:8px">
 <button onclick="window.pyetIA()" style="background:#9C27B0;color:#fff" id="btnAsk">Pyet Mësuese Mirën</button>
-<button onclick="window.kerko(document.getElementById('pyetja').value)" style="background:#fff;color:#9C27B0;border:1px solid #9C27B0" id="btnSearch">🔍 Vetëm Kërko në karta</button>
+<div style="font-size:12px;color:#5D4037;background:#FFF8E1;border:1px solid #FFE082;padding:8px;border-radius:8px;margin-top:8px;text-align:center" id="miraNote">ℹ️ Si punon Mësuese Mira: ajo kërkon me fjalë kyçe, sinonime dhe rrënjë fjalësh VETËM në materialin që ngarkove ti. Nuk është model AI, nuk kupton kuptimin si ChatGPT dhe nuk krijon përgjigje nga interneti. Për përgjigje më të mira, pyet me fjalë që janë në material.</div>
+<button onclick="window.kerko(document.getElementById('pyetja').value)" style="background:#fff;color:#9C27B0;border:1px solid #9C27B0" id="btnSearch">🔍 Kërko në material</button>
 <button onclick="window.print()" style="background:#4CAF50;color:#fff" id="btnPrint">🖨️ Printo / Ruaj si PDF</button>
 <div id="pergjigjaIA" aria-live="polite" role="status" style="margin-top:12px;background:#F3E5F5;padding:12px;border-radius:8px;display:none"></div>
 </div>
-<details>
+<div class="card" style="border:2px solid #FF9800;">
+<b id="pomodoroTitle">🍅 Pomodoro - Mësuese</b><br><br>
+<div style="text-align:center;font-size:42px;font-weight:bold" id="pomodoroTime">25:00</div>
+<div style="text-align:center;color:#666;font-size:13px" id="pomodoroStatus">Gati për të mësuar?</div>
+<div style="display:flex;gap:6px;margin-top:10px">
+<button id="btnPomodoroStart" onclick="window.pomodoroStart()" style="background:#4CAF50;color:#fff">Fillo</button>
+<button id="btnPomodoroPause" onclick="window.pomodoroPause()" style="background:#FF9800;color:#fff">Pauzë</button>
+<button id="btnPomodoroReset" onclick="window.pomodoroReset()" style="background:#eee;color:#333">Reseto</button>
+</div>
+<div style="display:flex;gap:6px;margin-top:6px">
+<button id="btnPomodoro25" onclick="window.pomodoroSet(25)" style="background:#fff;color:#4CAF50;border:1px solid #4CAF50">25 min Mësim</button>
+<button id="btnPomodoro5" onclick="window.pomodoroSet(5)" style="background:#fff;color:#FF9800;border:1px solid #FF9800">5 min Pushim</button>
+</div>
+<div id="iosNote" style="font-size:12px;color:#555;margin-top:8px">🍎 iPhone: Nëse nuk dëgjohet zëri, aktivizo butonin anësor (Silent) në iPhone.</div>
+</div><details>
 <summary style="font-weight:bold;cursor:pointer" id="privacyTitle">⚖️ Politika e Privatësisë / Privacy Policy</summary>
 <div style="font-size:13px;line-height:1.8;margin-top:10px;color:#334155">
 <div id="privacy-sq">
-<b>Përditësuar: 19 Tetor 2026</b><br><br>
+<b>Përditësuar: 7 Nëntor 2026</b><br><br>
 <b>1. Çfarë është StudyBuddy - Mësuese Mira?</b><br>
-Aplikacion edukativ falas që ndihmon nxënësit të mësojnë nga PDF dhe PowerPoint. Krijuar për nder të <b>Mira Muratit</b>, inxhiniere shqiptare dhe ish-CTO e OpenAI.<br><br>
-<b>2. Dokumentet tuaja - 100% Private:</b><br>
-Të gjitha PDF dhe PPTX përpunohen 100% lokalisht në shfletuesin tuaj. Ne NUK i ngarkojmë në server, NUK i ruajmë, NUK i shesim, NUK i ndajmë. Kur mbyllni faqen, fshihen automatikisht.<br><br>
-<b>3. Google AdSense, Cookies dhe DART Cookie:</b><br>
-Ne përdorim Google AdSense për të mbajtur aplikacionin falas. Google, si shitës i palës së tretë, përdor cookies për të shfaqur reklama. Përdorimi i DART cookie i mundëson Google të shfaqë reklama bazuar në vizitat tuaja. Mund të çaktivizoni DART cookie te <a href="https://policies.google.com/technologies/ads" target="_blank">policies.google.com/technologies/ads</a>. Shitës të palëve të treta, përfshirë Google, përdorin cookies për reklama bazuar në vizitat e mëparshme.<br><br>
+Asistent inteligjent studimi falas që ndihmon nxënësit të mësojnë nga PDF dhe PowerPoint me kërkim inteligjent me fjalë kyçe në materialin e tyre. Mësuese Mira është një personazh virtual, i frymëzuar nga <b>Mira Murati</b>, inxhiniere shqiptare dhe ish-CTO e OpenAI.<br><br>
+<b>2. Dokumentet tuaja - Si përpunohen:</b><br>
+Dokumentet përpunohen me kod JavaScript që ekzekutohet në shfletuesin tuaj. <b>Kodi që kemi shkruar ne për StudyBuddy nuk e dërgon dokumentin tuaj në asnjë server</b> - në kodin tonë nuk ka fetch, XMLHttpRequest, sendBeacon, WebSocket, form-submit apo iframe të jashtëm që dërgon përmbajtjen e dokumentit. Dokumenti lexohet nga pajisja juaj dhe mbetet në memorien e shfletuesit tuaj derisa ta pastroni ose ta mbyllni faqen.<br>
+<b>Çfarë nuk kontrollojmë ne:</b> Faqja ngarkon biblioteka nga shërbime të jashtme (cdnjs për PDF.js / JSZip) dhe - vetëm nëse klikoni Prano - skriptin e Google Analytics. Këto shërbime janë të pavarura nga ne dhe ne nuk mund të garantojmë sjelljen e tyre të ardhshme. Kur shfletuesi juaj kërkon këto skedarë, shërbimi përkatës sheh kërkesën teknike të zakonshme (adresa IP, lloji i shfletuesit). Këto kërkesa për skedarë biblioteke nuk përmbajnë dokumentin tuaj, sepse dokumenti nuk është pjesë e kërkesës - ai lexohet më vonë, lokalisht, pasi biblioteka ka mbërritur. Ju mund ta verifikoni këtë vetë: DevTools → Network.<br>
+<b>Kufijtë e ngarkimit:</b> Max 15 MB për skedar, max 150 faqe PDF, max 100 slide PPTX, max 2 milionë karaktere. Për shfaqje dhe analizë, analizohen max 5000 fjali - nëse dokumenti ka më shumë se 5000 fjali, do të njoftoheni dhe duhet ta ndani dokumentin për të analizuar pjesën tjetër. Këta kufij janë për të mos bllokuar telefonin / shfletuesin tuaj.<br><br>
+<b>3. Google Analytics, Cookies dhe Reklamat e Ardhshme:</b><br>
+Ne përdorim <b>Google Analytics (G-YJGX69JD3Z)</b> vetëm nëse ju e pranoni. Google Analytics 4 (GA4) përdor adresën tuaj IP vetëm për të përcaktuar vendndodhjen e përafërt (qytet / shtet) dhe më pas e fshin atë - GA4 nuk e ruan adresën tuaj IP. GA4 përpunon identifikues pseudonimë online dhe të dhëna teknike, si pajisja dhe shfletuesi, për statistika. Nuk mbledhim emra apo email.<br><br>
+<b>Reklamat:</b> Aktualisht në faqe <b>NUK shfaqen reklama Google AdSense</b>. Ne planifikojmë të aplikojmë për Google AdSense në të ardhmen. Nëse dhe kur AdSense aktivizohet, do të përdorim një platformë pëlqimi (CMP) të certifikuar nga Google për zonën EEA. Kur dhe nëse aktivizohen reklamat, Google dhe partnerët e reklamimit mund të përdorin cookies ose teknologji të ngjashme, sipas politikave dhe zgjedhjeve të pëlqimit që do të zbatohen në atë kohë.<br><br>
 <b>4. Si të menaxhoni Cookies:</b><br>
-Mund t'i çaktivizoni nga cilësimet e shfletuesit. Reklamat e personalizuara: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a> dhe <a href="https://www.aboutads.info/choices/" target="_blank">aboutads.info/choices</a>.<br><br>
-<b>5. GDPR:</b> Nuk mbledhim emra, email. Të dhënat janë anonime. Kontakt: studbuddy.al@gmail.com<br><br>
-<b>6. Fëmijët:</b> Nuk mbledhim të dhëna nga fëmijët nën 13 vjeç pa mbikëqyrje prindërore.<br><br>
-<b>7. Pëlqimi:</b> Duke përdorur StudyBuddy, pranoni këtë politikë dhe përdorimin e cookies.<br><br>
+Mund të ndryshoni zgjedhjen tuaj kurdo duke klikuar <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Ndrysho zgjedhjen e Cookies</a>. Mund t'i çaktivizoni edhe nga cilësimet e shfletuesit. Reklamat e personalizuara: <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">adssettings.google.com</a> dhe <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info/choices</a>.<br><br>
+<b>5. GDPR:</b> Nuk mbledhim emra, email. Të dhënat nga Google Analytics janë <b>pseudonime</b>, jo plotësisht anonime - Google përpunon identifikues online dhe të dhëna teknike për statistika. Ju mund ta tërhiqni pëlqimin tuaj në çdo kohë duke klikuar <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Ndrysho zgjedhjen e Cookies</a>. Kontakt: studbuddy.al@gmail.com<br><br>
+<b>6. Fëmijët dhe mosha e pëlqimit:</b> Faqja nuk synon të mbledhë të dhëna personale të fëmijëve. Në Bashkimin Evropian, mosha nga e cila një fëmijë mund të japë vetë pëlqimin për shërbimet online është <b>13 deri në 16 vjeç, sipas shtetit</b> - për shembull 16 vjeç në Gjermani, Itali, Francë dhe Holandë, 14 vjeç në Shqipëri dhe Spanjë, 13 vjeç në disa shtete të tjera. Nën këtë moshë, pëlqimi duhet të jepet nga prindi ose kujdestari ligjor. Ne nuk e verifikojmë moshën e vizitorëve dhe nuk kërkojmë regjistrim. Nëse një prind beson se fëmija i tij nën moshën e pëlqimit ka dhënë pëlqim pa autorizimin e prindit, mund të na kontaktojë në studbuddy.al@gmail.com për fshirjen e të dhënave.<br><br>
+<b>7. Pëlqimi:</b> Analytics aktivizohet <b>vetëm pasi të klikoni Prano</b> në bannerin e cookies. Nëse jeni nën moshën e pëlqimit në shtetin tuaj, ju lutem mos klikoni Prano pa lejen e prindit / kujdestarit. Përdorimi i faqes pa klikuar Prano <b>nuk</b> do të thotë pëlqim. Mund ta ndryshoni ose ta tërhiqni pëlqimin tuaj në çdo kohë.<br><br>
 <i>Krijuar me dashuri për të gjithë Studentët ❤️ - StudyBuddy</i>
 </div>
 <div id="privacy-en" style="display:none">
-<b>Updated: October 19, 2026</b><br><br>
+<b>Updated: November 7, 2026</b><br><br>
 <b>1. What is StudyBuddy - Teacher Mira?</b><br>
-Free educational app that helps students learn from PDF and PowerPoint. Created in honor of <b>Mira Murati</b>, Albanian engineer and former CTO of OpenAI.<br><br>
-<b>2. Your Documents - 100% Private:</b><br>
-All PDFs and PPTX are processed 100% locally in your browser. We do NOT upload to any server, we do NOT store, sell, or share them. When you close the page, they are deleted.<br><br>
-<b>3. Google AdSense, Cookies and DART Cookie:</b><br>
-We use Google AdSense to keep the app free. Google, as a third-party vendor, uses cookies to serve ads. Google's use of the DART cookie enables it to to serve ads based on your visits. You may opt out at <a href="https://policies.google.com/technologies/ads" target="_blank">policies.google.com/technologies/ads</a>. Third-party vendors, including Google, use cookies to serve ads based on prior visits.<br><br>
+Free smart study assistant that helps students learn from PDF and PowerPoint with smart keyword search in their own material. Teacher Mira is a virtual character, inspired by <b>Mira Murati</b>, Albanian engineer and former CTO of OpenAI.<br><br>
+<b>2. Your Documents - How they are processed:</b><br>
+Documents are processed by JavaScript code that runs in your browser. <b>The code we wrote for StudyBuddy does not send your document to any server</b> - our code contains no fetch, XMLHttpRequest, sendBeacon, WebSocket, form-submit or external iframe that sends document content. The document is read from your device and stays in your browser memory until you clear it or close the page.<br>
+<b>What we do not control:</b> The page loads libraries from external services (cdnjs for PDF.js / JSZip) and - only if you click Accept - the Google Analytics script. These services are independent from us and we cannot guarantee their future behaviour. When your browser requests those files, the respective service sees the normal technical request (IP address, browser type). Those library-file requests do not contain your document, because the document is not part of the request - it is read later, locally, after the library has arrived. You can verify this yourself: DevTools → Network.<br>
+<b>Upload limits:</b> Max 15 MB per file, max 150 PDF pages, max 100 PPTX slides, max 2 million characters. For display and analysis, max 5000 sentences are analyzed - if the document has more than 5000 sentences, you will be notified and must split the document to analyze the rest. These limits are to avoid freezing your phone / browser.<br><br>
+<b>3. Google Analytics, Cookies and Future Ads:</b><br>
+We use <b>Google Analytics (G-YJGX69JD3Z)</b> only if you accept. Google Analytics 4 (GA4) uses your IP address only to determine approximate location (city / country) and then discards it - GA4 does not store your IP address. GA4 processes pseudonymous online identifiers and technical data, such as device and browser, for statistics. We do not collect names or emails.<br><br>
+<b>Ads:</b> Currently <b>no Google AdSense ads are shown</b> on this site. We plan to apply for Google AdSense in the future. If and when AdSense is activated, we will use a Google-certified Consent Management Platform (CMP) for the EEA. When and if ads are activated, Google and advertising partners may use cookies or similar technologies, according to the policies and consent choices that will apply at that time.<br><br>
 <b>4. How to manage Cookies:</b><br>
-You can disable cookies in browser settings. Opt out of personalized ads: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a> and <a href="https://www.aboutads.info/choices/" target="_blank">aboutads.info/choices</a>.<br><br>
-<b>5. GDPR:</b> We do not collect names, emails. Data is anonymous. Contact: studbuddy.al@gmail.com<br><br>
-<b>6. Children's Data:</b> We do not knowingly collect data from children under 13 without parental supervision.<br><br>
-<b>7. Consent:</b> By using StudyBuddy, you agree to this policy and use of cookies.<br><br>
+You can change your choice anytime by clicking <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Change Cookie Choice</a>. You can also disable cookies in browser settings. Opt out of personalized ads: <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">adssettings.google.com</a> and <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info/choices</a>.<br><br>
+<b>5. GDPR:</b> We do not collect names, emails. Data from Google Analytics is <b>pseudonymous</b>, not fully anonymous - Google processes online identifiers and technical data for statistics. You can withdraw your consent at any time by clicking <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Change Cookie Choice</a>. Contact: studbuddy.al@gmail.com<br><br>
+<b>6. Children and age of consent:</b> This site does not intend to collect personal data from children. In the European Union, the age at which a child can give consent for online services is <b>13 to 16 years, depending on the country</b> - for example 16 in Germany, Italy, France and the Netherlands, 14 in Albania and Spain, 13 in some other countries. Below this age, consent must be given by a parent or legal guardian. We do not verify visitors' age and do not require registration. If a parent believes their child below the consent age has given consent without parental authorisation, they can contact us at studbuddy.al@gmail.com to request deletion.<br><br>
+<b>7. Consent:</b> Analytics is activated <b>only after you click Accept</b> in the cookie banner. If you are below the consent age in your country, please do not click Accept without your parent / guardian's permission. Using the site without clicking Accept does <b>not</b> mean consent. You can change or withdraw your consent at any time.<br><br>
 <i>Created with love for all Students ❤️ - StudyBuddy</i>
 </div>
 </div>
 </details>
+<div style="text-align:center;margin-top:10px;font-size:12px">
+  <a href="/Studybuddy/en/" style="color:#9C27B0">English version</a> | <a href="/Studybuddy/" style="color:#9C27B0">Versioni shqip</a>
+</div>
+<div style="text-align:center;margin-top:8px"><a href="#" onclick="window.resetCookieChoice(); return false;" style="font-size:12px;color:#9C27B0">🍪 Ndrysho zgjedhjen e Cookies / Change Cookie Choice</a></div>
+<div id="cookie-banner"><div id="cookieText">Ne përdorim Google Analytics vetëm nëse e pranoni. Zgjidhni: / We use Google Analytics only if you accept. Choose:</div><div style="margin-top:8px"><button onclick="window.pranoCookies()" style="background:#4CAF50;color:#fff">✅ Prano / Accept</button><button onclick="window.refuzoCookies()" style="background:#666;color:#fff">❌ Refuzo / Decline</button></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 const i18n = {
-  sq: { mainTitle: "📚 StudyBuddy", miraTitle: "Mësuesja Mira 🤖 - Asistentja jote me IA", miraSub: "*Personazh virtual i inspiruar dhe krijuar për nder të Mira Muratit - ish-CTO e OpenAI, krenaria shqiptare", uploadBtn: "📄 PREK KËTU - Ngarko PDF ose PowerPoint", askTitle: "👩‍🏫 Pyet Mësuese Mira", askSub: "Për nder të Mira Muratit", bubble: "Pyetmë Çfarë të duash, jam këtu!", placeholder: "Mësuese Mira, çfarë janë antihistaminikët?", btnAsk: "Pyet Mësuese Mirën", btnSearch: "🔍 Vetëm Kërko në karta", btnPrint: "🖨️ Printo / Ruaj si PDF", privacyTitle: "📜 Politika e Privatësisë / Privacy Policy", blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →", statusReading: "⏳ Duke lexuar...", statusDone: n => `✅ ${n} pika mësimore u gjetën!`, badgeQ: "PYETJE", answer: "Përgjigja:", summary: "📄 PËRMBLEDHJA", fullMaterial: "📄 Materiali i plotë:", questionLabel: "Pyetja:", answerNum: i => `Përgjigja ${i}:`, noQuestion: "Ju lutem shkruani pyetjen!", noMaterial: "Ngarkoni materialin më parë!", searching: "⏳ Mësuese Mira po kërkon...", pomodoroTitle: "🍅 Pomodoro - Mësuese", pomodoroStatus: "Gati për të mësuar?", btnPomodoroStart: "Fillo", btnPomodoroPause: "Pauzë", btnPomodoroReset: "Reseto", btnPomodoro25: "25 min Mësim", btnPomodoro5: "5 min Pushim", btnClear: "🧹 Pastro materialin e ngarkuar", cleared: "Materiali u pastrua. Ngarko një dokument të ri.", iosNote: "🍎 iPhone: Nëse nuk dëgjohet zëri, aktivizo butonin anësor (Silent) në iPhone." },
-  en: { mainTitle: "📚 StudyBuddy", miraTitle: "Teacher Mira 🤖 - Your AI Tutor", miraSub: "*Virtual character inspired and created in honor of Mira Murati - former CTO of OpenAI, Albanian pride", uploadBtn: "📄 TAP HERE - Upload PDF or PowerPoint", askTitle: "👩‍🏫 Ask Teacher Mira", askSub: "In honor of Mira Murati", bubble: "Ask me anything, I'm here!", placeholder: "Teacher Mira, what are antihistamines?", btnAsk: "Ask Teacher Mira", btnSearch: "🔍 Search in cards only", btnPrint: "🖨️ Print / Save as PDF", privacyTitle: "🔒 Privacy Policy", blogTitle: "📚 BLOG - Tips for homework", statusReading: "⏳ Reading...", statusDone: n => `✅ ${n} learning points found!`, badgeQ: "QUESTION", answer: "Answer:", summary: "📄 SUMMARY", fullMaterial: "📄 Full material:", questionLabel: "Question:", answerNum: i => `Answer ${i}:`, noQuestion: "Please write your question!", noMaterial: "Please upload material first!", searching: "⏳ Teacher Mira is searching...", pomodoroTitle: "🍅 Pomodoro - Study", pomodoroStatus: "Ready to learn?", btnPomodoroStart: "Start", btnPomodoroPause: "Pause", btnPomodoroReset: "Reset", btnPomodoro25: "25 min Study", btnPomodoro5: "5 min Break", btnClear: "🧹 Clear uploaded material", cleared: "Material cleared. Upload a new document.", iosNote: "🍎 iPhone: If no sound, turn off the side Silent switch on iPhone." }
-};
-let currentLang = 'sq';
-function setEl(id, val, isText){ var el=document.getElementById(id); if(!el) return; if(isText==='placeholder'){ el.placeholder=val; } else { el.innerText=val; } }
-// FIX: setLang me guard + confirm, nuk crash-on nëse mungon elementi
-window.setLang = function(l){
-  var kaDokument = (typeof fjalite !== 'undefined' && fjalite.length > 0);
-  if(kaDokument){
-    if(!confirm(l==='en' ? 'You have a document loaded. Language will change on this same page. Continue?' : 'Ke një dokument të ngarkuar. Gjuha do të ndërrohet në të njëjtën faqe. Të vazhdoj?')) return;
+  sq: { mainTitle: "📚 StudyBuddy", miraTitle: "Mësuesja Mira 🤖 - Kërkim Inteligjent në Materialin Tënd", miraSub: "*Mësuese Mira është një personazh virtual, i frymëzuar nga Mira Murati - ish-CTO e OpenAI, krenaria shqiptare", uploadBtn: "📄 PREK KËTU - Ngarko PDF ose PowerPoint", askTitle: "👩‍🏫 Pyet Mësuese Mira", askSub: "Personazh virtual, i frymëzuar nga Mira Murati", bubble: "Pyetmë Çfarë të duash, jam këtu!", placeholder: "Mësuese Mira, çfarë janë antihistaminikët?", btnAsk: "Pyet Mësuese Mirën", miraNote: "ℹ️ Si punon Mësuese Mira: ajo kërkon me fjalë kyçe, sinonime dhe rrënjë fjalësh VETËM në materialin që ngarkove ti. Nuk është model AI, nuk kupton kuptimin si ChatGPT dhe nuk krijon përgjigje nga interneti. Për përgjigje më të mira, pyet me fjalë që janë në material.", btnSearch: "🔍 Kërko në material", btnPrint: "🖨️ Printo / Ruaj si PDF", privacyTitle: "📜 Politika e Privatësisë / Privacy Policy", blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →", statusReading: "⏳ Duke lexuar...", statusDone: n => `✅ ${n} pika mësimore u gjetën!`, badgeQ: "PYETJE", answer: "Përgjigja:", summary: "📄 PIKAT KRYESORE", fullMaterial: "📄 Pamje paraprake:", questionLabel: "Pyetja:", answerNum: i => `Përgjigja ${i}:`, noQuestion: "Ju lutem shkruani pyetjen!", noMaterial: "Ngarkoni materialin më parë!", searching: "⏳ Mësuese Mira po kërkon...", pomodoroTitle: "🍅 Pomodoro - Mësuese", pomodoroStatus: "Gati për të mësuar?", btnPomodoroStart: "Fillo", btnPomodoroPause: "Pauzë", btnPomodoroReset: "Reseto", btnPomodoro25: "25 min Mësim", btnPomodoro5: "5 min Pushim", btnClear: "🧹 Pastro materialin e ngarkuar", cleared: "Materiali u pastrua. Ngarko një dokument të ri.", scannedTitle: "Ky dokument duket si foto / i skanuar", scannedBody: "Nuk gjetëm tekst që mund të zgjidhet. Kjo ndodh kur PDF është foto e faqeve, jo tekst i vërtetë. Zgjidhja: përdor PDF-në origjinale (jo foto), ose një PPTX me tekst, ose përdor një aplikacion OCR për ta kthyer foton në tekst.", limitBox: "📏 <b>Max: 15 MB</b> • Max 150 faqe PDF • Max 100 slide PPTX • Max 2 milionë karaktere • Max 5000 fjali analizohen<br><span style=\"color:#666\">Nëse dokumenti ka më shumë se 5000 fjali, ndajeni në pjesë më të vogla për të analizuar pjesën tjetër.</span>", tooBig: "❌ Skedari është më i madh se 15 MB. Ndajeni në pjesë më të vogla dhe ngarkoni një pjesë.", tooManySentences: n => ` ⚠️ Dokumenti ka ${n} fjali. Analizohen vetëm 5000 të parat. Ndaje dokumentin për të analizuar pjesën tjetër.`, iosNote: "📱 Njoftimi Pomodoro: Punon kur faqja është e hapur ose e shtuar në Home Screen. Nëse e mbyll shfletuesin plotësisht, njoftimi nuk vjen në kohë - kur ta rihapësh faqen do të shohësh që koha ka mbaruar. Në iPhone, shtoje në Home Screen (Share → Add to Home Screen) për funksionim më të mirë." },
+  en: { mainTitle: "📚 StudyBuddy", miraTitle: "Teacher Mira 🤖 - Smart Search in Your Material", miraSub: "*Teacher Mira is a virtual character, inspired by Mira Murati - former CTO of OpenAI, Albanian pride", uploadBtn: "📄 TAP HERE - Upload PDF or PowerPoint", askTitle: "👩‍🏫 Ask Teacher Mira", askSub: "Virtual character, inspired by Mira Murati", bubble: "Ask me anything, I'm here!", placeholder: "Teacher Mira, what are antihistamines?", btnAsk: "Ask Teacher Mira", miraNote: "ℹ️ How Teacher Mira works: she searches with keywords, synonyms and word stems ONLY in the material you uploaded. She is not an AI model, she does not understand meaning like ChatGPT, and she does not create answers from the internet. For better answers, ask with words from the material.", btnSearch: "🔍 Search in material", btnPrint: "🖨️ Print / Save as PDF", privacyTitle: "🔒 Privacy Policy", blogTitle: "📚 BLOG - Tips for homework", statusReading: "⏳ Reading...", statusDone: n => `✅ ${n} learning points found!`, badgeQ: "QUESTION", answer: "Answer:", summary: "📄 KEY POINTS", fullMaterial: "📄 Preview:", questionLabel: "Question:", answerNum: i => `Answer ${i}:`, noQuestion: "Please write your question!", noMaterial: "Please upload material first!", searching: "⏳ Teacher Mira is searching...", pomodoroTitle: "🍅 Pomodoro - Study", pomodoroStatus: "Ready to learn?", btnPomodoroStart: "Start", btnPomodoroPause: "Pause", btnPomodoroReset: "Reset", btnPomodoro25: "25 min Study", btnPomodoro5: "5 min Break", btnClear: "🧹 Clear uploaded material", cleared: "Material cleared. Upload a new document.", scannedTitle: "This document looks like a photo / scanned", scannedBody: "We found no selectable text. This happens when the PDF is a photo of pages, not real text. Fix: use the original PDF (not a photo), or a PPTX with real text, or use an OCR app to convert the photo to text.", limitBox: "📏 <b>Max: 15 MB</b> • Max 150 PDF pages • Max 100 PPTX slides • Max 2 million characters • Max 5000 sentences analyzed<br><span style=\"color:#666\">If the document has more than 5000 sentences, split it into smaller parts to analyze the rest.</span>", tooBig: "❌ File is larger than 15 MB. Split it into smaller parts and upload one part.", tooManySentences: n => ` ⚠️ Document has ${n} sentences. Only the first 5000 are analyzed. Split the document to analyze the rest.`, iosNote: "📱 Pomodoro notification: Works when the page is open or added to Home Screen. If you close the browser completely, the notification will not arrive on time - when you reopen the page you will see the time is up. On iPhone, add to Home Screen (Share → Add to Home Screen) for best results." }
+};let currentLang = 'sq';
+function storageAvailable(){
+  try{ var t='__sb_test__'; localStorage.setItem(t,t); localStorage.removeItem(t); return true; }catch(e){ return false; }
+}
+try{
+  var path0 = window.location.pathname;
+  var isEnPath = path0.indexOf('/en/') !== -1 || path0.endsWith('/en');
+  var isSqPath = path0.endsWith('/Studybuddy/') || path0.endsWith('/Studybuddy') || path0 === '/';
+  if(isEnPath){ currentLang = 'en'; }
+  else if(isSqPath){ currentLang = 'sq'; }
+  else {
+    let saved = null;
+    try{ if(storageAvailable()) saved = localStorage.getItem('sb-lang'); }catch(e){}
+    if(saved==='en' || saved==='sq') currentLang = saved;
   }
-  currentLang = l;
-  try{ localStorage.setItem('sb-lang', l); }catch(e){}
-  document.documentElement.lang = l;
-  setEl('btn-sq', '', ''); var bSq=document.getElementById('btn-sq'); if(bSq) bSq.classList.toggle('active', l==='sq');
-  var bEn=document.getElementById('btn-en'); if(bEn) bEn.classList.toggle('active', l==='en');
-  const t = i18n[l];
-  setEl('mainTitle', t.mainTitle); setEl('miraTitle', t.miraTitle); setEl('miraSub', t.miraSub);
-  setEl('uploadBtn', t.uploadBtn); setEl('askTitle', t.askTitle); setEl('askSub', t.askSub);
-  setEl('mira-bubble', t.bubble); setEl('pyetja', t.placeholder, 'placeholder');
-  setEl('btnAsk', t.btnAsk); setEl('btnSearch', t.btnSearch); setEl('btnPrint', t.btnPrint);
-  setEl('blogTitle', t.blogTitle); setEl('privacyTitle', t.privacyTitle);
-  setEl('pomodoroTitle', t.pomodoroTitle); setEl('pomodoroStatus', t.pomodoroStatus);
-  setEl('btnPomodoroStart', t.btnPomodoroStart); setEl('btnPomodoroPause', t.btnPomodoroPause);
-  setEl('btnPomodoroReset', t.btnPomodoroReset); setEl('btnPomodoro25', t.btnPomodoro25); setEl('btnPomodoro5', t.btnPomodoro5);
-  setEl('btnClear', t.btnClear); setEl('iosNote', t.iosNote);
-  var ps=document.getElementById('privacy-sq'); if(ps) ps.style.display = l==='sq' ? 'block' : 'none';
-  var pe=document.getElementById('privacy-en'); if(pe) pe.style.display = l==='en' ? 'block' : 'none';
-  if(typeof fjalite !== 'undefined' && fjalite.length>0) shfaq(fjalite);
-  tregoMesazhMira('pyetje');
-}
-const mesazheMira = {
-  sq: { hapPDF: ["Bravo! Le të mësojmë bashkë këtë! 🚀", "Uau, ky material qenka thesar! 📚"], vonese: ["Një sekondë, po i lexoj fjalët për ty… ☕", "Durim, po bëhet magjia... ✨"], pyetje: ["Pyetmë Çfarë të duash, jam këtu! 🤗", "E gjete! Je super e zgjuar! 🌟"] },
-  en: { hapPDF: ["Great! Let's learn this together! 🚀", "Wow, this material is a treasure! 📚"], vonese: ["One second, I'm reading the words for you... ☕", "Patience, magic is happening... ✨"], pyetje: ["Ask me anything, I'm here! 🤗", "You found it! You're super smart! 🌟"] }
+}catch(e){}
+function setEl(id, val, isText){ var el=document.getElementById(id); if(!el) return; if(isText==='placeholder'){ el.placeholder=val; } else if(isText==='html'){ el.innerHTML=val; } else { el.innerText=val; } }
+function updateSEO(l){ try{ var metaDesc=document.querySelector('meta[name="description"]'); if(metaDesc) metaDesc.content = l==='en' ? 'StudyBuddy – Teacher Mira | Smart search in your material. Upload PDF or PowerPoint, search in your material, learn faster with Pomodoro. Free bilingual Albanian-English study assistant.' : 'StudyBuddy – Mësuese Mira | Kërkim inteligjent në materialin tënd. Ngarko PDF ose PowerPoint, kërko në materialin tënd, mëso më shpejt me Pomodoro. Asistent falas dygjuhësh shqip-anglisht.'; document.title = l==='en' ? 'StudyBuddy – Teacher Mira | Smart Study Assistant' : 'StudyBuddy – Mësuese Mira | Asistent Inteligjent Studimi'; }catch(e){} }
+window.getPomodoroStatusText = function(lang){
+  var L = lang || currentLang || 'sq';
+  var isEn = L === 'en';
+  if(typeof isRunning !== 'undefined' && isRunning){
+    if(typeof pomodoroMode !== 'undefined' && pomodoroMode === 'break'){ return isEn ? 'Break...' : 'Pushim...'; }
+    else { return isEn ? 'Studying...' : 'Duke mësuar...'; }
+  }
+  if(typeof pomodoroPaused !== 'undefined' && pomodoroPaused){
+    if(typeof pomodoroMode !== 'undefined' && pomodoroMode === 'break'){ return isEn ? 'Break paused - press Start to continue' : 'Pushimi u ndal - shtyp Fillo për të vazhduar'; }
+    else { return isEn ? 'Study paused - press Start to continue' : 'Mësimi u ndal - shtyp Fillo për të vazhduar'; }
+  }
+  return isEn ? 'Ready to learn?' : 'Gati për të mësuar?';
 };
-function tregoMesazhMira(tipi) {
-  const bubble = document.getElementById('mira-bubble');
-  if (!bubble) return;
-  const lista = mesazheMira[currentLang][tipi];
-  bubble.innerText = lista[Math.floor(Math.random() * lista.length)];
-}
+window.setLang = function(l){
+  currentLang = l;
+  try{ if(storageAvailable()) localStorage.setItem('sb-lang', l); }catch(e){}
+  try{
+    var path = window.location.pathname;
+    var isEnPage = path.indexOf('/en/') !== -1 || path.endsWith('/en');
+    var kaDokument = (typeof fjalite !== 'undefined' && fjalite.length > 0);
+    if(l==='en' && !isEnPage){
+      if(kaDokument){ if(!confirm('Ke një dokument të ngarkuar. Nëse ndërron gjuhën, dokumenti do të humbasë. Të vazhdoj?')) return; }
+      window.location.href = '/Studybuddy/en/'; return;
+    }
+    if(l==='sq' && isEnPage){
+      if(kaDokument){ if(!confirm('You have a document loaded. If you switch language, the document will be lost. Continue?')) return; }
+      window.location.href = '/Studybuddy/'; return;
+    }
+  }catch(e){}
+  document.documentElement.lang = l; var bSq=document.getElementById('btn-sq'); if(bSq) bSq.classList.toggle('active', l==='sq'); var bEn=document.getElementById('btn-en'); if(bEn) bEn.classList.toggle('active', l==='en'); const t = i18n[l]; setEl('mainTitle', t.mainTitle); setEl('miraTitle', t.miraTitle); setEl('miraSub', t.miraSub); setEl('uploadBtn', t.uploadBtn); setEl('askTitle', t.askTitle); setEl('askSub', t.askSub); setEl('mira-bubble', t.bubble); setEl('pyetja', t.placeholder, 'placeholder'); setEl('btnAsk', t.btnAsk); setEl('miraNote', t.miraNote); setEl('btnSearch', t.btnSearch); setEl('btnPrint', t.btnPrint); setEl('blogTitle', t.blogTitle); setEl('privacyTitle', t.privacyTitle);
+  if(document.getElementById('pomodoroTitle')){
+    setEl('pomodoroTitle', t.pomodoroTitle); setEl('pomodoroStatus', window.getPomodoroStatusText(l)); setEl('btnPomodoroStart', t.btnPomodoroStart); setEl('btnPomodoroPause', t.btnPomodoroPause); setEl('btnPomodoroReset', t.btnPomodoroReset); setEl('btnPomodoro25', t.btnPomodoro25); setEl('btnPomodoro5', t.btnPomodoro5);
+  }
+  setEl('btnClear', t.btnClear); setEl('limitBox', t.limitBox, 'html'); setEl('iosNote', t.iosNote); var ps=document.getElementById('privacy-sq'); if(ps) ps.style.display = l==='sq' ? 'block' : 'none'; var pe=document.getElementById('privacy-en'); if(pe) pe.style.display = l==='en' ? 'block' : 'none'; updateSEO(l); if(typeof fjalite!=='undefined' && fjalite.length>0) shfaq(fjalite); tregoMesazhMira('pyetje'); }
+const mesazheMira = { sq: { hapPDF: ["Bravo! Le të mësojmë bashkë këtë! 🚀", "Uau, ky material qenka thesar! 📚"], vonese: ["Një sekondë, po i lexoj fjalët për ty… ☕", "Durim, po bëhet magjia... ✨"], pyetje: ["Pyetmë Çfarë të duash, jam këtu! 🤗", "E gjete! Je super e zgjuar! 🌟"] }, en: { hapPDF: ["Great! Let's learn this together! 🚀", "Wow, this material is a treasure! 📚"], vonese: ["One second, I'm reading the words for you... ☕", "Patience, magic is happening... ✨"], pyetje: ["Ask me anything, I'm here! 🤗", "You found it! You're super smart! 🌟"] } };
+function tregoMesazhMira(tipi) { const bubble = document.getElementById('mira-bubble'); if (!bubble) return; const lista = mesazheMira[currentLang][tipi]; bubble.innerText = lista[Math.floor(Math.random() * lista.length)]; }
 function rregullojeShqip(teksti) {
   if(!teksti) return "";
   let t = teksti.normalize('NFC')
-    .replace(/Ãë/g,'ë').replace(/Ãç/g,'ç').replace(/ÃË/g,'Ë').replace(/ÃÇ/g,'Ç')
+    .replace(/Ã«/g,'ë').replace(/Ã§/g,'ç').replace(/Ã‹/g,'Ë').replace(/Ã‡/g,'Ç')
+    .replace(/Ã©/g,'é').replace(/Ã¨/g,'è').replace(/Ã¡/g,'á').replace(/Ã /g,'à')
+    .replace(/Ã¶/g,'ö').replace(/Ã¼/g,'ü').replace(/ÃŸ/g,'ß').replace(/Ã±/g,'ñ')
+    .replace(/â€™/g,"'").replace(/â€œ/g,'"').replace(/â€\u009d/g,'"').replace(/â€“/g,'-').replace(/â€”/g,'-').replace(/â€¦/g,'...')
+    .replace(/Ã‚â€™/g,"'").replace(/Ã‚â€œ/g,'"').replace(/Ã‚â€\u009d/g,'"').replace(/Ã‚â€“/g,'-').replace(/Ã‚â€”/g,'-')
+    .replace(/Â€/g,'€').replace(/Â£/g,'£').replace(/Â©/g,'©').replace(/Â®/g,'®')
+    .replace(/Â\s/g,' ').replace(/Â$/g,'')
     .replace(/ë̈/g,'ë').replace(/ç̧/g,'ç')
-    .replace(/pë\s+r/gi,'për').replace(/ështënjë/gi,'është një')
-    .replace(/Depresionipërjetohet/gi,'Depresioni përjetohet').replace(/njësër/gi,'një sërë')
-    .replace(/ulëaftë/gi,'ulë aftësinë').replace(/personipër/gi,'personi për')
-    .replace(/pengesëpër/gi,'pengesë për').replace(/dukepërfshirë/gi,'duke përfshirë')
-    .replace(/abuzimitose/gi,'abuzimit ose').replace(/prindinga/gi,'prindërit nga')
-    .replace(/soci\s*alë/gi,'socialë')
-    .replace(/\bDepresioni\s+Depresioni\b/gi,'Depresioni')
-    .replace(/,\s*(?=[^\s])/g,', ').replace(/\s+/g,' ').trim();
+    .replace(/pë\s+r/gi,'për').replace(/ështënjë/gi,'është një').replace(/Depresionipërjetohet/gi,'Depresioni përjetohet').replace(/njësër/gi,'një sërë').replace(/ulëaftë/gi,'ulë aftësinë').replace(/personipër/gi,'personi për').replace(/pengesëpër/gi,'pengesë për').replace(/dukepërfshirë/gi,'duke përfshirë').replace(/abuzimitose/gi,'abuzimit ose').replace(/prindinga/gi,'prindërit nga').replace(/soci\s*alë/gi,'socialë')
+    .replace(/mësuesipër/gi,'mësuesi për').replace(/nxënësipër/gi,'nxënësi për').replace(/shëndetësipër/gi,'shëndetësi për').replace(/studimipër/gi,'studimi për').replace(/libripër/gi,'libri për').replace(/sëmundjapër/gi,'sëmundja për').replace(/simptomapër/gi,'simptoma për').replace(/trajtimipër/gi,'trajtimi për')
+    .replace(/\bDepresioni\s+Depresioni\b/gi,'Depresioni').replace(/,\s*(?=[^\s])/g,', ').replace(/\s+/g,' ').trim();
   return t;
 }
 function escapeHTML(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function decodeXML(s){ if(!s) return ""; return String(s).replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&#39;/g,"'").replace(/&#x27;/g,"'").replace(/&#x2F;/g,'/').replace(/&#(\d+);/g,(m,n)=>{ try{return String.fromCodePoint(parseInt(n,10))}catch(e){return m} }).replace(/&#x([0-9a-fA-F]+);/g,(m,n)=>{ try{return String.fromCodePoint(parseInt(n,16))}catch(e){return m} }).replace(/&amp;/g,'&'); }
 if(window.pdfjsLib){ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; }
 let fjalite=[]; let tekstiPlote="";
-// FIX: pastrimi i plotë - pastron edhe uploadStatus
+function updateProgress(current, total, label){
+  var wrap=document.getElementById('progressBarWrap'); var bar=document.getElementById('progressBar'); var txt=document.getElementById('progressText');
+  if(!wrap||!bar||!txt) return;
+  if(total<=0){ wrap.style.display='none'; txt.innerText=''; return; }
+  wrap.style.display='block';
+  var pct=Math.round((current/total)*100);
+  bar.style.width=pct+'%';
+  txt.innerText = (label||'') + ' ' + current + ' / ' + total + ' ('+pct+'%)';
+  if(current>=total){ setTimeout(()=>{ wrap.style.display='none'; txt.innerText=''; }, 1500); }
+}
+function rrenjaFjales(x){
+  if(!x) return "";
+  let w = x.toLowerCase();
+  const suf = ['ave','eve','ove','imit','imin','ive','ivit','ionit','ionin','ioni','imi','imin','imi','ësve','eve','ve','it','in','ët','të','t','i','a','e','u','s','es','ing','edly','ed','ly','tion','sion','ness','ment'];
+  for(let r=0;r<3;r++){
+    for(let s of suf){
+      if(w.length > 5 && w.endsWith(s)){ w = w.slice(0, -s.length); break; }
+    }
+  }
+  return w;
+}
+function distancaLevenshtein(a,b){
+  if(a===b) return 0;
+  if(!a.length) return b.length;
+  if(!b.length) return a.length;
+  let prev = Array.from({length:b.length+1}, (_,i)=>i);
+  for(let i=1;i<=a.length;i++){
+    let cur=[i];
+    for(let j=1;j<=b.length;j++){
+      let cost = a[i-1]===b[j-1] ? 0 : 1;
+      cur[j]=Math.min(prev[j]+1, cur[j-1]+1, prev[j-1]+cost);
+    }
+    prev=cur;
+  }
+  return prev[b.length];
+}
+function janeTeNgjashme(a,b){
+  if(!a||!b) return false;
+  if(a===b) return true;
+  if(a.length<5 || b.length<5) return false;
+  if(Math.abs(a.length-b.length)>2) return false;
+  return distancaLevenshtein(a,b) <= 1 || (a.length>=7 && distancaLevenshtein(a,b) <= 2);
+}
+const GRUPE_SINONIME = [
+  ['depresion','depresioni','depresiv','trishtim','mërzitje','melankoli','depression','depressive','sadness'],
+  ['ankth','ankthi','stres','stresi','frikë','frika','tension','anxiety','stress','fear','worry'],
+  ['zemër','zemra','kardiak','kardiovaskular','heart','cardiac','cardiovascular'],
+  ['ilaç','ilaçi','medikament','medikamenti','bar','barnat','trajtim','terapi','kurë','medicine','drug','medication','treatment','therapy','cure'],
+  ['dhimbje','dhimbja','dhembje','pain','ache','sore'],
+  ['sëmundje','sëmundja','sëmundjet','sëmurë','illness','disease','sick','disorder'],
+  ['simptomë','simptomat','simptoma','shenjë','shenja','manifestim','symptom','sign','manifestation'],
+  ['shkak','shkaku','shkaktar','arsye','cause','reason','trigger'],
+  ['pasojë','pasojat','efekt','efekti','rezultat','consequence','effect','result','outcome'],
+  ['parandalim','parandalimi','mbrojtje','prevention','protection','prevent'],
+  ['diagnozë','diagnoza','diagnostikim','diagnosis','diagnose'],
+  ['pacient','pacienti','pacientët','i sëmurë','bolnav','patient'],
+  ['mjek','mjeku','doktor','doktori','doctor','physician'],
+  ['trup','trupi','organizëm','organizmi','body','organism'],
+  ['tru','truri','mendje','mendja','brain','mind'],
+  ['gjak','gjaku','blood'],
+  ['ushqim','ushqimi','dietë','dieta','ushqyerje','food','diet','nutrition'],
+  ['gjumë','gjumi','sleep','insomnia','pagjumësi'],
+  ['mësim','mësimi','studim','studimi','shkollë','shkolla','learn','learning','study','school'],
+  ['libër','libri','tekst','teksti','material','materiali','book','text','material'],
+  ['pyetje','pyetja','question','ask'],
+  ['përgjigje','përgjigja','answer','response'],
+  ['përkufizim','përkufizimi','definicion','definition','kuptim','kuptimi','meaning','what is']
+];
+const HARTA_SINONIME = {};
+GRUPE_SINONIME.forEach(grup=>{
+  grup.forEach(w=>{ HARTA_SINONIME[w] = grup; HARTA_SINONIME[rrenjaFjales(w)] = grup; });
+});
+function zgjeroPyetjen(qWords){
+  let set = new Set(qWords);
+  qWords.forEach(w=>{ let grup = HARTA_SINONIME[w] || HARTA_SINONIME[rrenjaFjales(w)]; if(grup) grup.forEach(g=> set.add(g)); });
+  return [...set];
+}function bejPermbledhje(lista){
+  if(!lista.length) return "";
+  const stop = new Set(['dhe','ose','një','nje','është','eshte','për','per','me','ne','të','te','nga','në','si','kur','ku','që','qe','ky','kjo','keta','këta','ato','ai','ajo','ata','jam','je','the','and','or','a','an','is','are','was','were','in','on','at','to','of','for','with','that','this','it','as','by','edhe','por','nëse','nese','sepse','mirëpo','pra','vetëm','vetem','gjithashtu','shumë','shume']);
+  function fjalet(s){ return s.toLowerCase().replace(/[^a-zëç0-9\s]/gi,' ').split(/\s+/).filter(w=>w.length>3 && !stop.has(w)); }
+  const docFreq = {};
+  let fjaletPerFjali = lista.map(s=>{ let w = [...new Set(fjalet(s).map(rrenjaFjales))]; w.forEach(x=> docFreq[x]=(docFreq[x]||0)+1); return new Set(w); });
+  const N = lista.length;
+  let scored = lista.map((s,idx)=>{
+    let words = fjaletPerFjali[idx];
+    let score = 0;
+    words.forEach(w=>{ score += Math.log(1 + N / (docFreq[w]||1)); });
+    score = score / Math.sqrt(Math.max(1, words.size));
+    if(/^(depresioni|ankthi|sëmundja|është|eshte|përkufizimi|definicioni|kuptimi|the|this|what is|definition)/i.test(s.trim())) score += 0.8;
+    if(idx===0) score += 0.4;
+    if(idx===N-1) score += 0.2;
+    let len = s.split(/\s+/).length;
+    if(len<8 || len>40) score -= 2;
+    if(/^(shih|shiko|figura|tabela|grafiku|burimi|see|figure|table|source)/i.test(s.trim())) score -= 3;
+    return {s, score, idx, words};
+  });
+  let picked = [];
+  let numZona = 10;
+  let madhesiZone = Math.ceil(N / numZona);
+  for(let z=0; z<numZona && picked.length<7; z++){
+    let start = z*madhesiZone, end = Math.min(N, (z+1)*madhesiZone);
+    let kandidate = scored.slice(start, end).sort((a,b)=>b.score-a.score);
+    for(let cand of kandidate){
+      if(picked.length>=7) break;
+      let tooSimilar = picked.some(p=>{ let inter = [...cand.words].filter(w=>p.words.has(w)).length; let union = new Set([...cand.words, ...p.words]).size; return union>0 && (inter/union) > 0.35; });
+      if(!tooSimilar){ picked.push(cand); break; }
+    }
+  }
+  if(picked.length<7){
+    let mbetura = scored.sort((a,b)=>b.score-a.score);
+    for(let cand of mbetura){
+      if(picked.length>=7) break;
+      if(picked.some(p=>p.idx===cand.idx)) continue;
+      let tooSimilar = picked.some(p=>{ let inter = [...cand.words].filter(w=>p.words.has(w)).length; let union = new Set([...cand.words, ...p.words]).size; return union>0 && (inter/union) > 0.35; });
+      if(!tooSimilar) picked.push(cand);
+    }
+  }
+  picked.sort((a,b)=>a.idx-b.idx);
+  return "• " + picked.map(x=>escapeHTML(x.s)).join("<br><br>• ");
+}
+function checkLibs(isPdf){
+  if(isPdf && !window.pdfjsLib){ return 'PDF_LIB_MISSING'; }
+  if(!isPdf && !window.JSZip){ return 'ZIP_LIB_MISSING'; }
+  return null;
+}
+function gabimIMadh(msg){ let e = new Error(msg); e.code = 'TOO_LARGE'; return e; }
+function normalizoRrugenSlide(target){
+  if(!target) return null;
+  let t = target.trim();
+  t = t.replace(/\\/g,'/');
+  while(t.startsWith('../')) t = t.slice(3);
+  if(t.startsWith('/')) t = t.slice(1);
+  if(t === 'slides/slide1.xml' || t.startsWith('slides/slide')) t = 'ppt/' + t;
+  if(t.startsWith('ppt/slides/slide')) return t;
+  if(/^slide\d+\.xml$/.test(t)) return 'ppt/slides/' + t;
+  if(t.includes('slides/slide')) { let idx = t.indexOf('slides/slide'); return 'ppt/' + t.slice(idx); }
+  return null;
+}
+function nxirrTekstNgaSlideXML(xml){
+  let out = "";
+  try{
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xml, 'application/xml');
+    if(!xmlDoc.querySelector('parsererror')){
+      const all = xmlDoc.getElementsByTagName('*');
+      for(let i=0;i<all.length;i++){
+        const el = all[i];
+        const local = el.localName || (el.tagName||'').split(':').pop();
+        if(local === 't'){ out += rregullojeShqip(el.textContent) + " "; }
+        else if(local === 'br' || local === 'tab'){ out += " "; }
+        else if(local === 'p'){ out += "\n"; }
+      }
+      if(out.trim()) return out;
+    }
+  }catch(e){}
+  try{
+    const matches = xml.match(/<[^>]*:t[^>]*>([^<]*)<\/[^>]*:t\s*>/g) || xml.match(/<t[^>]*>([^<]*)<\/t>/g);
+    if(matches){ matches.forEach(m=>{ let txt = m.replace(/<[^>]+>/g,""); txt = decodeXML(txt); out += rregullojeShqip(txt) + " "; }); }
+  }catch(e){}
+  return out;
+}
+async function merrRendinRealTeSlajdeve(zip){
+  try{
+    let relsPaths = ['ppt/_rels/presentation.xml.rels','ppt/presentation.xml.rels'];
+    let presXml = null;
+    try{ presXml = await zip.files['ppt/presentation.xml'].async("string"); }catch(e){ return null; }
+    if(!presXml) return null;
+    let presDoc = new DOMParser().parseFromString(presXml, 'application/xml');
+    if(presDoc.querySelector('parsererror')) return null;
+    let ids = [];
+    let allPres = presDoc.getElementsByTagName('*');
+    for(let i=0;i<allPres.length;i++){ let local = allPres[i].localName || (allPres[i].tagName||'').split(':').pop(); if(local === 'sldId'){ let rid = allPres[i].getAttribute('r:id') || allPres[i].getAttribute('id'); if(rid) ids.push(rid); } }
+    if(!ids.length) return null;
+    let relsXml = null;
+    for(let p of relsPaths){ if(zip.files[p]){ try{ relsXml = await zip.files[p].async("string"); break; }catch(e){} } }
+    if(!relsXml) return null;
+    let relsDoc = new DOMParser().parseFromString(relsXml, 'application/xml');
+    if(relsDoc.querySelector('parsererror')) return null;
+    let harta = {};
+    let allRels = relsDoc.getElementsByTagName('*');
+    for(let i=0;i<allRels.length;i++){ let local = allRels[i].localName || (allRels[i].tagName||'').split(':').pop(); if(local === 'Relationship'){ let id = allRels[i].getAttribute('Id'); let target = allRels[i].getAttribute('Target'); if(id && target) harta[id] = target; } }
+    let rendi = ids.map(id=> normalizoRrugenSlide(harta[id])).filter(Boolean);
+    if(rendi.length>0) return rendi;
+    return null;
+  }catch(e){ return null; }
+}
+async function merrTekstinENotes(zip, slideFiles){
+  try{
+    let notesFiles = Object.keys(zip.files).filter(n=>/^ppt\/notesSlides\/notesSlide\d+\.xml$/.test(n));
+    if(!notesFiles.length) return "";
+    notesFiles.sort((a,b)=>{ const na = parseInt((a.match(/notesSlide(\d+)\.xml/)||[0,0])[1]||0); const nb = parseInt((b.match(/notesSlide(\d+)\.xml/)||[0,0])[1]||0); return na-nb; });
+    let out = "";
+    for(let nf of notesFiles){
+      try{
+        const xml = await zip.files[nf].async("string");
+        if(xml.length > 2*1024*1024) continue;
+        let txt = nxirrTekstNgaSlideXML(xml);
+        if(txt.trim()) out += "\n" + txt + "\n";
+        if(out.length > 500000) break;
+      }catch(e){ continue; }
+    }
+    return out;
+  }catch(e){ return ""; }
+}
 window.pastroMaterialin = function(){
   fjalite=[]; tekstiPlote="";
   var rEl=document.getElementById('r'); if(rEl) rEl.innerHTML='';
@@ -177,124 +469,321 @@ window.pastroMaterialin = function(){
   var py=document.getElementById('pyetja'); if(py) py.value='';
   var box=document.getElementById('pergjigjaIA'); if(box){ box.style.display='none'; box.innerHTML=''; }
   var f=document.getElementById('file'); if(f) f.value='';
+  var wrap=document.getElementById('progressBarWrap'); if(wrap) wrap.style.display='none';
+  var pt=document.getElementById('progressText'); if(pt) pt.innerText='';
   var up=document.getElementById('uploadStatus');
   if(up){ up.style.color='#333'; up.innerText = i18n[currentLang].cleared; }
   tregoMesazhMira('pyetje');
 };
-window.ngarko = async function(input){
+function kontrolloZIPParaHapjes(buf){
+  let view = new DataView(buf);
+  let len = buf.byteLength;
+  if(len < 22) throw new Error(currentLang==='en' ? 'This PowerPoint file is too small or corrupted.' : 'Ky skedar PowerPoint është shumë i vogël ose i dëmtuar.');
+  let eocd = -1;
+  let startSearch = Math.max(0, len - 22 - 65536);
+  for(let i = len - 22; i >= startSearch; i--){
+    if(view.getUint32(i, true) === 0x06054b50){ eocd = i; break; }
+  }
+  if(eocd === -1) throw new Error(currentLang==='en' ? 'This PowerPoint is not a valid ZIP archive.' : 'Ky PowerPoint nuk është arkiv ZIP i vlefshëm.');
+  let totalEntries = view.getUint16(eocd + 10, true);
+  let cdOffset = view.getUint32(eocd + 16, true);
+  if(totalEntries > 500){
+    throw new Error(currentLang==='en' ? 'This PowerPoint has too many files (max 500).' : 'Ky PowerPoint ka shumë skedarë (max 500).');
+  }
+  let totalDecompressed = 0;
+  let totalCompressed = 0;
+  let offset = cdOffset;
+  for(let i = 0; i < totalEntries; i++){
+    if(offset + 46 > len) break;
+    if(view.getUint32(offset, true) !== 0x02014b50) break;
+    let compressedSize = view.getUint32(offset + 20, true);
+    let uncompressedSize = view.getUint32(offset + 24, true);
+    let fileNameLen = view.getUint16(offset + 28, true);
+    let extraLen = view.getUint16(offset + 30, true);
+    let commentLen = view.getUint16(offset + 32, true);
+    if(uncompressedSize === 0xFFFFFFFF || compressedSize === 0xFFFFFFFF){
+      throw new Error(currentLang==='en' ? 'This PowerPoint uses ZIP64 and cannot be checked safely.' : 'Ky PowerPoint përdor ZIP64 dhe nuk mund të kontrollohet në mënyrë të sigurt.');
+    }
+    totalDecompressed += uncompressedSize;
+    totalCompressed += compressedSize;
+    if(uncompressedSize > 30*1024*1024){
+      throw new Error(currentLang==='en' ? 'One file inside this PowerPoint is too large (max 30MB).' : 'Një skedar brenda këtij PowerPoint është shumë i madh (max 30MB).');
+    }
+    if(compressedSize > 0 && uncompressedSize / compressedSize > 100){
+      throw new Error(currentLang==='en' ? 'This PowerPoint has a suspicious compression ratio and was blocked for safety.' : 'Ky PowerPoint ka raport kompresimi të dyshimtë dhe u bllokua për siguri.');
+    }
+    if(totalDecompressed > 50*1024*1024){
+      throw new Error(currentLang==='en' ? 'This PowerPoint expands to too much data (max 50MB uncompressed). Please use a smaller file.' : 'Ky PowerPoint hapet në shumë të dhëna (max 50MB pas hapjes). Ju lutem përdorni një skedar më të vogël.');
+    }
+    offset += 46 + fileNameLen + extraLen + commentLen;
+  }
+  if(totalCompressed > 0 && totalDecompressed / totalCompressed > 50){
+    throw new Error(currentLang==='en' ? 'This PowerPoint has a suspicious total compression ratio and was blocked.' : 'Ky PowerPoint ka raport total kompresimi të dyshimtë dhe u bllokua.');
+  }
+}window.ngarko = async function(input){
  let f=input.files[0]; if(!f) return;
+ let backupFjalite = [...fjalite];
+ let backupTeksti = tekstiPlote;
+ let backupR = document.getElementById('r').innerHTML;
+ let backupPdf = document.getElementById('pdfFull').innerHTML;
  try{
+ if(f.size > 15*1024*1024){
+   document.getElementById('uploadStatus').style.color='red';
+   document.getElementById('uploadStatus').innerText = i18n[currentLang].tooBig + (currentLang==='en' ? ' Your file is ' + (f.size/1024/1024).toFixed(1) + ' MB.' : ' Skedari yt është ' + (f.size/1024/1024).toFixed(1) + ' MB.');
+   input.value=''; return;
+ }
+ var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+ if(isMobile && f.size > 8*1024*1024){
+   var vazhdo = confirm(currentLang==='en' ? 'This file is ' + (f.size/1024/1024).toFixed(1) + ' MB. On a phone this may be slow or freeze. Continue anyway?' : 'Ky skedar është ' + (f.size/1024/1024).toFixed(1) + ' MB. Në telefon mund të jetë i ngadaltë ose të ngrijë. Të vazhdoj?');
+   if(!vazhdo){ input.value=''; return; }
+ }
+ document.getElementById('uploadStatus').style.color='green';
  tregoMesazhMira('hapPDF');
  document.getElementById('uploadStatus').innerText = i18n[currentLang].statusReading;
  tregoMesazhMira('vonese');
+ updateProgress(0, 100, currentLang==='en' ? 'Reading...' : 'Duke lexuar...');
+ let buf = await f.arrayBuffer();
+ let header = new Uint8Array(buf.slice(0, 8));
+ let headerStr = String.fromCharCode.apply(null, header);
+ let isPDF = headerStr.indexOf('%PDF')===0;
+ let isZIP = header[0]===0x50 && header[1]===0x4B;
+ let ext = f.name.toLowerCase();
+ if(ext.endsWith('.pdf') && !isPDF){ throw new Error(currentLang==='en' ? 'This file is named .pdf but is not a real PDF.' : 'Ky skedar quhet .pdf por nuk është PDF i vërtetë.'); }
+ if(ext.endsWith('.pptx') && !isZIP){ throw new Error(currentLang==='en' ? 'This file is named .pptx but is not a real PowerPoint.' : 'Ky skedar quhet .pptx por nuk është PowerPoint i vërtetë.'); }
+ if(!ext.endsWith('.pdf') && !ext.endsWith('.pptx')){ throw new Error(currentLang==='en' ? 'Only PDF or PPTX allowed.' : 'Vetëm PDF ose PPTX lejohen.'); }
+ let libErr = checkLibs(isPDF || ext.endsWith('.pdf'));
+ if(libErr==='PDF_LIB_MISSING'){ throw new Error(currentLang==='en' ? 'PDF library (pdf.js) did not load. Check internet and refresh the page.' : 'Biblioteka PDF (pdf.js) nuk u ngarkua. Kontrollo internetin dhe rifresko faqen.'); }
+ if(libErr==='ZIP_LIB_MISSING'){ throw new Error(currentLang==='en' ? 'PowerPoint library (JSZip) did not load. Check internet and refresh the page.' : 'Biblioteka PowerPoint (JSZip) nuk u ngarkua. Kontrollo internetin dhe rifresko faqen.'); }
  let t="";
- if(f.name.toLowerCase().endsWith(".pdf")){
-   let buf=await f.arrayBuffer();
-   let pdf=await pdfjsLib.getDocument({data: buf}).promise;
+ let faqeTeDeshtuara = 0;
+ let faqeTeDeshtuaraLista = [];
+ let slidesTeDeshtuara = 0;
+ let slidesTeDeshtuaraLista = [];
+ if(isPDF || ext.endsWith(".pdf")){
+   let pdf;
+   try{ pdf = await pdfjsLib.getDocument({data: buf}).promise; }catch(e){ throw new Error(currentLang==='en' ? 'This PDF file is damaged or cannot be opened. Try downloading it again or use another PDF.' : 'Ky skedar PDF është i dëmtuar ose nuk hapet. Provo ta shkarkosh prapë ose përdor një PDF tjetër.'); }
+   if(pdf.numPages > 150){ throw new Error(currentLang==='en' ? 'This PDF has too many pages (max 150). Please split it into smaller parts.' : 'Ky PDF ka shumë faqe (max 150). Ju lutem ndajeni në pjesë më të vogla.'); }
    for(let i=1;i<=pdf.numPages;i++){
-     let p=await pdf.getPage(i);
-     let c=await p.getTextContent();
-     // FIX PDF: grupim sipas Y, jo gjithmonë me hapësirë
-     let items=(c.items||[]).slice();
-     items.sort((a,b)=>{
-       let ya=a.transform?a.transform[5]:0, yb=b.transform?b.transform[5]:0;
-       let xa=a.transform?a.transform[4]:0, xb=b.transform?b.transform[4]:0;
-       let dy=Math.round(yb/8)-Math.round(ya/8);
-       if(dy!==0) return dy; return xa-xb;
-     });
-     let pageText=""; let lastY=null;
-     items.forEach(it=>{
-       if(!it.str) return;
-       let y=it.transform?Math.round(it.transform[5]/8):0;
-       if(lastY!==null && y!==lastY){ pageText=pageText.replace(/[ ]+$/,'')+"\n"; }
-       else if(pageText.length>0 && !pageText.endsWith(' ') && !pageText.endsWith('\n')){ pageText+=" "; }
-       pageText+=it.str; lastY=y;
-     });
-     t+= rregullojeShqip(pageText) + "\n\n";
+     try{
+       let p=await pdf.getPage(i); let c=await p.getTextContent();
+       let items = (c.items||[]).slice();
+       items.sort((a,b)=>{
+         let ya = a.transform ? a.transform[5] : 0;
+         let yb = b.transform ? b.transform[5] : 0;
+         let xa = a.transform ? a.transform[4] : 0;
+         let xb = b.transform ? b.transform[4] : 0;
+         let dy = Math.round(yb/8) - Math.round(ya/8);
+         if(dy!==0) return dy;
+         return xa - xb;
+       });
+       let pageText = "";
+       let lastY = null;
+       items.forEach(it=>{
+         if(!it.str) return;
+         let y = it.transform ? Math.round(it.transform[5]/8) : 0;
+         if(lastY!==null && y!==lastY){
+           pageText = pageText.replace(/[ ]+$/,'') + "\n";
+         } else if(pageText.length > 0 && !pageText.endsWith(' ') && !pageText.endsWith('\n')){
+           pageText += " ";
+         }
+         pageText += it.str;
+         lastY = y;
+       });
+       t+= rregullojeShqip(pageText) + "\n\n";
+       if(t.length > 2000000){ throw gabimIMadh(currentLang==='en' ? 'This PDF contains too much text (max 2 million characters).' : 'Ky PDF përmban shumë tekst (max 2 milionë karaktere).'); }
+     }catch(e){
+       if(e.code==='TOO_LARGE' || (e.message && (e.message.includes('2 million') || e.message.includes('2 milion')))) throw e;
+       faqeTeDeshtuara++; faqeTeDeshtuaraLista.push(i); t += "\n[faqja " + i + " nuk u lexua]\n"; continue;
+     }
+     updateProgress(i, pdf.numPages, currentLang==='en' ? '⏳ Reading page' : '⏳ Duke lexuar faqen');
+     document.getElementById('uploadStatus').innerText = (currentLang==='en' ? '⏳ Reading page ' : '⏳ Duke lexuar faqen ') + i + ' / ' + pdf.numPages + '...';
+     await new Promise(r=>setTimeout(r,0));
    }
- } else if(f.name.toLowerCase().endsWith(".pptx")){
-   const zip = await JSZip.loadAsync(f);
-   const slideFiles = Object.keys(zip.files).filter(n=>n.startsWith("ppt/slides/slide")).sort();
-   for(let name of slideFiles){
-     const xml = await zip.files[name].async("string");
-     const matches = xml.match(/<a:t>(.*?)<\/a:t>/g);
-     if(matches){ matches.forEach(m=>{ let txt = m.replace(/<.*?>/g,""); t+= rregullojeShqip(txt) + " "; }); t+="\n\n"; }
+ } else if(isZIP || ext.endsWith(".pptx")){
+   kontrolloZIPParaHapjes(buf);
+   let zip;
+   try{ zip = await JSZip.loadAsync(buf); }catch(e){ throw new Error(currentLang==='en' ? 'This PowerPoint file is corrupted or incomplete. Try downloading it again or saving it again from PowerPoint.' : 'Ky skedar PowerPoint është i korruptuar ose i paplotë. Provo ta shkarkosh prapë ose ta ruash prapë nga PowerPoint.'); }
+   let teRrezikshme = Object.keys(zip.files).filter(n=>{
+     if(n.endsWith('/')) return false;
+     let low = n.toLowerCase();
+     return low.endsWith('.exe') || low.endsWith('.dll') || low.endsWith('.bat') ||
+            low.endsWith('.cmd') || low.endsWith('.com') || low.endsWith('.scr') ||
+            low.endsWith('.js') || low.endsWith('.vbs') || low.endsWith('.ps1') ||
+            low.endsWith('.jar') || low.endsWith('.apk') || low.endsWith('.msi') ||
+            low.includes('vbaproject.bin');
+   });
+   if(teRrezikshme.length>0){ throw new Error(currentLang==='en' ? 'This PowerPoint contains macros or executable files and was blocked for safety.' : 'Ky PowerPoint përmban makro ose skedarë ekzekutues dhe u bllokua për siguri.'); }
+   let emraTeKeinj = Object.keys(zip.files).filter(n=>{ return n.includes('..') || n.startsWith('/') || n.startsWith('\\') || /^[a-zA-Z]:/.test(n); });
+   if(emraTeKeinj.length>0){ throw new Error(currentLang==='en' ? 'This PowerPoint contains unsafe file paths and was blocked.' : 'Ky PowerPoint përmban rrugë skedarësh të pasigurta dhe u bllokua.'); }
+   let slideFiles = Object.keys(zip.files).filter(n=>/^ppt\/slides\/slide\d+\.xml$/.test(n));
+   let rendiReal = await merrRendinRealTeSlajdeve(zip);
+   if(rendiReal && rendiReal.length>0){ let neRendi = rendiReal.filter(n=>slideFiles.includes(n)); let jashteRendit = slideFiles.filter(n=>!neRendi.includes(n)); slideFiles = [...neRendi, ...jashteRendit]; }
+   else { slideFiles.sort((a,b)=>{ const na = parseInt((a.match(/slide(\d+)\.xml/)||[0,0])[1]||0); const nb = parseInt((b.match(/slide(\d+)\.xml/)||[0,0])[1]||0); return na-nb; }); }
+   if(slideFiles.length===0){ throw new Error(currentLang==='en' ? 'No slides found in this PPTX. The file may be empty or corrupted.' : 'Nuk u gjet asnjë slide në këtë PPTX. Skedari mund të jetë bosh ose i dëmtuar.'); }
+   if(slideFiles.length > 100){ throw new Error(currentLang==='en' ? 'This PowerPoint has too many slides (max 100). Please split it.' : 'Ky PowerPoint ka shumë slide (max 100). Ju lutem ndajeni.'); }
+   let slidesLexuar = 0;
+   for(let idx=0; idx<slideFiles.length; idx++){
+     let name = slideFiles[idx];
+     try{
+       const xml = await zip.files[name].async("string");
+       if(xml.length > 2*1024*1024){ throw gabimIMadh(currentLang==='en' ? 'One slide is too large (max 2MB of XML).' : 'Një slide është shumë i madh (max 2MB XML).'); }
+       let slideText = nxirrTekstNgaSlideXML(xml);
+       if(slideText.trim()) slidesLexuar++;
+       if(t.length + slideText.length > 2000000){ throw gabimIMadh(currentLang==='en' ? 'This PowerPoint contains too much text (max 2 million characters). Please split it.' : 'Ky PowerPoint përmban shumë tekst (max 2 milionë karaktere). Ju lutem ndajeni.'); }
+       t += slideText + "\n\n";
+     }catch(e){
+       if(e.code==='TOO_LARGE' || (e.message && (e.message.includes('2 million') || e.message.includes('2 milion') || e.message.includes('2MB')))) throw e;
+       let nr = name.match(/slide(\d+)\.xml/); slidesTeDeshtuara++; slidesTeDeshtuaraLista.push(nr ? nr[1] : name); t += "\n[slide " + (nr ? nr[1] : name) + " nuk u lexua]\n"; continue;
+     }
+     updateProgress(idx+1, slideFiles.length, currentLang==='en' ? '⏳ Reading slide' : '⏳ Duke lexuar slide');
+     await new Promise(r=>setTimeout(r,0));
    }
+   if(slidesLexuar===0){ throw new Error(currentLang==='en' ? 'Slides were found but no text could be read. They may contain only images.' : 'U gjetën slide, por nuk u lexua asnjë tekst. Mund të përmbajnë vetëm foto.'); }
+   let notesText = await merrTekstinENotes(zip, slideFiles);
+   if(notesText.trim()){ if(t.length + notesText.length > 2000000){ t += "\n[shënimet nuk u shtuan plotësisht - dokumenti shumë i madh]\n"; } else { t += "\n--- Shënimet e mësuesit / Teacher notes ---\n" + notesText; } }
+ }
+ if(!t.trim()){
+   let tt = i18n[currentLang];
+   document.getElementById('uploadStatus').style.color='red';
+   document.getElementById('uploadStatus').innerHTML = '❌ <b>' + escapeHTML(tt.scannedTitle) + '</b><br>' + escapeHTML(tt.scannedBody);
+   updateProgress(0,0);
+   fjalite = backupFjalite; tekstiPlote = backupTeksti; document.getElementById('r').innerHTML = backupR; document.getElementById('pdfFull').innerHTML = backupPdf; input.value=''; return;
  }
  tekstiPlote=t;
+ if(tekstiPlote.length > 2000000){ throw gabimIMadh(currentLang==='en' ? 'This document contains too much text (max 2 million characters).' : 'Ky dokument përmban shumë tekst (max 2 milionë karaktere).'); }
  fjalite=t.split(/[.!?]+/).map(s=>s.trim()).filter(s=>s.length>30);
+ let totalFjali = fjalite.length;
+ let mesazhShumeFjali = '';
+ if(fjalite.length > 5000){ fjalite = fjalite.slice(0, 5000); mesazhShumeFjali = i18n[currentLang].tooManySentences(totalFjali); }
+ if(fjalite.length===0){ document.getElementById('uploadStatus').style.color='red'; document.getElementById('uploadStatus').innerText = currentLang==='en' ? '❌ Text found but no sentences.' : '❌ U gjet tekst por pa fjali të plota.'; fjalite = backupFjalite; tekstiPlote = backupTeksti; document.getElementById('r').innerHTML = backupR; document.getElementById('pdfFull').innerHTML = backupPdf; input.value=''; return; }
  shfaq(fjalite);
- const pdfBox = document.createElement('div');
- pdfBox.className = 'card pdf-full';
- const title = document.createElement('b');
- title.style.color = '#FF9800';
- title.textContent = i18n[currentLang].fullMaterial;
+ const pdfBox = document.createElement('div'); pdfBox.className = 'card pdf-full';
+ const title = document.createElement('b'); title.style.color = '#FF9800';
+ title.textContent = currentLang==='en' ? '📄 Preview - first 10,000 characters:' : '📄 Pamje paraprake - 10,000 karakteret e para:';
  const hr = document.createElement('hr');
  const content = document.createElement('div');
- content.textContent = tekstiPlote.substring(0, 10000);
- pdfBox.append(title, hr, content);
+ let shfaqur = 10000;
+ content.textContent = tekstiPlote.substring(0, shfaqur);
+ const info = document.createElement('div');
+ info.style.cssText = 'font-size:12px;color:#666;margin-top:10px;text-align:center';
+ info.textContent = currentLang==='en' ? 'Showing ' + Math.min(shfaqur, tekstiPlote.length) + ' of ' + tekstiPlote.length + ' characters.' : 'Duke treguar ' + Math.min(shfaqur, tekstiPlote.length) + ' nga ' + tekstiPlote.length + ' karaktere.';
+ const btnMeShume = document.createElement('button');
+ btnMeShume.style.cssText = 'background:#fff;color:#FF9800;border:1px solid #FF9800;margin-top:8px';
+ btnMeShume.textContent = currentLang==='en' ? 'Show 10,000 more characters' : 'Shfaq 10,000 karaktere më shumë';
+ btnMeShume.onclick = function(){
+   shfaqur += 10000;
+   content.textContent = tekstiPlote.substring(0, shfaqur);
+   info.textContent = currentLang==='en' ? 'Showing ' + Math.min(shfaqur, tekstiPlote.length) + ' of ' + tekstiPlote.length + ' characters.' : 'Duke treguar ' + Math.min(shfaqur, tekstiPlote.length) + ' nga ' + tekstiPlote.length + ' karaktere.';
+   if(shfaqur >= tekstiPlote.length){ btnMeShume.style.display = 'none'; info.textContent = currentLang==='en' ? 'Full material shown.' : 'Materiali i plotë u shfaq.'; }
+ };
+ pdfBox.append(title, hr, content, info, btnMeShume);
+ if(tekstiPlote.length <= 10000){ btnMeShume.style.display = 'none'; }
  document.getElementById('pdfFull').replaceChildren(pdfBox);
- document.getElementById('uploadStatus').style.color='green';
- document.getElementById('uploadStatus').innerText = i18n[currentLang].statusDone(fjalite.length);
- tregoMesazhMira('pyetje');
+ let paralajmerimFaqe = '';
+ if(faqeTeDeshtuara > 0){ paralajmerimFaqe = currentLang==='en' ? ` ⚠️ ${faqeTeDeshtuara} page(s) could not be read (${faqeTeDeshtuaraLista.join(', ')}). The document may be incomplete.` : ` ⚠️ ${faqeTeDeshtuara} faqe nuk u lexuan (${faqeTeDeshtuaraLista.join(', ')}). Dokumenti mund të jetë i paplotë.`; }
+ if(slidesTeDeshtuara > 0){ paralajmerimFaqe += currentLang==='en' ? ` ⚠️ ${slidesTeDeshtuara} slide(s) could not be read (${slidesTeDeshtuaraLista.join(', ')}). The document may be incomplete.` : ` ⚠️ ${slidesTeDeshtuara} slide nuk u lexuan (${slidesTeDeshtuaraLista.join(', ')}). Dokumenti mund të jetë i paplotë.`; }
+ document.getElementById('uploadStatus').style.color='green'; document.getElementById('uploadStatus').innerText = i18n[currentLang].statusDone(fjalite.length) + paralajmerimFaqe + mesazhShumeFjali; tregoMesazhMira('pyetje');
  }catch(err){
-   console.error(err);
-   document.getElementById('uploadStatus').innerText = '❌ Gabim: ' + (err && err.message ? err.message : err);
-   document.getElementById('uploadStatus').style.color = 'red';
+   document.getElementById('uploadStatus').style.color='red';
+   updateProgress(0,0);
+   var msg = err && err.message ? err.message : String(err);
+   var veprim = '';
+   var lower = msg.toLowerCase();
+   if(lower.includes('password') || lower.includes('encrypted')){ msg = currentLang==='en' ? 'This PDF is password protected.' : 'Ky PDF është me fjalëkalim.'; veprim = currentLang==='en' ? ' Remove the password in your PDF reader, then upload it again.' : ' Hiq fjalëkalimin në lexuesin e PDF, pastaj ngarkoje prapë.'; }
+   else if(lower.includes('too big') || lower.includes('shumë i madh') || lower.includes('too many pages') || lower.includes('shumë faqe') || lower.includes('too many slides') || lower.includes('shumë slide') || lower.includes('too much text') || lower.includes('shumë tekst') || lower.includes('too large') || lower.includes('2 million') || lower.includes('2 milion')){ veprim = currentLang==='en' ? ' Split the file into smaller parts and upload one part.' : ' Ndaje skedarin në pjesë më të vogla dhe ngarko një pjesë.'; }
+   else if(lower.includes('damaged') || lower.includes('dëmtuar') || lower.includes('corrupt') || lower.includes('korrupt') || lower.includes('cannot be opened') || lower.includes('nuk hapet')){ veprim = currentLang==='en' ? ' Download the file again, or save it again from PowerPoint / your PDF reader, then try again.' : ' Shkarkoje skedarin prapë, ose ruaje prapë nga PowerPoint / lexuesi i PDF, pastaj provo prapë.'; }
+   else if(lower.includes('no selectable text') || lower.includes('nuk ka tekst') || lower.includes('scanned') || lower.includes('skanuar') || lower.includes('only images') || lower.includes('vetëm foto')){ veprim = currentLang==='en' ? ' This looks like a photo / scanned file. Use a PDF with selectable text, or a PPTX with real text.' : ' Ky duket si foto / skanuar. Përdor një PDF me tekst që zgjidhet, ose një PPTX me tekst të vërtetë.'; }
+   else if(lower.includes('macro') || lower.includes('makro') || lower.includes('executable') || lower.includes('ekzekutues') || lower.includes('unsafe') || lower.includes('pasigurta') || lower.includes('suspicious') || lower.includes('dyshimtë')){ veprim = currentLang==='en' ? ' For safety this file was blocked. Save a clean copy without macros and try again.' : ' Për siguri ky skedar u bllokua. Ruaj një kopje të pastër pa makro dhe provo prapë.'; }
+   else if(lower.includes('library') || lower.includes('biblioteka') || lower.includes('did not load') || lower.includes('nuk u ngarkua')){ veprim = currentLang==='en' ? ' Check your internet connection and refresh the page (F5).' : ' Kontrollo internetin dhe rifresko faqen (F5).'; }
+   else { veprim = currentLang==='en' ? ' Try again with another file.' : ' Provo prapë me një skedar tjetër.'; }
+   document.getElementById('uploadStatus').innerText = '❌ ' + msg + veprim;
+   fjalite = backupFjalite; tekstiPlote = backupTeksti;
+   document.getElementById('r').innerHTML = backupR; document.getElementById('pdfFull').innerHTML = backupPdf;
  }
- input.value = '';
-}
+ input.value='';
+};
 function shfaq(lista){
- let r=document.getElementById('r');
- let t = i18n[currentLang];
- let permbledhja=lista.length? "• "+[...lista].sort((a,b)=>b.length-a.length).slice(0,7).map(x=>escapeHTML(x)).join("<br><br>• ") : "";
- let kartatHTML = lista.slice(0,25).map((f,i)=>{
-   let pyetjeShkurt = escapeHTML(f).split(' ').slice(0,6).join(' ');
-   return `<div class="karta-studimi" onclick="this.classList.toggle('hapur')">
-     <div class="pyetja"><div><span class="badge-pyetje">${t.badgeQ}</span> ${pyetjeShkurt}</div><span class="ikona">▼</span></div>
-     <div class="pergjigja"><b style="color:#0f2d52">${t.answer}</b><br>${escapeHTML(f)}</div>
-   </div>`;
- }).join("");
- r.innerHTML="<div class='card' style='border-left:5px solid #2196F3;background:#E3F2FD;padding:15px'><b>"+t.summary+"</b><div style='margin-top:12px;line-height:1.7'>"+permbledhja+"</div></div>"+kartatHTML;
+  var r=document.getElementById('r'); var t=i18n[currentLang];
+  var permbledhja = lista.length ? bejPermbledhje(lista) : "";
+  var kartatHTML = lista.slice(0,25).map(function(f){
+    var pyetjeShkurt = escapeHTML(f).split(' ').slice(0,6).join(' ');
+    return '<div class="karta-studimi" tabindex="0" onclick="this.classList.toggle(\'hapur\')"><div class="pyetja"><div><span class="badge-pyetje">'+t.badgeQ+'</span> '+pyetjeShkurt+'</div><span class="ikona">▼</span></div><div class="pergjigja"><b style="color:#0f2d52">'+t.answer+'</b><br>'+escapeHTML(f)+'</div></div>';
+  }).join("");
+  r.innerHTML = "<div class='card' style='border-left:5px solid #2196F3;background:#E3F2FD;padding:15px'><b>"+t.summary+"</b><div style='margin-top:12px;line-height:1.7'>"+permbledhja+"</div></div>"+kartatHTML;
 }
-window.kerko = function(q){ if(!q||q.length<2){ shfaq(fjalite); return; } let res=fjalite.filter(f=>f.toLowerCase().includes(q.toLowerCase())); shfaq(res); }
+window.kerko = function(q){
+  if(!q || q.length<2){ shfaq(fjalite); return; }
+  var qw = q.toLowerCase().split(/\s+/).filter(function(w){return w.length>2;});
+  var zgjeruar = zgjeroPyetjen(qw);
+  var res = fjalite.filter(function(f){
+    var fl = f.toLowerCase();
+    return zgjeruar.some(function(w){ return fl.includes(w) || fl.split(/\s+/).some(function(fw){ return janeTeNgjashme(rrenjaFjales(fw), rrenjaFjales(w)); }); });
+  });
+  if(!res.length) res = fjalite.filter(function(f){ return f.toLowerCase().includes(q.toLowerCase()); });
+  shfaq(res);
+};
 window.pyetIA = function(){
- let q=document.getElementById('pyetja').value;
- let box=document.getElementById('pergjigjaIA');
- let t = i18n[currentLang];
- if(!q){ box.style.display='block'; box.innerHTML=t.noQuestion; return; }
- if(fjalite.length==0){ box.style.display='block'; box.innerHTML=t.noMaterial; return; }
- box.style.display='block'; box.innerHTML=t.searching;
- let relevante = fjalite.filter(f=> q.toLowerCase().split(' ').some(w=> w.length>3 && f.toLowerCase().includes(w))).slice(0,3);
- if(relevante.length==0) relevante = fjalite.slice(0,3);
- box.innerHTML = `<b style="color:#9C27B0">👩‍🏫 ${currentLang==='sq'?'Mësuese Mira':'Teacher Mira'}</b><br><br><b>${t.questionLabel}</b> "${escapeHTML(q)}"<br><br>` + relevante.map((f,i)=>`<b>${t.answerNum(i+1)}</b> ${escapeHTML(f)}<br><br>`).join('');
+  var q=document.getElementById('pyetja').value;
+  var box=document.getElementById('pergjigjaIA'); var t=i18n[currentLang];
+  if(!q){ box.style.display='block'; box.innerHTML=t.noQuestion; return; }
+  if(fjalite.length==0){ box.style.display='block'; box.innerHTML=t.noMaterial; return; }
+  box.style.display='block'; box.innerHTML=t.searching;
+  var qw = q.toLowerCase().split(/\s+/).filter(function(w){return w.length>2;});
+  var zgjeruar = zgjeroPyetjen(qw);
+  var relevante = fjalite.filter(function(f){
+    var fl=f.toLowerCase();
+    return zgjeruar.some(function(w){ return fl.includes(w); });
+  }).slice(0,3);
+  if(relevante.length==0) relevante = fjalite.slice(0,3);
+  box.innerHTML = '<b style="color:#9C27B0">👩‍🏫 '+(currentLang==='sq'?'Mësuese Mira':'Teacher Mira')+'</b><br><br><b>'+t.questionLabel+'</b> "'+escapeHTML(q)+'"<br><br>' + relevante.map(function(f,i){ return '<b>'+t.answerNum(i+1)+'</b> '+escapeHTML(f)+'<br><br>'; }).join('');
+};
+window.pranoCookies = function(){
+  try{ if(storageAvailable()) localStorage.setItem('sb-cookie','accepted'); }catch(e){}
+  document.getElementById('cookie-banner').style.display='none';
+  window.loadGA();
+};
+window.refuzoCookies = function(){
+  try{ if(storageAvailable()) localStorage.setItem('sb-cookie','declined'); }catch(e){}
+  window.__SB_GA_DISABLED = true;
+  document.getElementById('cookie-banner').style.display='none';
+};
+window.resetCookieChoice = function(){
+  try{ if(storageAvailable()) localStorage.removeItem('sb-cookie'); }catch(e){}
+  window.__SB_GA_DISABLED = false;
+  document.getElementById('cookie-banner').style.display='block';
+};
+(function(){
+  var zgjedhja=null;
+  try{ if(storageAvailable()) zgjedhja = localStorage.getItem('sb-cookie'); }catch(e){}
+  if(zgjedhja==='accepted'){ window.loadGA(); }
+  else if(zgjedhja==='declined'){ window.__SB_GA_DISABLED = true; }
+  else { document.getElementById('cookie-banner').style.display='block'; }
+})();
+var pomodoroTotal = 25*60, pomodoroLeft = 25*60, pomodoroTimer = null;
+var isRunning = false, pomodoroPaused = false, pomodoroMode = 'study';
+function pomodoroRender(){
+  var m=Math.floor(pomodoroLeft/60), s=pomodoroLeft%60;
+  var el=document.getElementById('pomodoroTime'); if(el) el.innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+  var st=document.getElementById('pomodoroStatus'); if(st) st.innerText=window.getPomodoroStatusText(currentLang);
 }
-</script>
-<!-- POMODORO - FIX: id="pomodoroTime" + id="iosNote" -->
-<div class="card" style="margin-top:20px; text-align:center;">
-  <h2 id="pomodoroTitle">🍅 Pomodoro - Mësuese Mira</h2>
-  <div id="pomodoroTime" style="font-size:48px; font-weight:bold; margin:15px;">25:00</div>
-  <p id="pomodoroStatus">Gati për të mësuar?</p>
-  <div style="display:flex; gap:10px; justify-content:center;">
- <button onclick="startTimer()" id="btnPomodoroStart" style="background:green;color:white;padding:8px;border-radius:8px;">Fillo</button>
-<button onclick="pauseTimer()" id="btnPomodoroPause" style="background:orange;color:white;padding:8px;border-radius:8px;">Pauzë</button>
-<button onclick="resetTimer()" id="btnPomodoroReset" style="background:red;color:white;padding:8px;border-radius:8px;">Reseto</button> 
-  </div>
-  <div style="margin-top:10px;">
-    <button onclick="setTime(25)" id="btnPomodoro25" style="font-size:12px;">25 min Mësim</button>
-    <button onclick="setTime(5)" id="btnPomodoro5" style="font-size:12px;">5 min Pushim</button>
-  </div>
-  <div id="iosNote" style="font-size:12px;color:#555;margin-top:8px">🍎 iPhone: Nëse nuk dëgjohet zëri, aktivizo butonin anësor (Silent) në iPhone.</div>
-</div>
-<script>
-let time = 25*60, interval=null, isRunning=false;
-function getLang(){ return (typeof currentLang !== 'undefined' ? currentLang : localStorage.getItem('lang') || 'sq'); }
-function updateDisplay(){let m=Math.floor(time/60), s=time%60; var el=document.getElementById('pomodoroTime'); if(el) el.innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);}
-function startTimer(){if(isRunning) return; isRunning=true; let L=getLang(); var st=document.getElementById('pomodoroStatus'); if(st) st.innerText=L==='en'?'Studying...':'Duke mësuar...'; interval=setInterval(()=>{time--; updateDisplay(); if(time<=0){clearInterval(interval); isRunning=false; let L2=getLang(); var st2=document.getElementById('pomodoroStatus'); if(st2) st2.innerText=L2==='en'?'Break! 5 min':'Pushim! 5 min';}},1000);}
-function pauseTimer(){clearInterval(interval); isRunning=false; let L=getLang(); var st=document.getElementById('pomodoroStatus'); if(st) st.innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
-function resetTimer(){clearInterval(interval); isRunning=false; time=25*60; updateDisplay(); let L=getLang(); var st=document.getElementById('pomodoroStatus'); if(st) st.innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
-function setTime(min){clearInterval(interval); isRunning=false; time=min*60; updateDisplay(); let L=getLang(); var st=document.getElementById('pomodoroStatus'); if(st) st.innerText=L==='en'?'Ready to learn?':'Gati për të mësuar?';}
-updateDisplay();
+window.pomodoroStart = function(){
+  if(isRunning) return; isRunning=true; pomodoroPaused=false;
+  pomodoroTimer=setInterval(function(){
+    pomodoroLeft--; pomodoroRender();
+    if(pomodoroLeft<=0){
+      clearInterval(pomodoroTimer); isRunning=false;
+      if(pomodoroMode==='study'){ pomodoroMode='break'; pomodoroLeft=5*60; alert(currentLang==='en'?'Break! 5 min':'Pushim! 5 min'); }
+      else { pomodoroMode='study'; pomodoroLeft=25*60; alert(currentLang==='en'?'Back to study!':'Kthehu te mësimi!'); }
+      pomodoroRender();
+    }
+  },1000);
+  pomodoroRender();
+};
+window.pomodoroPause = function(){ clearInterval(pomodoroTimer); isRunning=false; pomodoroPaused=true; pomodoroRender(); };
+window.pomodoroReset = function(){ clearInterval(pomodoroTimer); isRunning=false; pomodoroPaused=false; pomodoroMode='study'; pomodoroLeft=25*60; pomodoroRender(); };
+window.pomodoroSet = function(min){ clearInterval(pomodoroTimer); isRunning=false; pomodoroPaused=false; pomodoroMode = (min===5?'break':'study'); pomodoroLeft=min*60; pomodoroRender(); };
+pomodoroRender();
+window.setLang(currentLang);
 </script>
 </body>
 </html>
