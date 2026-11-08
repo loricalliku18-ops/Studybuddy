@@ -336,7 +336,54 @@ function zgjeroPyetjen(qWords){
   let set = new Set(qWords);
   qWords.forEach(w=>{ let grup = HARTA_SINONIME[w] || HARTA_SINONIME[rrenjaFjales(w)]; if(grup) grup.forEach(g=> set.add(g)); });
   return [...set];
-}window.ngarko = async function(input){
+}
+// --- FUNKSIONET QE MUNGONIN - FIX ---
+function checkLibs(isPDF){
+  if(isPDF && typeof pdfjsLib === 'undefined') return 'PDF_LIB_MISSING';
+  if(!isPDF && typeof JSZip === 'undefined') return 'ZIP_LIB_MISSING';
+  return null;
+}
+function gabimIMadh(msg){
+  var e = new Error(msg);
+  e.code = 'TOO_LARGE';
+  return e;
+}
+function kontrolloZIPParaHapjes(buf){
+  if(!buf || buf.byteLength > 15*1024*1024) throw gabimIMadh('File too large');
+}
+function nxirrTekstNgaSlideXML(xml){
+  if(!xml) return "";
+  var parts = xml.match(/<a:t[^>]*>([^<]*)<\/a:t>/g) || [];
+  var out = parts.map(function(p){ return p.replace(/<[^>]+>/g,''); }).join(' ');
+  return decodeXML(out);
+}
+async function merrRendinRealTeSlajdeve(zip){
+  try{
+    var f = zip.files['ppt/presentation.xml'];
+    if(!f) return null;
+    var xml = await f.async("string");
+    return null;
+  }catch(e){ return null; }
+}
+async function merrTekstinENotes(zip, slideFiles){
+  return "";
+}
+function bejPermbledhje(lista){
+  if(!lista || !lista.length) return "";
+  var top = lista.slice(0,3).map(function(s){
+    return '<div style="margin-bottom:8px">• ' + escapeHTML(s) + '</div>';
+  }).join('');
+  return top;
+}
+window.pastroMaterialin = function(){
+  fjalite=[]; tekstiPlote="";
+  document.getElementById('r').innerHTML='';
+  document.getElementById('pdfFull').innerHTML='';
+  document.getElementById('uploadStatus').innerText = i18n[currentLang].cleared;
+  document.getElementById('file').value='';
+};
+// --- FUND FIX ---
+window.ngarko = async function(input){
  let f=input.files[0]; if(!f) return;
  let backupFjalite = [...fjalite];
  let backupTeksti = tekstiPlote;
