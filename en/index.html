@@ -181,3 +181,417 @@ You can change your choice anytime by clicking <a href="#" onclick="window.reset
 <div id="cookie-banner"><div id="cookieText">We use Google Analytics only if you accept. Choose:</div><div style="margin-top:8px"><button onclick="window.pranoCookies()" style="background:#4CAF50;color:#fff">✅ Accept</button><button onclick="window.refuzoCookies()" style="background:#666;color:#fff">❌ Decline</button></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const i18n = {
+  sq: { mainTitle: "📚 StudyBuddy", miraTitle: "Mësuesja Mira 🤖 - Kërkim Inteligjent në Materialin Tënd", miraSub: "*Mësuese Mira është një personazh virtual, i frymëzuar nga Mira Murati - ish-CTO e OpenAI, krenaria shqiptare", uploadBtn: "📄 PREK KËTU - Ngarko PDF ose PowerPoint", askTitle: "👩‍🏫 Pyet Mësuese Mira", askSub: "Personazh virtual, i frymëzuar nga Mira Murati", bubble: "Pyetmë Çfarë të duash, jam këtu!", placeholder: "Mësuese Mira, çfarë janë antihistaminikët?", btnAsk: "Pyet Mësuese Mirën", miraNote: "ℹ️ Si punon Mësuese Mira: ajo kërkon me fjalë kyçe, sinonime dhe rrënjë fjalësh VETËM në materialin që ngarkove ti. Nuk është model AI, nuk kupton kuptimin si ChatGPT dhe nuk krijon përgjigje nga interneti. Për përgjigje më të mira, pyet me fjalë që janë në material.", btnSearch: "🔍 Kërko në material", btnPrint: "🖨️ Printo / Ruaj si PDF", privacyTitle: "📜 Politika e Privatësisë / Privacy Policy", blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →", statusReading: "⏳ Duke lexuar...", statusDone: n => `✅ ${n} pika mësimore u gjetën!`, badgeQ: "PYETJE", answer: "Përgjigja:", summary: "📄 PIKAT KRYESORE", fullMaterial: "📄 Pamje paraprake:", questionLabel: "Pyetja:", answerNum: i => `Përgjigja ${i}:`, noQuestion: "Ju lutem shkruani pyetjen!", noMaterial: "Ngarkoni materialin më parë!", searching: "⏳ Mësuese Mira po kërkon...", pomodoroTitle: "🍅 Pomodoro - Mësuese", pomodoroStatus: "Gati për të mësuar?", btnPomodoroStart: "Fillo", btnPomodoroPause: "Pauzë", btnPomodoroReset: "Reseto", btnPomodoro25: "25 min Mësim", btnPomodoro5: "5 min Pushim", btnClear: "🧹 Pastro materialin e ngarkuar", cleared: "Materiali u pastrua. Ngarko një dokument të ri.", scannedTitle: "Ky dokument duket si foto / i skanuar", scannedBody: "Nuk gjetëm tekst që mund të zgjidhet. Kjo ndodh kur PDF është foto e faqeve, jo tekst i vërtetë. Zgjidhja: përdor PDF-në origjinale (jo foto), ose një PPTX me tekst, ose përdor një aplikacion OCR për ta kthyer foton në tekst.", limitBox: "📏 <b>Max: 15 MB</b> • Max 150 faqe PDF • Max 100 slide PPTX • Max 2 milionë karaktere • Max 5000 fjali analizohen<br><span style=\"color:#666\">Nëse dokumenti ka më shumë se 5000 fjali, ndajeni në pjesë më të vogla për të analizuar pjesën tjetër.</span>", tooBig: "❌ Skedari është më i madh se 15 MB. Ndajeni në pjesë më të vogla dhe ngarkoni një pjesë.", tooManySentences: n => ` ⚠️ Dokumenti ka ${n} fjali. Analizohen vetëm 5000 të parat. Ndaje dokumentin për të analizuar pjesën tjetër.`, iosNote: "📱 Njoftimi Pomodoro: Punon kur faqja është e hapur ose e shtuar në Home Screen. Nëse e mbyll shfletuesin plotësisht, njoftimi nuk vjen në kohë - kur ta rihapësh faqen do të shohësh që koha ka mbaruar. Në iPhone, shtoje në Home Screen (Share → Add to Home Screen) për funksionim më të mirë." },
+  en: { mainTitle: "📚 StudyBuddy", miraTitle: "Teacher Mira 🤖 - Smart Search in Your Material", miraSub: "*Teacher Mira is a virtual character, inspired by Mira Murati - former CTO of OpenAI, Albanian pride", uploadBtn: "📄 TAP HERE - Upload PDF or PowerPoint", askTitle: "👩‍🏫 Ask Teacher Mira", askSub: "Virtual character, inspired by Mira Murati", bubble: "Ask me anything, I'm here!", placeholder: "Teacher Mira, what are antihistamines?", btnAsk: "Ask Teacher Mira", miraNote: "ℹ️ How Teacher Mira works: she searches with keywords, synonyms and word stems ONLY in the material you uploaded. She is not an AI model, she does not understand meaning like ChatGPT, and she does not create answers from the internet. For better answers, ask with words from the material.", btnSearch: "🔍 Search in material", btnPrint: "🖨️ Print / Save as PDF", privacyTitle: "⚖️ Privacy Policy", blogTitle: "📚 BLOG - Tips for homework →", statusReading: "⏳ Reading...", statusDone: n => `✅ ${n} learning points found!`, badgeQ: "QUESTION", answer: "Answer:", summary: "📄 KEY POINTS", fullMaterial: "📄 Preview:", questionLabel: "Question:", answerNum: i => `Answer ${i}:`, noQuestion: "Please write your question!", noMaterial: "Please upload material first!", searching: "⏳ Teacher Mira is searching...", pomodoroTitle: "🍅 Pomodoro - Study", pomodoroStatus: "Ready to learn?", btnPomodoroStart: "Start", btnPomodoroPause: "Pause", btnPomodoroReset: "Reset", btnPomodoro25: "25 min Study", btnPomodoro5: "5 min Break", btnClear: "🧹 Clear uploaded material", cleared: "Material cleared. Upload a new document.", scannedTitle: "This document looks like a photo / scanned", scannedBody: "We found no selectable text. This happens when the PDF is a photo of pages, not real text. Fix: use the original PDF (not a photo), or a PPTX with real text, or use an OCR app to convert the photo to text.", limitBox: "📏 <b>Max: 15 MB</b> • Max 150 PDF pages • Max 100 PPTX slides • Max 2 million characters • Max 5000 sentences analyzed<br><span style=\"color:#666\">If the document has more than 5000 sentences, split it into smaller parts to analyze the rest.</span>", tooBig: "❌ File is larger than 15 MB. Split it into smaller parts and upload one part.", tooManySentences: n => ` ⚠️ Document has ${n} sentences. Only the first 5000 are analyzed. Split the document to analyze the rest.`, iosNote: "📱 Pomodoro notification: Works when the page is open or added to Home Screen. If you close the browser completely, the notification will not arrive on time - when you reopen the page you will see the time is up. On iPhone, add to Home Screen (Share → Add to Home Screen) for best results." }
+};
+let currentLang = 'sq';
+function storageAvailable(){
+  try{ var t='__sb_test__'; localStorage.setItem(t,t); localStorage.removeItem(t); return true; }catch(e){ return false; }
+}
+try{
+  var path0 = window.location.pathname;
+  var isEnPath = path0.indexOf('/en/') !== -1 || path0.endsWith('/en');
+  var isSqPath = path0.endsWith('/Studybuddy/') || path0.endsWith('/Studybuddy') || path0 === '/';
+  if(isEnPath){ currentLang = 'en'; }
+  else if(isSqPath){ currentLang = 'sq'; }
+  else {
+    let saved = null;
+    try{ if(storageAvailable()) saved = localStorage.getItem('sb-lang'); }catch(e){}
+    if(saved==='en' || saved==='sq') currentLang = saved;
+  }
+}catch(e){}
+function setEl(id, val, isText){ var el=document.getElementById(id); if(!el) return; if(isText==='placeholder'){ el.placeholder=val; } else if(isText==='html'){ el.innerHTML=val; } else { el.innerText=val; } }
+function updateSEO(l){ try{ var metaDesc=document.querySelector('meta[name="description"]'); if(metaDesc) metaDesc.content = l==='en' ? 'StudyBuddy – Teacher Mira | Smart search in your material. Upload PDF or PowerPoint, search in your material, learn faster with Pomodoro. Free bilingual Albanian-English study assistant.' : 'StudyBuddy – Mësuese Mira | Kërkim inteligjent në materialin tënd. Ngarko PDF ose PowerPoint, kërko në materialin tënd, mëso më shpejt me Pomodoro. Asistent falas dygjuhësh shqip-anglisht.'; document.title = l==='en' ? 'StudyBuddy – Teacher Mira | Smart Study Assistant' : 'StudyBuddy – Mësuese Mira | Asistent Inteligjent Studimi'; }catch(e){} }
+window.getPomodoroStatusText = function(lang){
+  var L = lang || currentLang || 'sq';
+  var isEn = L === 'en';
+  if(typeof isRunning !== 'undefined' && isRunning){
+    if(typeof pomodoroMode !== 'undefined' && pomodoroMode === 'break'){ return isEn ? 'Break...' : 'Pushim...'; }
+    else { return isEn ? 'Studying...' : 'Duke mësuar...'; }
+  }
+  if(typeof pomodoroPaused !== 'undefined' && pomodoroPaused){
+    if(typeof pomodoroMode !== 'undefined' && pomodoroMode === 'break'){ return isEn ? 'Break paused - press Start to continue' : 'Pushimi u ndal - shtyp Fillo për të vazhduar'; }
+    else { return isEn ? 'Study paused - press Start to continue' : 'Mësimi u ndal - shtyp Fillo për të vazhduar'; }
+  }
+  return isEn ? 'Ready to learn?' : 'Gati për të mësuar?';
+};
+window.setLang = function(l){
+  currentLang = l;
+  try{ if(storageAvailable()) localStorage.setItem('sb-lang', l); }catch(e){}
+  try{
+    var path = window.location.pathname;
+    var isEnPage = path.indexOf('/en/') !== -1 || path.endsWith('/en');
+    var kaDokument = (typeof fjalite !== 'undefined' && fjalite.length > 0);
+    if(l==='en' && !isEnPage){
+      if(kaDokument){ if(!confirm('Ke një dokument të ngarkuar. Nëse ndërron gjuhën, dokumenti do të humbasë. Të vazhdoj?')) return; }
+      window.location.href = '/Studybuddy/en/'; return;
+    }
+    if(l==='sq' && isEnPage){
+      if(kaDokument){ if(!confirm('You have a document loaded. If you switch language, the document will be lost. Continue?')) return; }
+      window.location.href = '/Studybuddy/'; return;
+    }
+  }catch(e){}
+  document.documentElement.lang = l; var bSq=document.getElementById('btn-sq'); if(bSq) bSq.classList.toggle('active', l==='sq'); var bEn=document.getElementById('btn-en'); if(bEn) bEn.classList.toggle('active', l==='en'); const t = i18n[l]; setEl('mainTitle', t.mainTitle); setEl('miraTitle', t.miraTitle); setEl('miraSub', t.miraSub); setEl('uploadBtn', t.uploadBtn); setEl('askTitle', t.askTitle); setEl('askSub', t.askSub); setEl('mira-bubble', t.bubble); setEl('pyetja', t.placeholder, 'placeholder'); setEl('btnAsk', t.btnAsk); setEl('miraNote', t.miraNote); setEl('btnSearch', t.btnSearch); setEl('btnPrint', t.btnPrint); setEl('blogTitle', t.blogTitle); setEl('privacyTitle', t.privacyTitle);
+  if(document.getElementById('pomodoroTitle')){
+    setEl('pomodoroTitle', t.pomodoroTitle); setEl('pomodoroStatus', window.getPomodoroStatusText(l)); setEl('btnPomodoroStart', t.btnPomodoroStart); setEl('btnPomodoroPause', t.btnPomodoroPause); setEl('btnPomodoroReset', t.btnPomodoroReset); setEl('btnPomodoro25', t.btnPomodoro25); setEl('btnPomodoro5', t.btnPomodoro5);
+  }
+  setEl('btnClear', t.btnClear); setEl('limitBox', t.limitBox, 'html'); setEl('iosNote', t.iosNote); var ps=document.getElementById('privacy-sq'); if(ps) ps.style.display = l==='sq' ? 'block' : 'none'; var pe=document.getElementById('privacy-en'); if(pe) pe.style.display = l==='en' ? 'block' : 'none'; updateSEO(l); if(typeof fjalite!=='undefined' && fjalite.length>0) shfaq(fjalite); tregoMesazhMira('pyetje'); }
+const mesazheMira = { sq: { hapPDF: ["Bravo! Le të mësojmë bashkë këtë! 🚀", "Uau, ky material qenka thesar! 📚"], vonese: ["Një sekondë, po i lexoj fjalët për ty… ☕", "Durim, po bëhet magjia... ✨"], pyetje: ["Pyetmë Çfarë të duash, jam këtu! 🤗", "E gjete! Je super e zgjuar! 🌟"] }, en: { hapPDF: ["Great! Let's learn this together! 🚀", "Wow, this material is a treasure! 📚"], vonese: ["One second, I'm reading the words for you... ☕", "Patience, magic is happening... ✨"], pyetje: ["Ask me anything, I'm here! 🤗", "You found it! You're super smart! 🌟"] } };
+function tregoMesazhMira(tipi) { const bubble = document.getElementById('mira-bubble'); if (!bubble) return; const lista = mesazheMira[currentLang][tipi]; bubble.innerText = lista[Math.floor(Math.random() * lista.length)]; }
+function rregullojeShqip(teksti) {
+  if(!teksti) return "";
+  let t = teksti.normalize('NFC')
+    .replace(/Ã«/g,'ë').replace(/Ã§/g,'ç').replace(/Ã‹/g,'Ë').replace(/Ã‡/g,'Ç')
+    .replace(/Ã©/g,'é').replace(/Ã¨/g,'è').replace(/Ã¡/g,'á').replace(/Ã /g,'à')
+    .replace(/Ã¶/g,'ö').replace(/Ã¼/g,'ü').replace(/ÃŸ/g,'ß').replace(/Ã±/g,'ñ')
+    .replace(/â€™/g,"'").replace(/â€œ/g,'"').replace(/â€\u009d/g,'"').replace(/â€“/g,'-').replace(/â€”/g,'-').replace(/â€¦/g,'...')
+    .replace(/Ã‚â€™/g,"'").replace(/Ã‚â€œ/g,'"').replace(/Ã‚â€\u009d/g,'"').replace(/Ã‚â€“/g,'-').replace(/Ã‚â€”/g,'-')
+    .replace(/Â€/g,'€').replace(/Â£/g,'£').replace(/Â©/g,'©').replace(/Â®/g,'®')
+    .replace(/Â\s/g,' ').replace(/Â$/g,'')
+    .replace(/ë̈/g,'ë').replace(/ç̧/g,'ç')
+    .replace(/pë\s+r/gi,'për').replace(/ështënjë/gi,'është një').replace(/Depresionipërjetohet/gi,'Depresioni përjetohet').replace(/njësër/gi,'një sërë').replace(/ulëaftë/gi,'ulë aftësinë').replace(/personipër/gi,'personi për').replace(/pengesëpër/gi,'pengesë për').replace(/dukepërfshirë/gi,'duke përfshirë').replace(/abuzimitose/gi,'abuzimit ose').replace(/prindinga/gi,'prindërit nga').replace(/soci\s*alë/gi,'socialë')
+    .replace(/mësuesipër/gi,'mësuesi për').replace(/nxënësipër/gi,'nxënësi për').replace(/shëndetësipër/gi,'shëndetësi për').replace(/studimipër/gi,'studimi për').replace(/libripër/gi,'libri për').replace(/sëmundjapër/gi,'sëmundja për').replace(/simptomapër/gi,'simptoma për').replace(/trajtimipër/gi,'trajtimi për')
+    .replace(/\bDepresioni\s+Depresioni\b/gi,'Depresioni').replace(/,\s*(?=[^\s])/g,', ').replace(/\s+/g,' ').trim();
+  return t;
+}
+function escapeHTML(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function decodeXML(s){ if(!s) return ""; return String(s).replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&#39;/g,"'").replace(/&#x27;/g,"'").replace(/&#x2F;/g,'/').replace(/&#(\d+);/g,(m,n)=>{ try{return String.fromCodePoint(parseInt(n,10))}catch(e){return m} }).replace(/&#x([0-9a-fA-F]+);/g,(m,n)=>{ try{return String.fromCodePoint(parseInt(n,16))}catch(e){return m} }).replace(/&amp;/g,'&'); }
+if(window.pdfjsLib){ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; }
+let fjalite=[]; let tekstiPlote="";
+function updateProgress(current, total, label){
+  var wrap=document.getElementById('progressBarWrap'); var bar=document.getElementById('progressBar'); var txt=document.getElementById('progressText');
+  if(!wrap||!bar||!txt) return;
+  if(total<=0){ wrap.style.display='none'; txt.innerText=''; return; }
+  wrap.style.display='block';
+  var pct=Math.round((current/total)*100);
+  bar.style.width=pct+'%';
+  txt.innerText = (label||'') + ' ' + current + ' / ' + total + ' ('+pct+'%)';
+  if(current>=total){ setTimeout(()=>{ wrap.style.display='none'; txt.innerText=''; }, 1500); }
+}
+function rrenjaFjales(x){
+  if(!x) return "";
+  let w = x.toLowerCase();
+  const suf = ['ave','eve','ove','imit','imin','ive','ivit','ionit','ionin','ioni','imi','imin','imi','ësve','eve','ve','it','in','ët','të','t','i','a','e','u','s','es','ing','edly','ed','ly','tion','sion','ness','ment'];
+  for(let r=0;r<3;r++){
+    for(let s of suf){
+      if(w.length > 5 && w.endsWith(s)){ w = w.slice(0, -s.length); break; }
+    }
+  }
+  return w;
+}
+function distancaLevenshtein(a,b){
+  if(a===b) return 0;
+  if(!a.length) return b.length;
+  if(!b.length) return a.length;
+  let prev = Array.from({length:b.length+1}, (_,i)=>i);
+  for(let i=1;i<=a.length;i++){
+    let cur=[i];
+    for(let j=1;j<=b.length;j++){
+      let cost = a[i-1]===b[j-1] ? 0 : 1;
+      cur[j]=Math.min(prev[j]+1, cur[j-1]+1, prev[j-1]+cost);
+    }
+    prev=cur;
+  }
+  return prev[b.length];
+}
+function janeTeNgjashme(a,b){
+  if(!a||!b) return false;
+  if(a===b) return true;
+  if(a.length<5 || b.length<5) return false;
+  if(Math.abs(a.length-b.length)>2) return false;
+  return distancaLevenshtein(a,b) <= 1 || (a.length>=7 && distancaLevenshtein(a,b) <= 2);
+}
+const GRUPE_SINONIME = [
+  ['depresion','depresioni','depresiv','trishtim','mërzitje','melankoli','depression','depressive','sadness'],
+  ['ankth','ankthi','stres','stresi','frikë','frika','tension','anxiety','stress','fear','worry'],
+  ['zemër','zemra','kardiak','kardiovaskular','heart','cardiac','cardiovascular'],
+  ['ilaç','ilaçi','medikament','medikamenti','bar','barnat','trajtim','terapi','kurë','medicine','drug','medication','treatment','therapy','cure'],
+  ['dhimbje','dhimbja','dhembje','pain','ache','sore'],
+  ['sëmundje','sëmundja','sëmundjet','sëmurë','illness','disease','sick','disorder'],
+  ['simptomë','simptomat','simptoma','shenjë','shenja','manifestim','symptom','sign','manifestation'],
+  ['shkak','shkaku','shkaktar','arsye','cause','reason','trigger'],
+  ['pasojë','pasojat','efekt','efekti','rezultat','consequence','effect','result','outcome'],
+  ['parandalim','parandalimi','mbrojtje','prevention','protection','prevent'],
+  ['diagnozë','diagnoza','diagnostikim','diagnosis','diagnose'],
+  ['pacient','pacienti','pacientët','i sëmurë','bolnav','patient'],
+  ['mjek','mjeku','doktor','doktori','doctor','physician'],
+  ['trup','trupi','organizëm','organizmi','body','organism'],
+  ['tru','truri','mendje','mendja','brain','mind'],
+  ['gjak','gjaku','blood'],
+  ['ushqim','ushqimi','dietë','dieta','ushqyerje','food','diet','nutrition'],
+  ['gjumë','gjumi','sleep','insomnia','pagjumësi'],
+  ['mësim','mësimi','studim','studimi','shkollë','shkolla','learn','learning','study','school'],
+  ['libër','libri','tekst','teksti','material','materiali','book','text','material'],
+  ['pyetje','pyetja','question','ask'],
+  ['përgjigje','përgjigja','answer','response'],
+  ['përkufizim','përkufizimi','definicion','definition','kuptim','kuptimi','meaning','what is']
+];
+const HARTA_SINONIME = {};
+GRUPE_SINONIME.forEach(grup=>{
+  grup.forEach(w=>{ HARTA_SINONIME[w] = grup; HARTA_SINONIME[rrenjaFjales(w)] = grup; });
+});
+function zgjeroPyetjen(qWords){
+  let set = new Set(qWords);
+  qWords.forEach(w=>{ let grup = HARTA_SINONIME[w] || HARTA_SINONIME[rrenjaFjales(w)]; if(grup) grup.forEach(g=> set.add(g)); });
+  return [...set];
+}window.ngarko = async function(input){
+ let f=input.files[0]; if(!f) return;
+ let backupFjalite = [...fjalite];
+ let backupTeksti = tekstiPlote;
+ let backupR = document.getElementById('r').innerHTML;
+ let backupPdf = document.getElementById('pdfFull').innerHTML;
+ try{
+ if(f.size > 15*1024*1024){
+   document.getElementById('uploadStatus').style.color='red';
+   document.getElementById('uploadStatus').innerText = i18n[currentLang].tooBig + (currentLang==='en' ? ' Your file is ' + (f.size/1024/1024).toFixed(1) + ' MB.' : ' Skedari yt është ' + (f.size/1024/1024).toFixed(1) + ' MB.');
+   input.value=''; return;
+ }
+ var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+ if(isMobile && f.size > 8*1024*1024){
+   var vazhdo = confirm(currentLang==='en' ? 'This file is ' + (f.size/1024/1024).toFixed(1) + ' MB. On a phone this may be slow or freeze. Continue anyway?' : 'Ky skedar është ' + (f.size/1024/1024).toFixed(1) + ' MB. Në telefon mund të jetë i ngadaltë ose të ngrijë. Të vazhdoj?');
+   if(!vazhdo){ input.value=''; return; }
+ }
+ document.getElementById('uploadStatus').style.color='green';
+ tregoMesazhMira('hapPDF');
+ document.getElementById('uploadStatus').innerText = i18n[currentLang].statusReading;
+ tregoMesazhMira('vonese');
+ updateProgress(0, 100, currentLang==='en' ? 'Reading...' : 'Duke lexuar...');
+ let buf = await f.arrayBuffer();
+ let header = new Uint8Array(buf.slice(0, 8));
+ let headerStr = String.fromCharCode.apply(null, header);
+ let isPDF = headerStr.indexOf('%PDF')===0;
+ let isZIP = header[0]===0x50 && header[1]===0x4B;
+ let ext = f.name.toLowerCase();
+ if(ext.endsWith('.pdf') && !isPDF){ throw new Error(currentLang==='en' ? 'This file is named .pdf but is not a real PDF.' : 'Ky skedar quhet .pdf por nuk është PDF i vërtetë.'); }
+ if(ext.endsWith('.pptx') && !isZIP){ throw new Error(currentLang==='en' ? 'This file is named .pptx but is not a real PowerPoint.' : 'Ky skedar quhet .pptx por nuk është PowerPoint i vërtetë.'); }
+ if(!ext.endsWith('.pdf') && !ext.endsWith('.pptx')){ throw new Error(currentLang==='en' ? 'Only PDF or PPTX allowed.' : 'Vetëm PDF ose PPTX lejohen.'); }
+ let libErr = checkLibs(isPDF || ext.endsWith('.pdf'));
+ if(libErr==='PDF_LIB_MISSING'){ throw new Error(currentLang==='en' ? 'PDF library (pdf.js) did not load. Check internet and refresh the page.' : 'Biblioteka PDF (pdf.js) nuk u ngarkua. Kontrollo internetin dhe rifresko faqen.'); }
+ if(libErr==='ZIP_LIB_MISSING'){ throw new Error(currentLang==='en' ? 'PowerPoint library (JSZip) did not load. Check internet and refresh the page.' : 'Biblioteka PowerPoint (JSZip) nuk u ngarkua. Kontrollo internetin dhe rifresko faqen.'); }
+ let t="";
+ let faqeTeDeshtuara = 0;
+ let faqeTeDeshtuaraLista = [];
+ let slidesTeDeshtuara = 0;
+ let slidesTeDeshtuaraLista = [];
+ if(isPDF || ext.endsWith(".pdf")){
+   let pdf;
+   try{ pdf = await pdfjsLib.getDocument({data: buf}).promise; }catch(e){ throw new Error(currentLang==='en' ? 'This PDF file is damaged or cannot be opened. Try downloading it again or use another PDF.' : 'Ky skedar PDF është i dëmtuar ose nuk hapet. Provo ta shkarkosh prapë ose përdor një PDF tjetër.'); }
+   if(pdf.numPages > 150){ throw new Error(currentLang==='en' ? 'This PDF has too many pages (max 150). Please split it into smaller parts.' : 'Ky PDF ka shumë faqe (max 150). Ju lutem ndajeni në pjesë më të vogla.'); }
+   for(let i=1;i<=pdf.numPages;i++){
+     try{
+       let p=await pdf.getPage(i); let c=await p.getTextContent();
+       let items = (c.items||[]).slice();
+       items.sort((a,b)=>{
+         let ya = a.transform ? a.transform[5] : 0;
+         let yb = b.transform ? b.transform[5] : 0;
+         let xa = a.transform ? a.transform[4] : 0;
+         let xb = b.transform ? b.transform[4] : 0;
+         let dy = Math.round(yb/8) - Math.round(ya/8);
+         if(dy!==0) return dy;
+         return xa - xb;
+       });
+       let pageText = "";
+       let lastY = null;
+       items.forEach(it=>{
+         if(!it.str) return;
+         let y = it.transform ? Math.round(it.transform[5]/8) : 0;
+         if(lastY!==null && y!==lastY){
+           pageText = pageText.replace(/[ ]+$/,'') + "\n";
+         } else if(pageText.length > 0 && !pageText.endsWith(' ') && !pageText.endsWith('\n')){
+           pageText += " ";
+         }
+         pageText += it.str;
+         lastY = y;
+       });
+       t+= rregullojeShqip(pageText) + "\n\n";
+       if(t.length > 2000000){ throw gabimIMadh(currentLang==='en' ? 'This PDF contains too much text (max 2 million characters).' : 'Ky PDF përmban shumë tekst (max 2 milionë karaktere).'); }
+     }catch(e){
+       if(e.code==='TOO_LARGE' || (e.message && (e.message.includes('2 million') || e.message.includes('2 milion')))) throw e;
+       faqeTeDeshtuara++; faqeTeDeshtuaraLista.push(i); t += "\n[faqja " + i + " nuk u lexua]\n"; continue;
+     }
+     updateProgress(i, pdf.numPages, currentLang==='en' ? '⏳ Reading page' : '⏳ Duke lexuar faqen');
+     document.getElementById('uploadStatus').innerText = (currentLang==='en' ? '⏳ Reading page ' : '⏳ Duke lexuar faqen ') + i + ' / ' + pdf.numPages + '...';
+     await new Promise(r=>setTimeout(r,0));
+   }
+ } else if(isZIP || ext.endsWith(".pptx")){
+   kontrolloZIPParaHapjes(buf);
+   let zip;
+   try{ zip = await JSZip.loadAsync(buf); }catch(e){ throw new Error(currentLang==='en' ? 'This PowerPoint file is corrupted or incomplete. Try downloading it again or saving it again from PowerPoint.' : 'Ky skedar PowerPoint është i korruptuar ose i paplotë. Provo ta shkarkosh prapë ose ta ruash prapë nga PowerPoint.'); }
+   let teRrezikshme = Object.keys(zip.files).filter(n=>{
+     if(n.endsWith('/')) return false;
+     let low = n.toLowerCase();
+     return low.endsWith('.exe') || low.endsWith('.dll') || low.endsWith('.bat') ||
+            low.endsWith('.cmd') || low.endsWith('.com') || low.endsWith('.scr') ||
+            low.endsWith('.js') || low.endsWith('.vbs') || low.endsWith('.ps1') ||
+            low.endsWith('.jar') || low.endsWith('.apk') || low.endsWith('.msi') ||
+            low.includes('vbaproject.bin');
+   });
+   if(teRrezikshme.length>0){ throw new Error(currentLang==='en' ? 'This PowerPoint contains macros or executable files and was blocked for safety.' : 'Ky PowerPoint përmban makro ose skedarë ekzekutues dhe u bllokua për siguri.'); }
+   let emraTeKeinj = Object.keys(zip.files).filter(n=>{ return n.includes('..') || n.startsWith('/') || n.startsWith('\\') || /^[a-zA-Z]:/.test(n); });
+   if(emraTeKeinj.length>0){ throw new Error(currentLang==='en' ? 'This PowerPoint contains unsafe file paths and was blocked.' : 'Ky PowerPoint përmban rrugë skedarësh të pasigurta dhe u bllokua.'); }
+   let slideFiles = Object.keys(zip.files).filter(n=>/^ppt\/slides\/slide\d+\.xml$/.test(n));
+   let rendiReal = await merrRendinRealTeSlajdeve(zip);
+   if(rendiReal && rendiReal.length>0){ let neRendi = rendiReal.filter(n=>slideFiles.includes(n)); let jashteRendit = slideFiles.filter(n=>!neRendi.includes(n)); slideFiles = [...neRendi, ...jashteRendit]; }
+   else { slideFiles.sort((a,b)=>{ const na = parseInt((a.match(/slide(\d+)\.xml/)||[0,0])[1]||0); const nb = parseInt((b.match(/slide(\d+)\.xml/)||[0,0])[1]||0); return na-nb; }); }
+   if(slideFiles.length===0){ throw new Error(currentLang==='en' ? 'No slides found in this PPTX. The file may be empty or corrupted.' : 'Nuk u gjet asnjë slide në këtë PPTX. Skedari mund të jetë bosh ose i dëmtuar.'); }
+   if(slideFiles.length > 100){ throw new Error(currentLang==='en' ? 'This PowerPoint has too many slides (max 100). Please split it.' : 'Ky PowerPoint ka shumë slide (max 100). Ju lutem ndajeni.'); }
+   let slidesLexuar = 0;
+   for(let idx=0; idx<slideFiles.length; idx++){
+     let name = slideFiles[idx];
+     try{
+       const xml = await zip.files[name].async("string");
+       if(xml.length > 2*1024*1024){ throw gabimIMadh(currentLang==='en' ? 'One slide is too large (max 2MB of XML).' : 'Një slide është shumë i madh (max 2MB XML).'); }
+       let slideText = nxirrTekstNgaSlideXML(xml);
+       if(slideText.trim()) slidesLexuar++;
+       if(t.length + slideText.length > 2000000){ throw gabimIMadh(currentLang==='en' ? 'This PowerPoint contains too much text (max 2 million characters). Please split it.' : 'Ky PowerPoint përmban shumë tekst (max 2 milionë karaktere). Ju lutem ndajeni.'); }
+       t += slideText + "\n\n";
+     }catch(e){
+       if(e.code==='TOO_LARGE' || (e.message && (e.message.includes('2 million') || e.message.includes('2 milion') || e.message.includes('2MB')))) throw e;
+       let nr = name.match(/slide(\d+)\.xml/); slidesTeDeshtuara++; slidesTeDeshtuaraLista.push(nr ? nr[1] : name); t += "\n[slide " + (nr ? nr[1] : name) + " nuk u lexua]\n"; continue;
+     }
+     updateProgress(idx+1, slideFiles.length, currentLang==='en' ? '⏳ Reading slide' : '⏳ Duke lexuar slide');
+     await new Promise(r=>setTimeout(r,0));
+   }
+   if(slidesLexuar===0){ throw new Error(currentLang==='en' ? 'Slides were found but no text could be read. They may contain only images.' : 'U gjetën slide, por nuk u lexua asnjë tekst. Mund të përmbajnë vetëm foto.'); }
+   let notesText = await merrTekstinENotes(zip, slideFiles);
+   if(notesText.trim()){ if(t.length + notesText.length > 2000000){ t += "\n[shënimet nuk u shtuan plotësisht - dokumenti shumë i madh]\n"; } else { t += "\n--- Shënimet e mësuesit / Teacher notes ---\n" + notesText; } }
+ }
+ if(!t.trim()){
+   let tt = i18n[currentLang];
+   document.getElementById('uploadStatus').style.color='red';
+   document.getElementById('uploadStatus').innerHTML = '❌ <b>' + escapeHTML(tt.scannedTitle) + '</b><br>' + escapeHTML(tt.scannedBody);
+   updateProgress(0,0);
+   fjalite = backupFjalite; tekstiPlote = backupTeksti; document.getElementById('r').innerHTML = backupR; document.getElementById('pdfFull').innerHTML = backupPdf; input.value=''; return;
+ }
+ tekstiPlote=t;
+ if(tekstiPlote.length > 2000000){ throw gabimIMadh(currentLang==='en' ? 'This document contains too much text (max 2 million characters).' : 'Ky dokument përmban shumë tekst (max 2 milionë karaktere).'); }
+ fjalite=t.split(/[.!?]+/).map(s=>s.trim()).filter(s=>s.length>30);
+ let totalFjali = fjalite.length;
+ let mesazhShumeFjali = '';
+ if(fjalite.length > 5000){ fjalite = fjalite.slice(0, 5000); mesazhShumeFjali = i18n[currentLang].tooManySentences(totalFjali); }
+ if(fjalite.length===0){ document.getElementById('uploadStatus').style.color='red'; document.getElementById('uploadStatus').innerText = currentLang==='en' ? '❌ Text found but no sentences.' : '❌ U gjet tekst por pa fjali të plota.'; fjalite = backupFjalite; tekstiPlote = backupTeksti; document.getElementById('r').innerHTML = backupR; document.getElementById('pdfFull').innerHTML = backupPdf; input.value=''; return; }
+ shfaq(fjalite);
+ const pdfBox = document.createElement('div'); pdfBox.className = 'card pdf-full';
+ const title = document.createElement('b'); title.style.color = '#FF9800';
+ title.textContent = currentLang==='en' ? '📄 Preview - first 10,000 characters:' : '📄 Pamje paraprake - 10,000 karakteret e para:';
+ const hr = document.createElement('hr');
+ const content = document.createElement('div');
+ let shfaqur = 10000;
+ content.textContent = tekstiPlote.substring(0, shfaqur);
+ const info = document.createElement('div');
+ info.style.cssText = 'font-size:12px;color:#666;margin-top:10px;text-align:center';
+ info.textContent = currentLang==='en' ? 'Showing ' + Math.min(shfaqur, tekstiPlote.length) + ' of ' + tekstiPlote.length + ' characters.' : 'Duke treguar ' + Math.min(shfaqur, tekstiPlote.length) + ' nga ' + tekstiPlote.length + ' karaktere.';
+ const btnMeShume = document.createElement('button');
+ btnMeShume.style.cssText = 'background:#fff;color:#FF9800;border:1px solid #FF9800;margin-top:8px';
+ btnMeShume.textContent = currentLang==='en' ? 'Show 10,000 more characters' : 'Shfaq 10,000 karaktere më shumë';
+ btnMeShume.onclick = function(){
+   shfaqur += 10000;
+   content.textContent = tekstiPlote.substring(0, shfaqur);
+   info.textContent = currentLang==='en' ? 'Showing ' + Math.min(shfaqur, tekstiPlote.length) + ' of ' + tekstiPlote.length + ' characters.' : 'Duke treguar ' + Math.min(shfaqur, tekstiPlote.length) + ' nga ' + tekstiPlote.length + ' karaktere.';
+   if(shfaqur >= tekstiPlote.length){ btnMeShume.style.display = 'none'; info.textContent = currentLang==='en' ? 'Full material shown.' : 'Materiali i plotë u shfaq.'; }
+ };
+ pdfBox.append(title, hr, content, info, btnMeShume);
+ if(tekstiPlote.length <= 10000){ btnMeShume.style.display = 'none'; }
+ document.getElementById('pdfFull').replaceChildren(pdfBox);
+ let paralajmerimFaqe = '';
+ if(faqeTeDeshtuara > 0){ paralajmerimFaqe = currentLang==='en' ? ` ⚠️ ${faqeTeDeshtuara} page(s) could not be read (${faqeTeDeshtuaraLista.join(', ')}). The document may be incomplete.` : ` ⚠️ ${faqeTeDeshtuara} faqe nuk u lexuan (${faqeTeDeshtuaraLista.join(', ')}). Dokumenti mund të jetë i paplotë.`; }
+ if(slidesTeDeshtuara > 0){ paralajmerimFaqe += currentLang==='en' ? ` ⚠️ ${slidesTeDeshtuara} slide(s) could not be read (${slidesTeDeshtuaraLista.join(', ')}). The document may be incomplete.` : ` ⚠️ ${slidesTeDeshtuara} slide nuk u lexuan (${slidesTeDeshtuaraLista.join(', ')}). Dokumenti mund të jetë i paplotë.`; }
+ document.getElementById('uploadStatus').style.color='green'; document.getElementById('uploadStatus').innerText = i18n[currentLang].statusDone(fjalite.length) + paralajmerimFaqe + mesazhShumeFjali; tregoMesazhMira('pyetje');
+ }catch(err){
+   document.getElementById('uploadStatus').style.color='red';
+   updateProgress(0,0);
+   var msg = err && err.message ? err.message : String(err);
+   var veprim = '';
+   var lower = msg.toLowerCase();
+   if(lower.includes('password') || lower.includes('encrypted')){ msg = currentLang==='en' ? 'This PDF is password protected.' : 'Ky PDF është me fjalëkalim.'; veprim = currentLang==='en' ? ' Remove the password in your PDF reader, then upload it again.' : ' Hiq fjalëkalimin në lexuesin e PDF, pastaj ngarkoje prapë.'; }
+   else if(lower.includes('too big') || lower.includes('shumë i madh') || lower.includes('too many pages') || lower.includes('shumë faqe') || lower.includes('too many slides') || lower.includes('shumë slide') || lower.includes('too much text') || lower.includes('shumë tekst') || lower.includes('too large') || lower.includes('2 million') || lower.includes('2 milion')){ veprim = currentLang==='en' ? ' Split the file into smaller parts and upload one part.' : ' Ndaje skedarin në pjesë më të vogla dhe ngarko një pjesë.'; }
+   else if(lower.includes('damaged') || lower.includes('dëmtuar') || lower.includes('corrupt') || lower.includes('korrupt') || lower.includes('cannot be opened') || lower.includes('nuk hapet')){ veprim = currentLang==='en' ? ' Download the file again, or save it again from PowerPoint / your PDF reader, then try again.' : ' Shkarkoje skedarin prapë, ose ruaje prapë nga PowerPoint / lexuesi i PDF, pastaj provo prapë.'; }
+   else if(lower.includes('no selectable text') || lower.includes('nuk ka tekst') || lower.includes('scanned') || lower.includes('skanuar') || lower.includes('only images') || lower.includes('vetëm foto')){ veprim = currentLang==='en' ? ' This looks like a photo / scanned file. Use a PDF with selectable text, or a PPTX with real text.' : ' Ky duket si foto / skanuar. Përdor një PDF me tekst që zgjidhet, ose një PPTX me tekst të vërtetë.'; }
+   else if(lower.includes('macro') || lower.includes('makro') || lower.includes('executable') || lower.includes('ekzekutues') || lower.includes('unsafe') || lower.includes('pasigurta') || lower.includes('suspicious') || lower.includes('dyshimtë')){ veprim = currentLang==='en' ? ' For safety this file was blocked. Save a clean copy without macros and try again.' : ' Për siguri ky skedar u bllokua. Ruaj një kopje të pastër pa makro dhe provo prapë.'; }
+   else if(lower.includes('library') || lower.includes('biblioteka') || lower.includes('did not load') || lower.includes('nuk u ngarkua')){ veprim = currentLang==='en' ? ' Check your internet connection and refresh the page (F5).' : ' Kontrollo internetin dhe rifresko faqen (F5).'; }
+   else { veprim = currentLang==='en' ? ' Try again with another file.' : ' Provo prapë me një skedar tjetër.'; }
+   document.getElementById('uploadStatus').innerText = '❌ ' + msg + veprim;
+   fjalite = backupFjalite; tekstiPlote = backupTeksti;
+   document.getElementById('r').innerHTML = backupR;
+   document.getElementById('pdfFull').innerHTML = backupPdf;
+   input.value='';
+ }
+};
+function shfaq(lista){
+  var rEl = document.getElementById('r'); if(!rEl) return;
+  var t = i18n[currentLang];
+  var html = '<div class="card"><b>'+escapeHTML(t.summary)+'</b><br><br>' + bejPermbledhje(lista) + '</div>';
+  lista.forEach(function(s, idx){
+    html += '<div class="karta-studimi" tabindex="0" onclick="this.classList.toggle(\'hapur\')"><div class="pyetja"><span><span class="badge-pyetje">'+escapeHTML(t.badgeQ)+' '+(idx+1)+'</span> '+escapeHTML(s)+'</span><span class="ikona">▼</span></div><div class="pergjigja"><b>'+escapeHTML(t.answer)+'</b> '+escapeHTML(s)+'</div></div>';
+  });
+  rEl.innerHTML = html;
+}
+window.kerko = function(q){
+  var t = i18n[currentLang];
+  if(!q || !q.trim()){ document.getElementById('pergjigjaIA').style.display='block'; document.getElementById('pergjigjaIA').innerText = t.noQuestion; return; }
+  if(!fjalite.length){ document.getElementById('pergjigjaIA').style.display='block'; document.getElementById('pergjigjaIA').innerText = t.noMaterial; return; }
+  document.getElementById('pergjigjaIA').style.display='block';
+  document.getElementById('pergjigjaIA').innerText = t.searching;
+  var qWords = q.toLowerCase().replace(/[^a-zëç0-9\s]/gi,' ').split(/\s+/).filter(Boolean);
+  var expanded = zgjeroPyetjen(qWords);
+  var expandedRoots = expanded.map(rrenjaFjales);
+  var scored = fjalite.map(function(s){
+    var low = s.toLowerCase();
+    var score = 0;
+    expanded.forEach(function(w){ if(low.includes(w)) score += 3; });
+    expandedRoots.forEach(function(r){ if(r.length>3 && low.includes(r)) score += 1; });
+    qWords.forEach(function(w){ if(low.includes(w)) score += 5; });
+    return {s: s, score: score};
+  }).filter(function(x){ return x.score>0; }).sort(function(a,b){ return b.score-a.score; }).slice(0,5);
+  if(!scored.length){
+    document.getElementById('pergjigjaIA').innerHTML = currentLang==='en' ? '❌ No answer found in your material. Try with words from the material.' : '❌ Nuk u gjet përgjigje në materialin tënd. Provo me fjalë nga materiali.';
+    return;
+  }
+  var html = '<b>'+escapeHTML(t.questionLabel)+'</b> '+escapeHTML(q)+'<br><br>';
+  scored.forEach(function(item, i){
+    html += '<b>'+escapeHTML(t.answerNum(i+1))+'</b> '+escapeHTML(item.s)+'<br><br>';
+  });
+  document.getElementById('pergjigjaIA').innerHTML = html;
+  tregoMesazhMira('pyetje');
+};
+window.pyetIA = function(){ window.kerko(document.getElementById('pyetja').value); };
+let pomodoroSeconds = 25*60;
+let pomodoroTotal = 25*60;
+let pomodoroTimer = null;
+let isRunning = false;
+let pomodoroPaused = false;
+let pomodoroMode = 'study';
+function updatePomodoroDisplay(){
+  var m = Math.floor(pomodoroSeconds/60);
+  var s = pomodoroSeconds%60;
+  var el = document.getElementById('pomodoroTime'); if(el) el.innerText = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  var st = document.getElementById('pomodoroStatus'); if(st) st.innerText = window.getPomodoroStatusText(currentLang);
+}
+function pomodoroTick(){
+  if(pomodoroSeconds>0){ pomodoroSeconds--; updatePomodoroDisplay(); }
+  else {
+    clearInterval(pomodoroTimer); pomodoroTimer=null; isRunning=false; pomodoroPaused=false;
+    try{ var a=new AudioContext(); var o=a.createOscillator(); o.connect(a.destination); o.start(); setTimeout(function(){o.stop(); a.close();}, 800); }catch(e){}
+    alert(currentLang==='en' ? '⏰ Time is up! Take a break.' : '⏰ Koha mbaroi! Bëj pushim.');
+    updatePomodoroDisplay();
+  }
+}
+window.pomodoroStart = function(){ if(isRunning) return; isRunning=true; pomodoroPaused=false; pomodoroTimer=setInterval(pomodoroTick,1000); updatePomodoroDisplay(); };
+window.pomodoroPause = function(){ if(pomodoroTimer){ clearInterval(pomodoroTimer); pomodoroTimer=null; } isRunning=false; pomodoroPaused=true; updatePomodoroDisplay(); };
+window.pomodoroReset = function(){ if(pomodoroTimer){ clearInterval(pomodoroTimer); pomodoroTimer=null; } isRunning=false; pomodoroPaused=false; pomodoroSeconds=pomodoroTotal; updatePomodoroDisplay(); };
+window.pomodoroSet = function(min){ if(pomodoroTimer){ clearInterval(pomodoroTimer); pomodoroTimer=null; } isRunning=false; pomodoroPaused=false; pomodoroMode = (min===5) ? 'break' : 'study'; pomodoroTotal=min*60; pomodoroSeconds=pomodoroTotal; updatePomodoroDisplay(); };
+window.pranoCookies = function(){ try{ if(storageAvailable()) localStorage.setItem('sb-cookie','accepted'); }catch(e){} document.getElementById('cookie-banner').style.display='none'; window.loadGA(); };
+window.refuzoCookies = function(){ try{ if(storageAvailable()) localStorage.setItem('sb-cookie','declined'); }catch(e){} document.getElementById('cookie-banner').style.display='none'; };
+window.resetCookieChoice = function(){ try{ if(storageAvailable()) localStorage.removeItem('sb-cookie'); }catch(e){} document.getElementById('cookie-banner').style.display='block'; };
+try{
+  var savedCookie = null; try{ if(storageAvailable()) savedCookie = localStorage.getItem('sb-cookie'); }catch(e){}
+  if(!savedCookie){ document.getElementById('cookie-banner').style.display='block'; }
+  else if(savedCookie==='accepted'){ window.loadGA(); }
+}catch(e){ document.getElementById('cookie-banner').style.display='block'; }
+try{ window.setLang(currentLang); }catch(e){}
+updatePomodoroDisplay();
+</script>
+</body>
+</html>
