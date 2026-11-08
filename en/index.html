@@ -1,13 +1,183 @@
+<!-- KUJDES: Ka kopje në /index.html. Çdo rregullim bëje në TË DY skedarët! -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>StudyBuddy - Redirecting...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-  window.location.replace('/Studybuddy/?lang=en');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { 'ad_storage': 'denied', 'analytics_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied' });
+  gtag('js', new Date());
+  window.__SB_GA_ID = 'G-YJGX69JD3Z';
+  window.__SB_GA_LOADED = false;
+  window.__SB_GA_CONFIGURED = false;
+  window.__SB_GA_DISABLED = false;
+  window.loadGA = function(){
+    if(window.__SB_GA_DISABLED) return;
+    gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied' });
+    if(!window.__SB_GA_LOADED){
+      window.__SB_GA_LOADED = true;
+      var s=document.createElement('script');
+      s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+window.__SB_GA_ID;
+      document.head.appendChild(s);
+    }
+    if(!window.__SB_GA_CONFIGURED){
+      window.__SB_GA_CONFIGURED = true;
+      gtag('config', window.__SB_GA_ID);
+    }
+  };
 </script>
+<link rel="canonical" href="https://loricalliku18-ops.github.io/Studybuddy/en/" />
+<link rel="alternate" hreflang="sq" href="https://loricalliku18-ops.github.io/Studybuddy/" />
+<link rel="alternate" hreflang="en" href="https://loricalliku18-ops.github.io/Studybuddy/en/" />
+<link rel="alternate" hreflang="x-default" href="https://loricalliku18-ops.github.io/Studybuddy/" />
+<title>StudyBuddy – Teacher Mira | Smart Study Assistant</title>
+<meta name="description" content="StudyBuddy – Teacher Mira | Smart search in your material. Upload PDF or PowerPoint, search in your material, learn faster with Pomodoro. Free bilingual Albanian-English study assistant." />
+<meta name="theme-color" content="#9C27B0">
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="StudyBuddy" />
+<meta property="og:url" content="https://loricalliku18-ops.github.io/Studybuddy/en/" />
+<meta property="og:title" content="StudyBuddy – Teacher Mira | Smart Study Assistant" />
+<meta property="og:description" content="Upload PDF or PowerPoint, search in your material, learn faster with Pomodoro. Free, bilingual Albanian-English." />
+<meta property="og:image" content="https://loricalliku18-ops.github.io/Studybuddy/icon-512.png" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="StudyBuddy – Teacher Mira" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="sq_AL" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="StudyBuddy – Teacher Mira | Smart Study Assistant" />
+<meta name="twitter:description" content="Upload PDF or PowerPoint, search in your material, learn faster with Pomodoro. Free, bilingual Albanian-English." />
+<meta name="twitter:image" content="https://loricalliku18-ops.github.io/Studybuddy/icon-512.png" />
+<meta name="twitter:image:alt" content="StudyBuddy – Teacher Mira" />
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icon-192.png">
+<style>
+body{font-family:sans-serif;background:#f5f5f5;padding:10px}
+.card{background:#fff;padding:15px;border-radius:10px;margin-bottom:10px;box-shadow:0 1px 3px #ccc}
+button{border:0;padding:12px;border-radius:8px;width:100%;font-weight:bold;margin-top:6px;cursor:pointer}
+#btnPomodoroStart, #btnPomodoroPause, #btnPomodoroReset{ width:auto; flex:1; }
+#btnPomodoro25, #btnPomodoro5{ width:auto; flex:1; }
+.pdf-full{white-space:pre-wrap;line-height:1.8;background:#fffef0;border:2px solid #FF9800;padding:20px}
+#mira-bubble{background:#F3E5F5;border-left:4px solid #9C27B0;padding:10px;border-radius:8px;margin-bottom:8px;font-weight:bold;color:#4A148C;min-height:20px}
+@media print{ button,input,details,.lang-switch,#blogStrip,#cookie-banner{display:none !important} .pdf-full{border:none} body{padding:0;background:#fff} #mira-bubble{display:none} .karta-studimi .pergjigja{display:block !important} .karta-studimi{break-inside:avoid} }
+details{margin-top:15px;background:#fff;padding:10px;border-radius:8px}
+.karta-studimi{background:#fff;border:1px solid #e2e8f0;border-left:4px solid #0f2d52;border-radius:10px;margin-bottom:10px;cursor:pointer;box-shadow:0 1px 3px #ccc;overflow:hidden;transition:0.2s}
+.karta-studimi:hover{box-shadow:0 3px 10px rgba(0,0,0,0.1)}
+.karta-studimi:focus{outline:3px solid #9C27B0;outline-offset:2px}
+.pyetja{padding:15px;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:#1e293b}
+.pergjigja{display:none;padding:12px 15px 15px 15px;margin:0 15px 15px 15px;border-top:1px solid #f1f5f9;color:#334155;line-height:1.7;background:#f8fafc;border-radius:8px}
+.karta-studimi.hapur .pergjigja{display:block}
+.karta-studimi.hapur .ikona{transform:rotate(180deg)}
+.ikona{transition:0.2s;color:#0f2d52}
+.badge-pyetje{background:#0f2d52;color:white;font-size:10px;padding:3px 8px;border-radius:20px;margin-right:8px}
+.lang-switch{position:fixed;top:10px;right:10px;z-index:1000;background:#fff;border-radius:20px;box-shadow:0 2px 8px #ccc;padding:4px;display:flex}
+.lang-switch button{width:auto;padding:6px 14px;margin:0;border-radius:20px;font-size:13px}
+.lang-switch button.active{background:#9C27B0;color:#fff}
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#1e293b;color:#fff;padding:14px;text-align:center;font-size:13px;z-index:2000;display:none}
+#cookie-banner button{width:auto;padding:9px 18px;margin:4px}
+#progressBarWrap{height:8px;background:#eee;border-radius:10px;overflow:hidden;margin-top:8px;display:none}
+#progressBar{height:100%;width:0%;background:#2196F3;transition:width .2s}
+.limit-box{background:#F3E5F5;border:1px solid #E1BEE7;border-radius:8px;padding:8px 10px;font-size:12px;color:#4A148C;margin-top:8px;line-height:1.6;text-align:center}
+</style>
 </head>
 <body>
-<p>Redirecting... <a href="/Studybuddy/?lang=en">Click here</a></p>
-</body>
-</html>
+<noscript><div style="background:#fff3cd;padding:12px;text-align:center">StudyBuddy - Teacher Mira - Free Smart Study Assistant. English version: https://loricalliku18-ops.github.io/Studybuddy/en/ - Upload PDF or PowerPoint, learn faster. Albanian version: https://loricalliku18-ops.github.io/Studybuddy/</div></noscript>
+<div id="blogStrip" style="background:#2563eb;color:white;text-align:center;padding:10px;position:sticky;top:0;z-index:999">
+<a href="../blog/" id="blogTitle" style="color:white;text-decoration:none;">📚 BLOG - Tips for homework →</a>
+</div>
+<div class="lang-switch">
+  <button id="btn-sq" onclick="window.setLang('sq')">AL</button>
+  <button id="btn-en" class="active" onclick="window.setLang('en')">EN</button>
+</div>
+<h1 style="text-align:center" id="mainTitle">📚 StudyBuddy</h1>
+<div style="text-align:center; padding:15px; background:#f8f9ff; border-radius:12px; margin-bottom:15px; border:1px solid #E1BEE7;">
+  <div style="font-size:20px; font-weight:bold; color:#4A148C;" id="miraTitle">Teacher Mira 🤖 - Smart Search in Your Material</div>
+  <div style="font-size:13px; color:#444; margin-top:6px; font-style:italic;" id="miraSub">*Teacher Mira is a virtual character, inspired by Mira Murati - former CTO of OpenAI, Albanian pride</div>
+</div>
+<div class="card" style="text-align:center">
+<button onclick="document.getElementById('file').click()" style="background:#2196F3;color:#fff" id="uploadBtn">📄 TAP HERE - Upload PDF or PowerPoint</button>
+<div class="limit-box" id="limitBox">📏 <b>Max: 15 MB</b> • Max 150 PDF pages • Max 100 PPTX slides • Max 2 million characters • Max 5000 sentences analyzed<br><span style="color:#666">If the document has more than 5000 sentences, split it into smaller parts to analyze the rest.</span></div>
+<input type="file" id="file" hidden accept=".pdf,.pptx" onchange="window.ngarko(this)">
+<div id="uploadStatus" aria-live="polite" role="status" style="margin-top:10px;color:green;font-weight:bold"></div>
+<div id="progressBarWrap"><div id="progressBar"></div></div>
+<div style="font-size:12px;color:#666;margin-top:4px" id="progressText"></div>
+<button onclick="window.pastroMaterialin()" style="background:#fff;color:#666;border:1px solid #ccc;font-size:13px" id="btnClear">🧹 Clear uploaded material</button>
+</div>
+<div id="pdfFull"></div>
+<div id="r"></div>
+<div class="card" style="border:2px solid #9C27B0;">
+<b id="askTitle">👩‍🏫 Ask Teacher Mira</b><br>
+<span style="font-size:12px;color:#444" id="askSub">Virtual character, inspired by Mira Murati</span><br><br>
+<div id="mira-bubble" aria-live="polite">Ask me anything, I'm here!</div>
+<input id="pyetja" placeholder="Teacher Mira, what are antihistamines?" style="width:100%;padding:12px;border-radius:8px;border:1px solid #9C27B0;margin-bottom:8px">
+<button onclick="window.pyetIA()" style="background:#9C27B0;color:#fff" id="btnAsk">Ask Teacher Mira</button>
+<div style="font-size:12px;color:#5D4037;background:#FFF8E1;border:1px solid #FFE082;padding:8px;border-radius:8px;margin-top:8px;text-align:center" id="miraNote">ℹ️ How Teacher Mira works: she searches with keywords, synonyms and word stems ONLY in the material you uploaded. She is not an AI model, she does not understand meaning like ChatGPT, and she does not create answers from the internet. For better answers, ask with words from the material.</div>
+<button onclick="window.kerko(document.getElementById('pyetja').value)" style="background:#fff;color:#9C27B0;border:1px solid #9C27B0" id="btnSearch">🔍 Search in material</button>
+<button onclick="window.print()" style="background:#4CAF50;color:#fff" id="btnPrint">🖨️ Print / Save as PDF</button>
+<div id="pergjigjaIA" aria-live="polite" role="status" style="margin-top:12px;background:#F3E5F5;padding:12px;border-radius:8px;display:none"></div>
+</div>
+<div class="card" style="border:2px solid #FF9800;">
+<b id="pomodoroTitle">🍅 Pomodoro - Study</b><br><br>
+<div style="text-align:center;font-size:42px;font-weight:bold" id="pomodoroTime">25:00</div>
+<div style="text-align:center;color:#666;font-size:13px" id="pomodoroStatus">Ready to learn?</div>
+<div style="display:flex;gap:6px;margin-top:10px">
+<button id="btnPomodoroStart" onclick="window.pomodoroStart()" style="background:#4CAF50;color:#fff">Start</button>
+<button id="btnPomodoroPause" onclick="window.pomodoroPause()" style="background:#FF9800;color:#fff">Pause</button>
+<button id="btnPomodoroReset" onclick="window.pomodoroReset()" style="background:#eee;color:#333">Reset</button>
+</div>
+<div style="display:flex;gap:6px;margin-top:6px">
+<button id="btnPomodoro25" onclick="window.pomodoroSet(25)" style="background:#fff;color:#4CAF50;border:1px solid #4CAF50">25 min Study</button>
+<button id="btnPomodoro5" onclick="window.pomodoroSet(5)" style="background:#fff;color:#FF9800;border:1px solid #FF9800">5 min Break</button>
+</div>
+<div id="iosNote" style="font-size:12px;color:#555;margin-top:8px">📱 Pomodoro notification: Works when the page is open or added to Home Screen. If you close the browser completely, the notification will not arrive on time - when you reopen the page you will see the time is up. On iPhone, add to Home Screen (Share → Add to Home Screen) for best results.</div>
+</div>
+<details>
+<summary style="font-weight:bold;cursor:pointer" id="privacyTitle">⚖️ Privacy Policy</summary>
+<div style="font-size:13px;line-height:1.8;margin-top:10px;color:#334155">
+<div id="privacy-sq" style="display:none">
+<b>Përditësuar: 7 Nëntor 2026</b><br><br>
+<b>1. Çfarë është StudyBuddy - Mësuese Mira?</b><br>
+Asistent inteligjent studimi falas që ndihmon nxënësit të mësojnë nga PDF dhe PowerPoint me kërkim inteligjent me fjalë kyçe në materialin e tyre. Mësuese Mira është një personazh virtual, i frymëzuar nga <b>Mira Murati</b>, inxhiniere shqiptare dhe ish-CTO e OpenAI.<br><br>
+<b>2. Dokumentet tuaja - Si përpunohen:</b><br>
+Dokumentet përpunohen me kod JavaScript që ekzekutohet në shfletuesin tuaj. <b>Kodi që kemi shkruar ne për StudyBuddy nuk e dërgon dokumentin tuaj në asnjë server</b> - në kodin tonë nuk ka fetch, XMLHttpRequest, sendBeacon, WebSocket, form-submit apo iframe të jashtëm që dërgon përmbajtjen e dokumentit. Dokumenti lexohet nga pajisja juaj dhe mbetet në memorien e shfletuesit tuaj derisa ta pastroni ose ta mbyllni faqen.<br>
+<b>Çfarë nuk kontrollojmë ne:</b> Faqja ngarkon biblioteka nga shërbime të jashtme (cdnjs për PDF.js / JSZip) dhe - vetëm nëse klikoni Prano - skriptin e Google Analytics. Këto shërbime janë të pavarura nga ne dhe ne nuk mund të garantojmë sjelljen e tyre të ardhshme. Kur shfletuesi juaj kërkon këto skedarë, shërbimi përkatës sheh kërkesën teknike të zakonshme (adresa IP, lloji i shfletuesit). Këto kërkesa për skedarë biblioteke nuk përmbajnë dokumentin tuaj, sepse dokumenti nuk është pjesë e kërkesës - ai lexohet më vonë, lokalisht, pasi biblioteka ka mbërritur. Ju mund ta verifikoni këtë vetë: DevTools → Network.<br>
+<b>Kufijtë e ngarkimit:</b> Max 15 MB për skedar, max 150 faqe PDF, max 100 slide PPTX, max 2 milionë karaktere. Për shfaqje dhe analizë, analizohen max 5000 fjali - nëse dokumenti ka më shumë se 5000 fjali, do të njoftoheni dhe duhet ta ndani dokumentin për të analizuar pjesën tjetër. Këta kufij janë për të mos bllokuar telefonin / shfletuesin tuaj.<br><br>
+<b>3. Google Analytics, Cookies dhe Reklamat e Ardhshme:</b><br>
+Ne përdorim <b>Google Analytics (G-YJGX69JD3Z)</b> vetëm nëse ju e pranoni. Google Analytics 4 (GA4) përdor adresën tuaj IP vetëm për të përcaktuar vendndodhjen e përafërt (qytet / shtet) dhe më pas e fshin atë - GA4 nuk e ruan adresën tuaj IP. GA4 përpunon identifikues pseudonimë online dhe të dhëna teknike, si pajisja dhe shfletuesi, për statistika. Nuk mbledhim emra apo email.<br><br>
+<b>Reklamat:</b> Aktualisht në faqe <b>NUK shfaqen reklama Google AdSense</b>. Ne planifikojmë të aplikojmë për Google AdSense në të ardhmen. Nëse dhe kur AdSense aktivizohet, do të përdorim një platformë pëlqimi (CMP) të certifikuar nga Google për zonën EEA. Kur dhe nëse aktivizohen reklamat, Google dhe partnerët e reklamimit mund të përdorin cookies ose teknologji të ngjashme, sipas politikave dhe zgjedhjeve të pëlqimit që do të zbatohen në atë kohë.<br><br>
+<b>4. Si të menaxhoni Cookies:</b><br>
+Mund të ndryshoni zgjedhjen tuaj kurdo duke klikuar <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Ndrysho zgjedhjen e Cookies</a>. Mund t'i çaktivizoni edhe nga cilësimet e shfletuesit. Reklamat e personalizuara: <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">adssettings.google.com</a> dhe <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info/choices</a>.<br><br>
+<b>5. GDPR:</b> Nuk mbledhim emra, email. Të dhënat nga Google Analytics janë <b>pseudonime</b>, jo plotësisht anonime - Google përpunon identifikues online dhe të dhëna teknike për statistika. Ju mund ta tërhiqni pëlqimin tuaj në çdo kohë duke klikuar <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Ndrysho zgjedhjen e Cookies</a>. Kontakt: studbuddy.al@gmail.com<br><br>
+<b>6. Fëmijët dhe mosha e pëlqimit:</b> Faqja nuk synon të mbledhë të dhëna personale të fëmijëve. Në Bashkimin Evropian, mosha nga e cila një fëmijë mund të japë vetë pëlqimin për shërbimet online është <b>13 deri në 16 vjeç, sipas shtetit</b> - për shembull 16 vjeç në Gjermani, Itali, Francë dhe Holandë, 14 vjeç në Shqipëri dhe Spanjë, 13 vjeç në disa shtete të tjera. Nën këtë moshë, pëlqimi duhet të jepet nga prindi ose kujdestari ligjor. Ne nuk e verifikojmë moshën e vizitorëve dhe nuk kërkojmë regjistrim. Nëse një prind beson se fëmija i tij nën moshën e pëlqimit ka dhënë pëlqim pa autorizimin e prindit, mund të na kontaktojë në studbuddy.al@gmail.com për fshirjen e të dhënave.<br><br>
+<b>7. Pëlqimi:</b> Analytics aktivizohet <b>vetëm pasi të klikoni Prano</b> në bannerin e cookies. Nëse jeni nën moshën e pëlqimit në shtetin tuaj, ju lutem mos klikoni Prano pa lejen e prindit / kujdestarit. Përdorimi i faqes pa klikuar Prano <b>nuk</b> do të thotë pëlqim. Mund ta ndryshoni ose ta tërhiqni pëlqimin tuaj në çdo kohë.<br><br>
+<i>Krijuar me dashuri për të gjithë Studentët ❤️ - StudyBuddy</i>
+</div>
+<div id="privacy-en">
+<b>Updated: November 7, 2026</b><br><br>
+<b>1. What is StudyBuddy - Teacher Mira?</b><br>
+Free smart study assistant that helps students learn from PDF and PowerPoint with smart keyword search in their own material. Teacher Mira is a virtual character, inspired by <b>Mira Murati</b>, Albanian engineer and former CTO of OpenAI.<br><br>
+<b>2. Your Documents - How they are processed:</b><br>
+Documents are processed by JavaScript code that runs in your browser. <b>The code we wrote for StudyBuddy does not send your document to any server</b> - our code contains no fetch, XMLHttpRequest, sendBeacon, WebSocket, form-submit or external iframe that sends document content. The document is read from your device and stays in your browser memory until you clear it or close the page.<br>
+<b>What we do not control:</b> The page loads libraries from external services (cdnjs for PDF.js / JSZip) and - only if you click Accept - the Google Analytics script. These services are independent from us and we cannot guarantee their future behaviour. When your browser requests those files, the respective service sees the normal technical request (IP address, browser type). Those library-file requests do not contain your document, because the document is not part of the request - it is read later, locally, after the library has arrived. You can verify this yourself: DevTools → Network.<br>
+<b>Upload limits:</b> Max 15 MB per file, max 150 PDF pages, max 100 PPTX slides, max 2 million characters. For display and analysis, max 5000 sentences are analyzed - if the document has more than 5000 sentences, you will be notified and must split the document to analyze the rest. These limits are to avoid freezing your phone / browser.<br><br>
+<b>3. Google Analytics, Cookies and Future Ads:</b><br>
+We use <b>Google Analytics (G-YJGX69JD3Z)</b> only if you accept. Google Analytics 4 (GA4) uses your IP address only to determine approximate location (city / country) and then discards it - GA4 does not store your IP address. GA4 processes pseudonymous online identifiers and technical data, such as device and browser, for statistics. We do not collect names or emails.<br><br>
+<b>Ads:</b> Currently <b>no Google AdSense ads are shown</b> on this site. We plan to apply for Google AdSense in the future. If and when AdSense is activated, we will use a Google-certified Consent Management Platform (CMP) for the EEA. When and if ads are activated, Google and advertising partners may use cookies or similar technologies, according to the policies and consent choices that will apply at that time.<br><br>
+<b>4. How to manage Cookies:</b><br>
+You can change your choice anytime by clicking <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Change Cookie Choice</a>. You can also disable cookies in browser settings. Opt out of personalized ads: <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">adssettings.google.com</a> and <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info/choices</a>.<br><br>
+<b>5. GDPR:</b> We do not collect names, emails. Data from Google Analytics is <b>pseudonymous</b>, not fully anonymous - Google processes online identifiers and technical data for statistics. You can withdraw your consent at any time by clicking <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Change Cookie Choice</a>. Contact: studbuddy.al@gmail.com<br><br>
+<b>6. Children and age of consent:</b> This site does not intend to collect personal data from children. In the European Union, the age at which a child can give consent for online services is <b>13 to 16 years, depending on the country</b> - for example 16 in Germany, Italy, France and the Netherlands, 14 in Albania and Spain, 13 in some other countries. Below this age, consent must be given by a parent or legal guardian. We do not verify visitors' age and do not require registration. If a parent believes their child below the consent age has given consent without parental authorisation, they can contact us at studbuddy.al@gmail.com to request deletion.<br><br>
+<b>7. Consent:</b> Analytics is activated <b>only after you click Accept</b> in the cookie banner. If you are below the consent age in your country, please do not click Accept without your parent / guardian's permission. Using the site without clicking Accept does <b>not</b> mean consent. You can change or withdraw your consent at any time.<br><br>
+<i>Created with love for all Students ❤️ - StudyBuddy</i>
+</div>
+</div>
+</details>
+<div style="text-align:center;margin-top:10px;font-size:12px">
+  <a href="/Studybuddy/en/" style="color:#9C27B0">English version</a> | <a href="/Studybuddy/" style="color:#9C27B0">Albanian version</a>
+</div>
+<div style="text-align:center;margin-top:8px"><a href="#" onclick="window.resetCookieChoice(); return false;" style="font-size:12px;color:#9C27B0">🍪 Change Cookie Choice</a></div>
+<div id="cookie-banner"><div id="cookieText">We use Google Analytics only if you accept. Choose:</div><div style="margin-top:8px"><button onclick="window.pranoCookies()" style="background:#4CAF50;color:#fff">✅ Accept</button><button onclick="window.refuzoCookies()" style="background:#666;color:#fff">❌ Decline</button></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
