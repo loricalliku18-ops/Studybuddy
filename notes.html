@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shënimet e Mia - StudyBuddy</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f3e8ff;margin:0;padding:20px}
+a{color:#7c3aed;text-decoration:none;font-weight:bold}
+.box{background:white;max-width:700px;margin:20px auto;padding:20px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+h1{color:#7c3aed;text-align:center}
+textarea{width:100%;height:300px;border:2px solid #ddd;border-radius:10px;padding:15px;font-size:16px;box-sizing:border-box}
+button{background:#7c3aed;color:white;border:none;padding:12px 20px;border-radius:10px;font-size:16px;cursor:pointer;margin:5px}
+button.clear{background:#ef4444}
+small{color:#666}
+</style>
+</head>
+<body>
+<div class="box">
+<a href="./">← Kthehu te StudyBuddy</a>
+<h1>📝 Shënimet e Mia</h1>
+<p>Shkruaj këtu, ruhet vet automatikisht në telefonin tënd!</p>
+<textarea id="notes" placeholder="Shkruaj shënimet e tua këtu..."></textarea>
+<br><br>
+<button onclick="saveNotes()">💾 Ruaj</button>
+<button class="clear" onclick="clearNotes()">🗑️ Fshi të gjitha</button>
+<br><br>
+<small id="status">Gati...</small>
+</div>
+<script>
+let box = document.getElementById('notes');
+let status = document.getElementById('status');
+box.value = localStorage.getItem('myNotes') || '';
+function saveNotes(){
+  localStorage.setItem('myNotes', box.value);
+  status.textContent = '✅ U ruajt në ' + new Date().toLocaleString('sq-AL');
+}
+function clearNotes(){
+  if(confirm('Je e sigurt të fshish të gjitha shënimet?')){
+    box.value = '';
+    localStorage.removeItem('myNotes');
+    status.textContent = '🗑️ U fshinë';
+  }
+}
+box.addEventListener('input', saveNotes);
+</script>
+</body>
+</html>
