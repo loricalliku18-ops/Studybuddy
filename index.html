@@ -796,5 +796,20 @@ window.setLang(currentLang);
 
 <h2>For European Students</h2>
 <p>Made for European students. Upload, learn, pass your exams.</p>
-</section></body>
+<!-- NOTES -->
+<div class="card" style="border:2px solid #C084FC">
+  <b>📝 Shënimet e mia</b><br><br>
+  <textarea id="myNotes" rows="6" style="width:100%; padding:10px; border-radius:10px;" placeholder="Shkruaj këtu shënimet..."></textarea><br><br>
+  <button onclick="saveNotes()" style="background:#7c3aed; color:white; padding:10px 20px; border:none; border-radius:10px;">Ruaj Shënimet</button>
+  <p id="notesMsg"></p>
+</div>
+
+<script>
+function saveNotes(){
+  localStorage.setItem('myStudyNotes', document.getElementById('myNotes').value);
+  document.getElementById('notesMsg').innerText = '✅ U ruajt!';
+}
+var savedNotes = localStorage.getItem('myStudyNotes');
+if(savedNotes) document.getElementById('myNotes').value = savedNotes;
+</script></section></body>
 </html>
