@@ -32,14 +32,15 @@
 <link rel="alternate" hreflang="sq" href="https://loricalliku18-ops.github.io/Studybuddy/" />
 <link rel="alternate" hreflang="en" href="https://loricalliku18-ops.github.io/Studybuddy/en/" />
 <link rel="alternate" hreflang="x-default" href="https://loricalliku18-ops.github.io/Studybuddy/" />
-<title>StudyBuddy – Teacher Mira | Smart Study Assistant</title>
-<meta name="description" content="StudyBuddy – Teacher Mira | Smart search in your material. Upload PDF or PowerPoint, search in your material, learn faster with Pomodoro. Free bilingual Albanian-English study assistant." />
+<title>Free PDF & PowerPoint Study Tool | StudyBuddy</title>
+<meta name="description" content="StudyBuddy is a free study tool for students. Upload your PDF or PowerPoint study materials, search with keywords in your own material, study with sentence-based study cards and a Pomodoro timer. No account needed." />
+<meta name="robots" content="index, follow">
 <meta name="theme-color" content="#9C27B0">
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="StudyBuddy" />
 <meta property="og:url" content="https://loricalliku18-ops.github.io/Studybuddy/en/" />
-<meta property="og:title" content="StudyBuddy – Teacher Mira | Smart Study Assistant" />
-<meta property="og:description" content="Upload PDF or PowerPoint, search in your material, learn faster with Pomodoro. Free, bilingual Albanian-English." />
+<meta property="og:title" content="StudyBuddy – Free PDF & PowerPoint Study Tool" />
+<meta property="og:description" content="Upload PDF or PowerPoint study materials, search in your own material, study with cards and Pomodoro. Free, no account." />
 <meta property="og:image" content="https://loricalliku18-ops.github.io/Studybuddy/icon-512.png" />
 <meta property="og:image:width" content="512" />
 <meta property="og:image:height" content="512" />
@@ -47,12 +48,27 @@
 <meta property="og:locale" content="en_US" />
 <meta property="og:locale:alternate" content="sq_AL" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="StudyBuddy – Teacher Mira | Smart Study Assistant" />
-<meta name="twitter:description" content="Upload PDF or PowerPoint, search in your material, learn faster with Pomodoro. Free, bilingual Albanian-English." />
+<meta name="twitter:title" content="StudyBuddy – Free PDF & PowerPoint Study Tool" />
+<meta name="twitter:description" content="Upload PDF or PowerPoint study materials, search in your own material, study with cards and Pomodoro. Free, no account." />
 <meta name="twitter:image" content="https://loricalliku18-ops.github.io/Studybuddy/icon-512.png" />
 <meta name="twitter:image:alt" content="StudyBuddy – Teacher Mira" />
-<link rel="manifest" href="../manifest.json">
-<link rel="apple-touch-icon" href="../icon-192.png">
+<link rel="manifest" href="/Studybuddy/manifest.json">
+<link rel="apple-touch-icon" href="/Studybuddy/icon-192.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "StudyBuddy",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "url": "https://loricalliku18-ops.github.io/Studybuddy/en/",
+  "inLanguage": "en",
+  "description": "A free browser-based study tool. Upload your PDF or PowerPoint, read the text locally in your browser, search with keywords in your own material, and study with sentence-based study cards and a Pomodoro timer. No account needed.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": ["PDF document text extraction","PowerPoint document text extraction","Search within study materials","Sentence-based study cards","Pomodoro study timer"],
+  "author": { "@type": "Person", "name": "StudyBuddy" }
+}
+</script>
 <style>
 body{font-family:sans-serif;background:#f5f5f5;padding:10px}
 .card{background:#fff;padding:15px;border-radius:10px;margin-bottom:10px;box-shadow:0 1px 3px #ccc}
@@ -85,13 +101,14 @@ details{margin-top:15px;background:#fff;padding:10px;border-radius:8px}
 <body>
 <noscript><div style="background:#fff3cd;padding:12px;text-align:center">StudyBuddy - Teacher Mira - Free Smart Study Assistant. English version: https://loricalliku18-ops.github.io/Studybuddy/en/ - Upload PDF or PowerPoint, learn faster. Albanian version: https://loricalliku18-ops.github.io/Studybuddy/</div></noscript>
 <div id="blogStrip" style="background:#2563eb;color:white;text-align:center;padding:10px;position:sticky;top:0;z-index:999">
-<a href="../blog/" id="blogTitle" style="color:white;text-decoration:none;">📚 BLOG - Tips for homework →</a>
+<a href="/Studybuddy/blog/" id="blogTitle" style="color:white;text-decoration:none;">📚 BLOG - Tips for homework →</a>
 </div>
 <div class="lang-switch">
   <button id="btn-sq" onclick="window.setLang('sq')">AL</button>
   <button id="btn-en" class="active" onclick="window.setLang('en')">EN</button>
 </div>
-<h1 style="text-align:center" id="mainTitle">📚 StudyBuddy</h1>
+<h1 style="text-align:center;font-size:28px;line-height:1.3;margin:15px 0 5px 0;" id="mainTitle">Study Smarter with Free PDF &amp; PowerPoint Study Tools</h1>
+<p style="text-align:center;color:#444;font-size:15px;line-height:1.6;max-width:600px;margin:0 auto 15px auto;">StudyBuddy helps students work with their study materials. Upload a PDF or PowerPoint file, search the document text, review key sentences and organize your study time with a built-in Pomodoro timer.</p>
 <div style="text-align:center; padding:15px; background:#f8f9ff; border-radius:12px; margin-bottom:15px; border:1px solid #E1BEE7;">
   <div style="font-size:20px; font-weight:bold; color:#4A148C;" id="miraTitle">Teacher Mira 🤖 - Smart Search in Your Material</div>
   <div style="font-size:13px; color:#444; margin-top:6px; font-style:italic;" id="miraSub">*Teacher Mira is a virtual character, inspired by Mira Murati - former CTO of OpenAI, Albanian pride</div>
@@ -133,42 +150,56 @@ details{margin-top:15px;background:#fff;padding:10px;border-radius:8px}
 </div>
 <div id="iosNote" style="font-size:12px;color:#555;margin-top:8px">📱 Pomodoro notification: Works when the page is open or added to Home Screen. If you close the browser completely, the notification will not arrive on time - when you reopen the page you will see the time is up. On iPhone, add to Home Screen (Share → Add to Home Screen) for best results.</div>
 </div>
+
+<section style="padding:20px;background:#fff;border-radius:10px;margin-top:15px;text-align:left;line-height:1.7;color:#333;">
+  <h2>A Free Study Tool for Students</h2>
+  <p>StudyBuddy is a free online study tool designed to help students work with PDF and PowerPoint materials. You can extract and search document text directly in your browser and review important sentences.</p>
+  <h2>How Does StudyBuddy Work?</h2>
+  <p>1. Upload a PDF or PowerPoint file (max 15 MB). Your file is read locally in your browser - it is not sent to a server.<br>
+    2. StudyBuddy splits the text into sentences and shows them as study cards. Each card shows a guiding question made from a keyword in the sentence, and the sentence itself as the answer.<br>
+    3. Ask Teacher Mira with words from your material to find the relevant sentences fast.<br>
+    4. Use the built-in Pomodoro timer: 25 minutes study, 5 minutes break.</p>
+  <h2>Study Without Creating an Account</h2>
+  <p>You do not need to create an account to use StudyBuddy. Open the page, upload your PDF or PowerPoint file, and start studying right away. Your file is read locally in your browser - it is not sent to a server.</p>
+  <p style="font-size:13px;color:#666;margin-top:12px;">This is not an AI summary and not AI-generated questions. It is a simple way to browse your own sentences.</p>
+</section>
+
 <details>
 <summary style="font-weight:bold;cursor:pointer" id="privacyTitle">⚖️ Privacy Policy</summary>
 <div style="font-size:13px;line-height:1.8;margin-top:10px;color:#334155">
 <div id="privacy-sq" style="display:none">
-<b>Përditësuar: 7 Nëntor 2026</b><br><br>
+<b>Përditësuar: 9 Nëntor 2026</b><br><br>
 <b>1. Çfarë është StudyBuddy - Mësuese Mira?</b><br>
 Asistent inteligjent studimi falas që ndihmon nxënësit të mësojnë nga PDF dhe PowerPoint me kërkim inteligjent me fjalë kyçe në materialin e tyre. Mësuese Mira është një personazh virtual, i frymëzuar nga <b>Mira Murati</b>, inxhiniere shqiptare dhe ish-CTO e OpenAI.<br><br>
 <b>2. Dokumentet tuaja - Si përpunohen:</b><br>
 Dokumentet përpunohen me kod JavaScript që ekzekutohet në shfletuesin tuaj. <b>Kodi që kemi shkruar ne për StudyBuddy nuk e dërgon dokumentin tuaj në asnjë server</b> - në kodin tonë nuk ka fetch, XMLHttpRequest, sendBeacon, WebSocket, form-submit apo iframe të jashtëm që dërgon përmbajtjen e dokumentit. Dokumenti lexohet nga pajisja juaj dhe mbetet në memorien e shfletuesit tuaj derisa ta pastroni ose ta mbyllni faqen.<br>
-<b>Çfarë nuk kontrollojmë ne:</b> Faqja ngarkon biblioteka nga shërbime të jashtme (cdnjs për PDF.js / JSZip) dhe - vetëm nëse klikoni Prano - skriptin e Google Analytics. Këto shërbime janë të pavarura nga ne dhe ne nuk mund të garantojmë sjelljen e tyre të ardhshme. Kur shfletuesi juaj kërkon këto skedarë, shërbimi përkatës sheh kërkesën teknike të zakonshme (adresa IP, lloji i shfletuesit). Këto kërkesa për skedarë biblioteke nuk përmbajnë dokumentin tuaj, sepse dokumenti nuk është pjesë e kërkesës - ai lexohet më vonë, lokalisht, pasi biblioteka ka mbërritur. Ju mund ta verifikoni këtë vetë: DevTools → Network.<br>
-<b>Kufijtë e ngarkimit:</b> Max 15 MB për skedar, max 150 faqe PDF, max 100 slide PPTX, max 2 milionë karaktere. Për shfaqje dhe analizë, analizohen max 5000 fjali - nëse dokumenti ka më shumë se 5000 fjali, do të njoftoheni dhe duhet ta ndani dokumentin për të analizuar pjesën tjetër. Këta kufij janë për të mos bllokuar telefonin / shfletuesin tuaj.<br><br>
+<b>Çfarë nuk kontrollojmë ne:</b> Faqja ngarkon biblioteka nga shërbime të jashtme (cdnjs për PDF.js / JSZip) dhe - vetëm nëse klikoni Prano - skriptin e Google Analytics. Këto shërbime janë të pavarura nga ne dhe ne nuk mund të garantojmë sjelljen e tyre të ardhshme.<br>
+<b>Kufijtë e ngarkimit:</b> Max 15 MB për skedar, max 150 faqe PDF, max 100 slide PPTX, max 2 milionë karaktere. Për shfaqje dhe analizë, analizohen max 5000 fjali. Për siguri, PowerPoint-i kontrollohet edhe për madhësinë e dekompresuar: max 500 skedarë brenda, max 50 MB të dekompresuar gjithsej, max 10 MB për një skedar të vetëm.<br><br>
 <b>3. Google Analytics, Cookies dhe Reklamat e Ardhshme:</b><br>
-Ne përdorim <b>Google Analytics (G-YJGX69JD3Z)</b> vetëm nëse ju e pranoni. Google Analytics 4 (GA4) përdor adresën tuaj IP vetëm për të përcaktuar vendndodhjen e përafërt (qytet / shtet) dhe më pas e fshin atë - GA4 nuk e ruan adresën tuaj IP. GA4 përpunon identifikues pseudonimë online dhe të dhëna teknike, si pajisja dhe shfletuesi, për statistika. Nuk mbledhim emra apo email.<br><br>
-<b>Reklamat:</b> Aktualisht në faqe <b>NUK shfaqen reklama Google AdSense</b>. Ne planifikojmë të aplikojmë për Google AdSense në të ardhmen. Nëse dhe kur AdSense aktivizohet, do të përdorim një platformë pëlqimi (CMP) të certifikuar nga Google për zonën EEA. Kur dhe nëse aktivizohen reklamat, Google dhe partnerët e reklamimit mund të përdorin cookies ose teknologji të ngjashme, sipas politikave dhe zgjedhjeve të pëlqimit që do të zbatohen në atë kohë.<br><br>
+Ne përdorim <b>Google Analytics (G-YJGX69JD3Z)</b> vetëm nëse ju e pranoni. GA4 përdor adresën tuaj IP vetëm për të përcaktuar vendndodhjen e përafërt (qytet / shtet) dhe më pas e fshin atë. Nuk mbledhim emra apo email.<br><br>
+<b>Reklamat:</b> Aktualisht në faqe <b>NUK shfaqen reklama Google AdSense</b>. Ne planifikojmë të aplikojmë për Google AdSense në të ardhmen. Nëse dhe kur AdSense aktivizohet, do të përdorim një platformë pëlqimi (CMP) të certifikuar nga Google për zonën EEA.<br><br>
 <b>4. Si të menaxhoni Cookies:</b><br>
 Mund të ndryshoni zgjedhjen tuaj kurdo duke klikuar <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Ndrysho zgjedhjen e Cookies</a>. Mund t'i çaktivizoni edhe nga cilësimet e shfletuesit. Reklamat e personalizuara: <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">adssettings.google.com</a> dhe <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info/choices</a>.<br><br>
-<b>5. GDPR:</b> Nuk mbledhim emra, email. Të dhënat nga Google Analytics janë <b>pseudonime</b>, jo plotësisht anonime - Google përpunon identifikues online dhe të dhëna teknike për statistika. Ju mund ta tërhiqni pëlqimin tuaj në çdo kohë duke klikuar <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Ndrysho zgjedhjen e Cookies</a>. Kontakt: studbuddy.al@gmail.com<br><br>
-<b>6. Fëmijët dhe mosha e pëlqimit:</b> Faqja nuk synon të mbledhë të dhëna personale të fëmijëve. Në Bashkimin Evropian, mosha nga e cila një fëmijë mund të japë vetë pëlqimin për shërbimet online është <b>13 deri në 16 vjeç, sipas shtetit</b> - për shembull 16 vjeç në Gjermani, Itali, Francë dhe Holandë, 14 vjeç në Shqipëri dhe Spanjë, 13 vjeç në disa shtete të tjera. Nën këtë moshë, pëlqimi duhet të jepet nga prindi ose kujdestari ligjor. Ne nuk e verifikojmë moshën e vizitorëve dhe nuk kërkojmë regjistrim. Nëse një prind beson se fëmija i tij nën moshën e pëlqimit ka dhënë pëlqim pa autorizimin e prindit, mund të na kontaktojë në studbuddy.al@gmail.com për fshirjen e të dhënave.<br><br>
+<b>5. GDPR:</b> Nuk mbledhim emra, email. Të dhënat nga Google Analytics janë <b>pseudonime</b>, jo plotësisht anonime. Ju mund ta tërhiqni pëlqimin tuaj në çdo kohë duke klikuar <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Ndrysho zgjedhjen e Cookies</a>. Kontakt: studbuddy.al@gmail.com<br><br>
+<b>6. Fëmijët dhe mosha e pëlqimit:</b> Faqja nuk synon të mbledhë të dhëna personale të fëmijëve. Në Bashkimin Evropian, mosha nga e cila një fëmijë mund të japë vetë pëlqimin për shërbimet online është <b>13 deri në 16 vjeç, sipas shtetit</b> - për shembull 16 vjeç në Gjermani dhe Holandë, 15 vjeç në Francë, 14 vjeç në Itali dhe Spanjë, 13 vjeç në disa shtete të tjera. Në Shqipëri, e cila nuk është në BE, mosha është 14 vjeç. Nën këtë moshë, pëlqimi duhet të jepet nga prindi ose kujdestari ligjor. Ne nuk e verifikojmë moshën e vizitorëve dhe nuk kërkojmë regjistrim. Nëse një prind beson se fëmija i tij nën moshën e pëlqimit ka dhënë pëlqim pa autorizimin e prindit, mund të na kontaktojë në studbuddy.al@gmail.com për fshirjen e të dhënave.<br><br>
 <b>7. Pëlqimi:</b> Analytics aktivizohet <b>vetëm pasi të klikoni Prano</b> në bannerin e cookies. Nëse jeni nën moshën e pëlqimit në shtetin tuaj, ju lutem mos klikoni Prano pa lejen e prindit / kujdestarit. Përdorimi i faqes pa klikuar Prano <b>nuk</b> do të thotë pëlqim. Mund ta ndryshoni ose ta tërhiqni pëlqimin tuaj në çdo kohë.<br><br>
 <i>Krijuar me dashuri për të gjithë Studentët ❤️ - StudyBuddy</i>
 </div>
-<div id="privacy-en">
-<b>Updated: November 7, 2026</b><br><br>
+<div id="privacy-en" style="display:block">
+<b>Updated: November 9, 2026</b><br><br>
 <b>1. What is StudyBuddy - Teacher Mira?</b><br>
 Free smart study assistant that helps students learn from PDF and PowerPoint with smart keyword search in their own material. Teacher Mira is a virtual character, inspired by <b>Mira Murati</b>, Albanian engineer and former CTO of OpenAI.<br><br>
 <b>2. Your Documents - How they are processed:</b><br>
 Documents are processed by JavaScript code that runs in your browser. <b>The code we wrote for StudyBuddy does not send your document to any server</b> - our code contains no fetch, XMLHttpRequest, sendBeacon, WebSocket, form-submit or external iframe that sends document content. The document is read from your device and stays in your browser memory until you clear it or close the page.<br>
-<b>What we do not control:</b> The page loads libraries from external services (cdnjs for PDF.js / JSZip) and - only if you click Accept - the Google Analytics script. These services are independent from us and we cannot guarantee their future behaviour. When your browser requests those files, the respective service sees the normal technical request (IP address, browser type). Those library-file requests do not contain your document, because the document is not part of the request - it is read later, locally, after the library has arrived. You can verify this yourself: DevTools → Network.<br>
-<b>Upload limits:</b> Max 15 MB per file, max 150 PDF pages, max 100 PPTX slides, max 2 million characters. For display and analysis, max 5000 sentences are analyzed - if the document has more than 5000 sentences, you will be notified and must split the document to analyze the rest. These limits are to avoid freezing your phone / browser.<br><br>
+<b>What we do not control:</b> The page loads libraries from external services (cdnjs for PDF.js / JSZip) and - only if you click Accept - the Google Analytics script. These services are independent from us and we cannot guarantee their future behaviour.<br>
+<b>Upload limits:</b> Max 15 MB per file, max 150 PDF pages, max 100 PPTX slides, max 2 million characters. For display and analysis, max 5000 sentences are analyzed. For safety, PowerPoint files are also checked for decompressed size: max 500 files inside, max 50 MB decompressed total, max 10 MB for a single file.<br><br>
 <b>3. Google Analytics, Cookies and Future Ads:</b><br>
-We use <b>Google Analytics (G-YJGX69JD3Z)</b> only if you accept. Google Analytics 4 (GA4) uses your IP address only to determine approximate location (city / country) and then discards it - GA4 does not store your IP address. GA4 processes pseudonymous online identifiers and technical data, such as device and browser, for statistics. We do not collect names or emails.<br><br>
-<b>Ads:</b> Currently <b>no Google AdSense ads are shown</b> on this site. We plan to apply for Google AdSense in the future. If and when AdSense is activated, we will use a Google-certified Consent Management Platform (CMP) for the EEA. When and if ads are activated, Google and advertising partners may use cookies or similar technologies, according to the policies and consent choices that will apply at that time.<br><br>
+We use <b>Google Analytics (G-YJGX69JD3Z)</b> only if you accept. GA4 uses your IP address only to determine approximate location (city / country) and then discards it. We do not collect names or emails.<br><br>
+<b>Ads:</b> Currently <b>no Google AdSense ads are shown</b> on this site. We plan to apply for Google AdSense in the future. If and when AdSense is activated, we will use a Google-certified Consent Management Platform (CMP) for the EEA.<br><br>
 <b>4. How to manage Cookies:</b><br>
 You can change your choice anytime by clicking <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Change Cookie Choice</a>. You can also disable cookies in browser settings. Opt out of personalized ads: <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">adssettings.google.com</a> and <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info/choices</a>.<br><br>
-<b>5. GDPR:</b> We do not collect names, emails. Data from Google Analytics is <b>pseudonymous</b>, not fully anonymous - Google processes online identifiers and technical data for statistics. You can withdraw your consent at any time by clicking <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Change Cookie Choice</a>. Contact: studbuddy.al@gmail.com<br><br>
-<b>6. Children and age of consent:</b> This site does not intend to collect personal data from children. In the European Union, the age at which a child can give consent for online services is <b>13 to 16 years, depending on the country</b> - for example 16 in Germany, Italy, France and the Netherlands, 14 in Albania and Spain, 13 in some other countries. Below this age, consent must be given by a parent or legal guardian. We do not verify visitors' age and do not require registration. If a parent believes their child below the consent age has given consent without parental authorisation, they can contact us at studbuddy.al@gmail.com to request deletion.<br><br>
+<b>5. GDPR:</b> We do not collect names, emails. Data from Google Analytics is <b>pseudonymous</b>, not fully anonymous. You can withdraw your consent at any time by clicking <a href="#" onclick="window.resetCookieChoice(); return false;">🍪 Change Cookie Choice</a>. Contact: studbuddy.al@gmail.com<br><br>
+<b>6. Children and age of consent:</b> This site does not intend to collect personal data from children. In the European Union, the age at which a child can give consent for online services is <b>13 to 16 years, depending on the country</b> - for example 16 in Germany and the Netherlands, 15 in France, 14 in Italy and Spain, 13 in some other countries. Albania is not in the EU - the age there is 14. Below this age, consent must be given by a parent or legal guardian. We do not verify visitors' age and do not require registration. If a parent believes their child below the consent age has given consent without parental authorisation, they can contact us at studbuddy.al@gmail.com to request deletion.<br><br>
 <b>7. Consent:</b> Analytics is activated <b>only after you click Accept</b> in the cookie banner. If you are below the consent age in your country, please do not click Accept without your parent / guardian's permission. Using the site without clicking Accept does <b>not</b> mean consent. You can change or withdraw your consent at any time.<br><br>
 <i>Created with love for all Students ❤️ - StudyBuddy</i>
 </div>
@@ -183,10 +214,10 @@ You can change your choice anytime by clicking <a href="#" onclick="window.reset
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 const i18n = {
-  sq: { mainTitle: "📚 StudyBuddy", miraTitle: "Mësuesja Mira 🤖 - Kërkim Inteligjent në Materialin Tënd", miraSub: "*Mësuese Mira është një personazh virtual, i frymëzuar nga Mira Murati - ish-CTO e OpenAI, krenaria shqiptare", uploadBtn: "📄 PREK KËTU - Ngarko PDF ose PowerPoint", askTitle: "👩‍🏫 Pyet Mësuese Mira", askSub: "Personazh virtual, i frymëzuar nga Mira Murati", bubble: "Pyetmë Çfarë të duash, jam këtu!", placeholder: "Mësuese Mira, çfarë janë antihistaminikët?", btnAsk: "Pyet Mësuese Mirën", miraNote: "ℹ️ Si punon Mësuese Mira: ajo kërkon me fjalë kyçe, sinonime dhe rrënjë fjalësh VETËM në materialin që ngarkove ti. Nuk është model AI, nuk kupton kuptimin si ChatGPT dhe nuk krijon përgjigje nga interneti. Për përgjigje më të mira, pyet me fjalë që janë në material.", btnSearch: "🔍 Kërko në material", btnPrint: "🖨️ Printo / Ruaj si PDF", privacyTitle: "📜 Politika e Privatësisë / Privacy Policy", blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →", statusReading: "⏳ Duke lexuar...", statusDone: n => `✅ ${n} pika mësimore u gjetën!`, badgeQ: "PYETJE", answer: "Përgjigja:", summary: "📄 PIKAT KRYESORE", fullMaterial: "📄 Pamje paraprake:", questionLabel: "Pyetja:", answerNum: i => `Përgjigja ${i}:`, noQuestion: "Ju lutem shkruani pyetjen!", noMaterial: "Ngarkoni materialin më parë!", searching: "⏳ Mësuese Mira po kërkon...", pomodoroTitle: "🍅 Pomodoro - Mësuese", pomodoroStatus: "Gati për të mësuar?", btnPomodoroStart: "Fillo", btnPomodoroPause: "Pauzë", btnPomodoroReset: "Reseto", btnPomodoro25: "25 min Mësim", btnPomodoro5: "5 min Pushim", btnClear: "🧹 Pastro materialin e ngarkuar", cleared: "Materiali u pastrua. Ngarko një dokument të ri.", scannedTitle: "Ky dokument duket si foto / i skanuar", scannedBody: "Nuk gjetëm tekst që mund të zgjidhet. Kjo ndodh kur PDF është foto e faqeve, jo tekst i vërtetë. Zgjidhja: përdor PDF-në origjinale (jo foto), ose një PPTX me tekst, ose përdor një aplikacion OCR për ta kthyer foton në tekst.", limitBox: "📏 <b>Max: 15 MB</b> • Max 150 faqe PDF • Max 100 slide PPTX • Max 2 milionë karaktere • Max 5000 fjali analizohen<br><span style=\"color:#666\">Nëse dokumenti ka më shumë se 5000 fjali, ndajeni në pjesë më të vogla për të analizuar pjesën tjetër.</span>", tooBig: "❌ Skedari është më i madh se 15 MB. Ndajeni në pjesë më të vogla dhe ngarkoni një pjesë.", tooManySentences: n => ` ⚠️ Dokumenti ka ${n} fjali. Analizohen vetëm 5000 të parat. Ndaje dokumentin për të analizuar pjesën tjetër.`, iosNote: "📱 Njoftimi Pomodoro: Punon kur faqja është e hapur ose e shtuar në Home Screen. Nëse e mbyll shfletuesin plotësisht, njoftimi nuk vjen në kohë - kur ta rihapësh faqen do të shohësh që koha ka mbaruar. Në iPhone, shtoje në Home Screen (Share → Add to Home Screen) për funksionim më të mirë." },
-  en: { mainTitle: "📚 StudyBuddy", miraTitle: "Teacher Mira 🤖 - Smart Search in Your Material", miraSub: "*Teacher Mira is a virtual character, inspired by Mira Murati - former CTO of OpenAI, Albanian pride", uploadBtn: "📄 TAP HERE - Upload PDF or PowerPoint", askTitle: "👩‍🏫 Ask Teacher Mira", askSub: "Virtual character, inspired by Mira Murati", bubble: "Ask me anything, I'm here!", placeholder: "Teacher Mira, what are antihistamines?", btnAsk: "Ask Teacher Mira", miraNote: "ℹ️ How Teacher Mira works: she searches with keywords, synonyms and word stems ONLY in the material you uploaded. She is not an AI model, she does not understand meaning like ChatGPT, and she does not create answers from the internet. For better answers, ask with words from the material.", btnSearch: "🔍 Search in material", btnPrint: "🖨️ Print / Save as PDF", privacyTitle: "⚖️ Privacy Policy", blogTitle: "📚 BLOG - Tips for homework →", statusReading: "⏳ Reading...", statusDone: n => `✅ ${n} learning points found!`, badgeQ: "QUESTION", answer: "Answer:", summary: "📄 KEY POINTS", fullMaterial: "📄 Preview:", questionLabel: "Question:", answerNum: i => `Answer ${i}:`, noQuestion: "Please write your question!", noMaterial: "Please upload material first!", searching: "⏳ Teacher Mira is searching...", pomodoroTitle: "🍅 Pomodoro - Study", pomodoroStatus: "Ready to learn?", btnPomodoroStart: "Start", btnPomodoroPause: "Pause", btnPomodoroReset: "Reset", btnPomodoro25: "25 min Study", btnPomodoro5: "5 min Break", btnClear: "🧹 Clear uploaded material", cleared: "Material cleared. Upload a new document.", scannedTitle: "This document looks like a photo / scanned", scannedBody: "We found no selectable text. This happens when the PDF is a photo of pages, not real text. Fix: use the original PDF (not a photo), or a PPTX with real text, or use an OCR app to convert the photo to text.", limitBox: "📏 <b>Max: 15 MB</b> • Max 150 PDF pages • Max 100 PPTX slides • Max 2 million characters • Max 5000 sentences analyzed<br><span style=\"color:#666\">If the document has more than 5000 sentences, split it into smaller parts to analyze the rest.</span>", tooBig: "❌ File is larger than 15 MB. Split it into smaller parts and upload one part.", tooManySentences: n => ` ⚠️ Document has ${n} sentences. Only the first 5000 are analyzed. Split the document to analyze the rest.`, iosNote: "📱 Pomodoro notification: Works when the page is open or added to Home Screen. If you close the browser completely, the notification will not arrive on time - when you reopen the page you will see the time is up. On iPhone, add to Home Screen (Share → Add to Home Screen) for best results." }
+  sq: { mainTitle: "Study Smarter with Free PDF & PowerPoint Study Tools", miraTitle: "Mësuesja Mira 🤖 - Kërkim Inteligjent në Materialin Tënd", miraSub: "*Mësuese Mira është një personazh virtual, i frymëzuar nga Mira Murati - ish-CTO e OpenAI, krenaria shqiptare", uploadBtn: "📄 PREK KËTU - Ngarko PDF ose PowerPoint", askTitle: "👩‍🏫 Pyet Mësuese Mira", askSub: "Personazh virtual, i frymëzuar nga Mira Murati", bubble: "Pyetmë Çfarë të duash, jam këtu!", placeholder: "Mësuese Mira, çfarë janë antihistaminikët?", btnAsk: "Pyet Mësuese Mirën", miraNote: "ℹ️ Si punon Mësuese Mira: ajo kërkon me fjalë kyçe, sinonime dhe rrënjë fjalësh VETËM në materialin që ngarkove ti. Nuk është model AI, nuk kupton kuptimin si ChatGPT dhe nuk krijon përgjigje nga interneti. Për përgjigje më të mira, pyet me fjalë që janë në material.", btnSearch: "🔍 Kërko në material", btnPrint: "🖨️ Printo / Ruaj si PDF", privacyTitle: "📜 Politika e Privatësisë / Privacy Policy", blogTitle: "📚 BLOGU - Keshilla si te besh detyrat →", statusReading: "⏳ Duke lexuar...", statusDone: n => `✅ ${n} pika mësimore u gjetën!`, badgeQ: "PYETJE", answer: "Përgjigja:", summary: "📄 FIRST 3 SENTENCES", fullMaterial: "📄 Pamje paraprake:", questionLabel: "Pyetja:", answerNum: i => `Përgjigja ${i}:`, noQuestion: "Ju lutem shkruani pyetjen!", noMaterial: "Ngarkoni materialin më parë!", searching: "⏳ Mësuese Mira po kërkon...", pomodoroTitle: "🍅 Pomodoro - Mësuese", pomodoroStatus: "Gati për të mësuar?", btnPomodoroStart: "Fillo", btnPomodoroPause: "Pauzë", btnPomodoroReset: "Reseto", btnPomodoro25: "25 min Mësim", btnPomodoro5: "5 min Pushim", btnClear: "🧹 Pastro materialin e ngarkuar", cleared: "Materiali u pastrua. Ngarko një dokument të ri.", scannedTitle: "Ky dokument duket si foto / i skanuar", scannedBody: "Nuk gjetëm tekst që mund të zgjidhet. Kjo ndodh kur PDF është foto e faqeve, jo tekst i vërtetë. Zgjidhja: përdor PDF-në origjinale (jo foto), ose një PPTX me tekst, ose përdor një aplikacion OCR për ta kthyer foton në tekst.", limitBox: "📏 <b>Max: 15 MB</b> • Max 150 faqe PDF • Max 100 slide PPTX • Max 2 milionë karaktere • Max 5000 fjali analizohen<br><span style=\"color:#666\">Nëse dokumenti ka më shumë se 5000 fjali, ndajeni në pjesë më të vogla për të analizuar pjesën tjetër.</span>", tooBig: "❌ Skedari është më i madh se 15 MB. Ndajeni në pjesë më të vogla dhe ngarkoni një pjesë.", tooManySentences: n => ` ⚠️ Dokumenti ka ${n} fjali. Analizohen vetëm 5000 të parat. Ndaje dokumentin për të analizuar pjesën tjetër.`, iosNote: "📱 Njoftimi Pomodoro: Punon kur faqja është e hapur ose e shtuar në Home Screen. Nëse e mbyll shfletuesin plotësisht, njoftimi nuk vjen në kohë - kur ta rihapësh faqen do të shohësh që koha ka mbaruar. Në iPhone, shtoje në Home Screen (Share → Add to Home Screen) për funksionim më të mirë." },
+  en: { mainTitle: "Study Smarter with Free PDF & PowerPoint Study Tools", miraTitle: "Teacher Mira 🤖 - Smart Search in Your Material", miraSub: "*Teacher Mira is a virtual character, inspired by Mira Murati - former CTO of OpenAI, Albanian pride", uploadBtn: "📄 TAP HERE - Upload PDF or PowerPoint", askTitle: "👩‍🏫 Ask Teacher Mira", askSub: "Virtual character, inspired by Mira Murati", bubble: "Ask me anything, I'm here!", placeholder: "Teacher Mira, what are antihistamines?", btnAsk: "Ask Teacher Mira", miraNote: "ℹ️ How Teacher Mira works: she searches with keywords, synonyms and word stems ONLY in the material you uploaded. She is not an AI model, she does not understand meaning like ChatGPT, and she does not create answers from the internet. For better answers, ask with words from the material.", btnSearch: "🔍 Search in material", btnPrint: "🖨️ Print / Save as PDF", privacyTitle: "⚖️ Privacy Policy", blogTitle: "📚 BLOG - Tips for homework →", statusReading: "⏳ Reading...", statusDone: n => `✅ ${n} learning points found!`, badgeQ: "QUESTION", answer: "Answer:", summary: "📄 FIRST 3 SENTENCES", fullMaterial: "📄 Preview:", questionLabel: "Question:", answerNum: i => `Answer ${i}:`, noQuestion: "Please write your question!", noMaterial: "Please upload material first!", searching: "⏳ Teacher Mira is searching...", pomodoroTitle: "🍅 Pomodoro - Study", pomodoroStatus: "Ready to learn?", btnPomodoroStart: "Start", btnPomodoroPause: "Pause", btnPomodoroReset: "Reset", btnPomodoro25: "25 min Study", btnPomodoro5: "5 min Break", btnClear: "🧹 Clear uploaded material", cleared: "Material cleared. Upload a new document.", scannedTitle: "This document looks like a photo / scanned", scannedBody: "We found no selectable text. This happens when the PDF is a photo of pages, not real text. Fix: use the original PDF (not a photo), or a PPTX with real text, or use an OCR app to convert the photo to text.", limitBox: "📏 <b>Max: 15 MB</b> • Max 150 PDF pages • Max 100 PPTX slides • Max 2 million characters • Max 5000 sentences analyzed<br><span style=\"color:#666\">If the document has more than 5000 sentences, split it into smaller parts to analyze the rest.</span>", tooBig: "❌ File is larger than 15 MB. Split it into smaller parts and upload one part.", tooManySentences: n => ` ⚠️ Document has ${n} sentences. Only the first 5000 are analyzed. Split the document to analyze the rest.`, iosNote: "📱 Pomodoro notification: Works when the page is open or added to Home Screen. If you close the browser completely, the notification will not arrive on time - when you reopen the page you will see the time is up. On iPhone, add to Home Screen (Share → Add to Home Screen) for best results." }
 };
-let currentLang = 'sq';
+let currentLang = 'en';
 function storageAvailable(){
   try{ var t='__sb_test__'; localStorage.setItem(t,t); localStorage.removeItem(t); return true; }catch(e){ return false; }
 }
@@ -203,9 +234,9 @@ try{
   }
 }catch(e){}
 function setEl(id, val, isText){ var el=document.getElementById(id); if(!el) return; if(isText==='placeholder'){ el.placeholder=val; } else if(isText==='html'){ el.innerHTML=val; } else { el.innerText=val; } }
-function updateSEO(l){ try{ var metaDesc=document.querySelector('meta[name="description"]'); if(metaDesc) metaDesc.content = l==='en' ? 'StudyBuddy – Teacher Mira | Smart search in your material. Upload PDF or PowerPoint, search in your material, learn faster with Pomodoro. Free bilingual Albanian-English study assistant.' : 'StudyBuddy – Mësuese Mira | Kërkim inteligjent në materialin tënd. Ngarko PDF ose PowerPoint, kërko në materialin tënd, mëso më shpejt me Pomodoro. Asistent falas dygjuhësh shqip-anglisht.'; document.title = l==='en' ? 'StudyBuddy – Teacher Mira | Smart Study Assistant' : 'StudyBuddy – Mësuese Mira | Asistent Inteligjent Studimi'; }catch(e){} }
+function updateSEO(l){ try{ var metaDesc=document.querySelector('meta[name="description"]'); if(metaDesc) metaDesc.content = l==='en' ? 'StudyBuddy is a free study tool for students. Upload your PDF or PowerPoint study materials, search with keywords in your own material, study with sentence-based study cards and a Pomodoro timer. No account needed.' : 'StudyBuddy – Mësuese Mira | Kërkim inteligjent në materialin tënd. Ngarko PDF ose PowerPoint, kërko në materialin tënd, mëso më shpejt me Pomodoro. Asistent falas dygjuhësh shqip-anglisht.'; document.title = l==='en' ? 'Free PDF & PowerPoint Study Tool | StudyBuddy' : 'StudyBuddy – Mësuese Mira | Asistent Inteligjent Studimi'; }catch(e){} }
 window.getPomodoroStatusText = function(lang){
-  var L = lang || currentLang || 'sq';
+  var L = lang || currentLang || 'en';
   var isEn = L === 'en';
   if(typeof isRunning !== 'undefined' && isRunning){
     if(typeof pomodoroMode !== 'undefined' && pomodoroMode === 'break'){ return isEn ? 'Break...' : 'Pushim...'; }
@@ -218,21 +249,23 @@ window.getPomodoroStatusText = function(lang){
   return isEn ? 'Ready to learn?' : 'Gati për të mësuar?';
 };
 window.setLang = function(l){
-  currentLang = l;
-  try{ if(storageAvailable()) localStorage.setItem('sb-lang', l); }catch(e){}
   try{
     var path = window.location.pathname;
     var isEnPage = path.indexOf('/en/') !== -1 || path.endsWith('/en');
     var kaDokument = (typeof fjalite !== 'undefined' && fjalite.length > 0);
     if(l==='en' && !isEnPage){
       if(kaDokument){ if(!confirm('Ke një dokument të ngarkuar. Nëse ndërron gjuhën, dokumenti do të humbasë. Të vazhdoj?')) return; }
+      try{ if(storageAvailable()) localStorage.setItem('sb-lang', l); }catch(e){}
       window.location.href = '/Studybuddy/en/'; return;
     }
     if(l==='sq' && isEnPage){
       if(kaDokument){ if(!confirm('You have a document loaded. If you switch language, the document will be lost. Continue?')) return; }
+      try{ if(storageAvailable()) localStorage.setItem('sb-lang', l); }catch(e){}
       window.location.href = '/Studybuddy/'; return;
     }
   }catch(e){}
+  currentLang = l;
+  try{ if(storageAvailable()) localStorage.setItem('sb-lang', l); }catch(e){}
   document.documentElement.lang = l; var bSq=document.getElementById('btn-sq'); if(bSq) bSq.classList.toggle('active', l==='sq'); var bEn=document.getElementById('btn-en'); if(bEn) bEn.classList.toggle('active', l==='en'); const t = i18n[l]; setEl('mainTitle', t.mainTitle); setEl('miraTitle', t.miraTitle); setEl('miraSub', t.miraSub); setEl('uploadBtn', t.uploadBtn); setEl('askTitle', t.askTitle); setEl('askSub', t.askSub); setEl('mira-bubble', t.bubble); setEl('pyetja', t.placeholder, 'placeholder'); setEl('btnAsk', t.btnAsk); setEl('miraNote', t.miraNote); setEl('btnSearch', t.btnSearch); setEl('btnPrint', t.btnPrint); setEl('blogTitle', t.blogTitle); setEl('privacyTitle', t.privacyTitle);
   if(document.getElementById('pomodoroTitle')){
     setEl('pomodoroTitle', t.pomodoroTitle); setEl('pomodoroStatus', window.getPomodoroStatusText(l)); setEl('btnPomodoroStart', t.btnPomodoroStart); setEl('btnPomodoroPause', t.btnPomodoroPause); setEl('btnPomodoroReset', t.btnPomodoroReset); setEl('btnPomodoro25', t.btnPomodoro25); setEl('btnPomodoro5', t.btnPomodoro5);
@@ -337,7 +370,6 @@ function zgjeroPyetjen(qWords){
   qWords.forEach(w=>{ let grup = HARTA_SINONIME[w] || HARTA_SINONIME[rrenjaFjales(w)]; if(grup) grup.forEach(g=> set.add(g)); });
   return [...set];
 }
-// --- FUNKSIONET QE MUNGONIN - FIX ---
 function checkLibs(isPDF){
   if(isPDF && typeof pdfjsLib === 'undefined') return 'PDF_LIB_MISSING';
   if(!isPDF && typeof JSZip === 'undefined') return 'ZIP_LIB_MISSING';
@@ -351,10 +383,33 @@ function gabimIMadh(msg){
 function kontrolloZIPParaHapjes(buf){
   if(!buf || buf.byteLength > 15*1024*1024) throw gabimIMadh('File too large');
 }
+async function kontrolloMadhesineZIP(zip){
+  var emrat = Object.keys(zip.files);
+  if(emrat.length > 500){
+    throw gabimIMadh(currentLang==='en' ? 'This PowerPoint contains too many files inside (' + emrat.length + ', max 500). Blocked for safety.' : 'Ky PowerPoint përmban shumë skedarë brenda (' + emrat.length + ', max 500). U bllokua për siguri.');
+  }
+  var totali = 0;
+  for(var i=0; i<emrat.length; i++){
+    var f = zip.files[emrat[i]];
+    if(f.dir) continue;
+    // FIX ZIP BOMB: measure REAL decompressed size via async string length, NOT f._data.uncompressedSize
+    var content = await f.async("string");
+    var madh = content.length;
+    if(madh > 10*1024*1024){
+      throw gabimIMadh(currentLang==='en' ? 'One file inside this PowerPoint is too large (over 10 MB).' : 'Një skedar brenda këtij PowerPoint është shumë i madh (mbi 10 MB).');
+    }
+    totali += madh;
+    if(totali > 50*1024*1024){
+      throw gabimIMadh(currentLang==='en' ? 'This PowerPoint expands to too much data (over 50 MB decompressed). Blocked for safety.' : 'Ky PowerPoint hapet në shumë të dhëna (mbi 50 MB i dekompresuar). U bllokua për siguri.');
+    }
+  }
+}
 function nxirrTekstNgaSlideXML(xml){
   if(!xml) return "";
-  var parts = xml.match(/<a:t[^>]*>([^<]*)<\/a:t>/g) || [];
-  var out = parts.map(function(p){ return p.replace(/<[^>]+>/g,''); }).join(' ');
+  var doc = new DOMParser().parseFromString(xml, "application/xml");
+  var nodes = doc.querySelectorAll("t");
+  var out = "";
+  nodes.forEach(function(n){ out += n.textContent + " "; });
   return decodeXML(out);
 }
 async function merrRendinRealTeSlajdeve(zip){
@@ -362,11 +417,80 @@ async function merrRendinRealTeSlajdeve(zip){
     var f = zip.files['ppt/presentation.xml'];
     if(!f) return null;
     var xml = await f.async("string");
-    return null;
+    var presDoc = new DOMParser().parseFromString(xml, "application/xml");
+    var sldIds = presDoc.querySelectorAll("sldId");
+    if(!sldIds.length) return null;
+    var ids = [];
+    sldIds.forEach(function(el){ var rid = el.getAttribute("r:id"); if(rid) ids.push(rid); });
+    if(!ids.length) return null;
+    var relsFile = zip.files['ppt/_rels/presentation.xml.rels'];
+    if(!relsFile) return null;
+    var relsXml = await relsFile.async("string");
+    var relsDoc = new DOMParser().parseFromString(relsXml, "application/xml");
+    var harta = {};
+    relsDoc.querySelectorAll("Relationship").forEach(function(r){
+      var id = r.getAttribute("Id");
+      var target = r.getAttribute("Target");
+      if(id && target) harta[id] = target;
+    });
+    function normalizoRrugen(target){
+      if(!target) return null;
+      if(target.indexOf(':') !== -1) return null;
+      if(target.indexOf('\\') !== -1) return null;
+      var t = target;
+      if(t.charAt(0) === '/') t = t.slice(1);
+      if(t.indexOf('ppt/') === 0) t = t.slice(4);
+      if(t.indexOf('/') === 0) t = t.slice(1);
+      var pjeset = ['ppt'].concat(t.split('/'));
+      var dalja = [];
+      for(var i=0; i<pjeset.length; i++){
+        var p = pjeset[i];
+        if(p === '' || p === '.') continue;
+        if(p === '..'){
+          if(dalja.length === 0) return null;
+          dalja.pop();
+        } else { dalja.push(p); }
+      }
+      var path = dalja.join('/');
+      if(!/^ppt\/slides\/slide\d+\.xml$/.test(path)) return null;
+      return path;
+    }
+    var rendi = [];
+    ids.forEach(function(id){
+      var target = harta[id];
+      var path = normalizoRrugen(target);
+      if(path && zip.files[path]) rendi.push(path);
+    });
+    return rendi.length ? rendi : null;
   }catch(e){ return null; }
 }
 async function merrTekstinENotes(zip, slideFiles){
-  return "";
+  try{
+    var out = "";
+    for(var i=0; i<slideFiles.length; i++){
+      var slidePath = slideFiles[i];
+      var num = (slidePath.match(/slide(\d+)\.xml/)||[0,""])[1];
+      if(!num) continue;
+      var relsPath = 'ppt/slides/_rels/slide' + num + '.xml.rels';
+      var relsFile = zip.files[relsPath];
+      if(!relsFile) continue;
+      var relsXml = await relsFile.async("string");
+      var relsDoc = new DOMParser().parseFromString(relsXml, "application/xml");
+      var targetNote = null;
+      relsDoc.querySelectorAll("Relationship").forEach(function(r){
+        var tgt = r.getAttribute("Target") || "";
+        if(/notesSlide\d+\.xml/.test(tgt)) targetNote = tgt;
+      });
+      if(!targetNote) continue;
+      var notesPath = 'ppt/notesSlides/' + targetNote.split('/').pop();
+      var notesFile = zip.files[notesPath];
+      if(!notesFile) continue;
+      var notesXml = await notesFile.async("string");
+      var notesText = nxirrTekstNgaSlideXML(notesXml);
+      if(notesText.trim()) out += "\n[Shënim Slide " + num + "]: " + notesText + "\n";
+    }
+    return out;
+  }catch(e){ return ""; }
 }
 function bejPermbledhje(lista){
   if(!lista || !lista.length) return "";
@@ -381,8 +505,8 @@ window.pastroMaterialin = function(){
   document.getElementById('pdfFull').innerHTML='';
   document.getElementById('uploadStatus').innerText = i18n[currentLang].cleared;
   document.getElementById('file').value='';
+  shfaqurCount = 100;
 };
-// --- FUND FIX ---
 window.ngarko = async function(input){
  let f=input.files[0]; if(!f) return;
  let backupFjalite = [...fjalite];
@@ -466,6 +590,7 @@ window.ngarko = async function(input){
    kontrolloZIPParaHapjes(buf);
    let zip;
    try{ zip = await JSZip.loadAsync(buf); }catch(e){ throw new Error(currentLang==='en' ? 'This PowerPoint file is corrupted or incomplete. Try downloading it again or saving it again from PowerPoint.' : 'Ky skedar PowerPoint është i korruptuar ose i paplotë. Provo ta shkarkosh prapë ose ta ruash prapë nga PowerPoint.'); }
+   await kontrolloMadhesineZIP(zip);
    let teRrezikshme = Object.keys(zip.files).filter(n=>{
      if(n.endsWith('/')) return false;
      let low = n.toLowerCase();
@@ -519,6 +644,7 @@ window.ngarko = async function(input){
  let mesazhShumeFjali = '';
  if(fjalite.length > 5000){ fjalite = fjalite.slice(0, 5000); mesazhShumeFjali = i18n[currentLang].tooManySentences(totalFjali); }
  if(fjalite.length===0){ document.getElementById('uploadStatus').style.color='red'; document.getElementById('uploadStatus').innerText = currentLang==='en' ? '❌ Text found but no sentences.' : '❌ U gjet tekst por pa fjali të plota.'; fjalite = backupFjalite; tekstiPlote = backupTeksti; document.getElementById('r').innerHTML = backupR; document.getElementById('pdfFull').innerHTML = backupPdf; input.value=''; return; }
+ shfaqurCount = 100;
  shfaq(fjalite);
  const pdfBox = document.createElement('div'); pdfBox.className = 'card pdf-full';
  const title = document.createElement('b'); title.style.color = '#FF9800';
@@ -566,15 +692,44 @@ window.ngarko = async function(input){
    input.value='';
  }
 };
+let shfaqurCount = 100;
+function bejPyetjeNgaFjalia(s){
+  if(!s) return currentLang === 'sq' ? "Çfarë thotë materiali këtu?" : "What is this about?";
+  var fjalet = s.split(' ').filter(Boolean);
+  if(fjalet.length < 4) return currentLang === 'sq' ? "Çfarë thotë materiali këtu?" : "What is this about?";
+  var stopSQ = ['është','dhe','për','nga','në','me','te','të','që','një','kjo','ky','si','kur','edhe','por','nuk','janë','ka','ishte','duhet','shumë'];
+  var stopEN = ['that','this','with','from','have','has','been','will','would','there','their','about','which','when','where','what','your','also','into','more','most','other','some','such','only'];
+  var stop = currentLang === 'sq' ? stopSQ : stopEN;
+  var keyword = "";
+  fjalet.forEach(function(w){
+    var paster = w.replace(/[^a-zA-ZëçËÇ]/g,'');
+    if(paster.length > 4 && stop.indexOf(paster.toLowerCase()) === -1){
+      if(paster.length > keyword.length) keyword = paster;
+    }
+  });
+  if(!keyword) keyword = fjalet[1] || fjalet[0];
+  if(currentLang === 'sq'){
+    return "Çfarë thotë materiali për '" + keyword + "'?";
+  } else {
+    return "What does the material say about '" + keyword + "'?";
+  }
+}
 function shfaq(lista){
   var rEl = document.getElementById('r'); if(!rEl) return;
   var t = i18n[currentLang];
   var html = '<div class="card"><b>'+escapeHTML(t.summary)+'</b><br><br>' + bejPermbledhje(lista) + '</div>';
-  lista.forEach(function(s, idx){
-    html += '<div class="karta-studimi" tabindex="0" onclick="this.classList.toggle(\'hapur\')"><div class="pyetja"><span><span class="badge-pyetje">'+escapeHTML(t.badgeQ)+' '+(idx+1)+'</span> '+escapeHTML(s)+'</span><span class="ikona">▼</span></div><div class="pergjigja"><b>'+escapeHTML(t.answer)+'</b> '+escapeHTML(s)+'</div></div>';
+  var perShfaqje = lista.slice(0, shfaqurCount);
+  perShfaqje.forEach(function(s, idx){
+    var pyetja = bejPyetjeNgaFjalia(s);
+    if(pyetja === s) pyetja = currentLang === 'sq' ? "Çfarë thotë materiali këtu?" : "What does the material say here?";
+    html += '<div class="karta-studimi" tabindex="0" onclick="this.classList.toggle(\'hapur\')"><div class="pyetja"><span><span class="badge-pyetje">'+escapeHTML(t.badgeQ)+' '+(idx+1)+'</span> '+escapeHTML(pyetja)+'</span><span class="ikona">▼</span></div><div class="pergjigja"><b>'+escapeHTML(t.answer)+'</b> '+escapeHTML(s)+'</div></div>';
   });
+  if(lista.length > shfaqurCount){
+    html += '<button onclick="window.shfaqMeShume()" style="background:#0f2d52;color:#fff">' + (currentLang==='sq' ? 'Shfaq 100 më shumë (' + shfaqurCount + ' / ' + lista.length + ')' : 'Show 100 more (' + shfaqurCount + ' / ' + lista.length + ')') + '</button>';
+  }
   rEl.innerHTML = html;
 }
+window.shfaqMeShume = function(){ shfaqurCount += 100; shfaq(fjalite); };
 window.kerko = function(q){
   var t = i18n[currentLang];
   if(!q || !q.trim()){ document.getElementById('pergjigjaIA').style.display='block'; document.getElementById('pergjigjaIA').innerText = t.noQuestion; return; }
@@ -583,7 +738,7 @@ window.kerko = function(q){
   document.getElementById('pergjigjaIA').innerText = t.searching;
   var qWords = q.toLowerCase().replace(/[^a-zëç0-9\s]/gi,' ').split(/\s+/).filter(Boolean);
   var expanded = zgjeroPyetjen(qWords);
-  var expandedRoots = expanded.map(rrenjaFjales);
+  var e  var expandedRoots = expanded.map(rrenjaFjales);
   var scored = fjalite.map(function(s){
     var low = s.toLowerCase();
     var score = 0;
@@ -610,6 +765,32 @@ let pomodoroTimer = null;
 let isRunning = false;
 let pomodoroPaused = false;
 let pomodoroMode = 'study';
+let pomodoroEndTime = 0;
+function ruajPomodoro(){
+  try{
+    if(!storageAvailable()) return;
+    localStorage.setItem('sb-pomodoro', JSON.stringify({ seconds: pomodoroSeconds, total: pomodoroTotal, mode: pomodoroMode, endTime: pomodoroEndTime, isRunning: isRunning, paused: pomodoroPaused }));
+  }catch(e){}
+}
+function rikthePomodoro(){
+  try{
+    if(!storageAvailable()) return;
+    var raw = localStorage.getItem('sb-pomodoro');
+    if(!raw) return;
+    var d = JSON.parse(raw);
+    if(!d) return;
+    pomodoroTotal = d.total || 25*60;
+    pomodoroMode = d.mode || 'study';
+    pomodoroEndTime = d.endTime || 0;
+    pomodoroPaused = !!d.paused;
+    isRunning = !!d.isRunning;
+    if(isRunning && pomodoroEndTime > 0){
+      var mbetur = Math.round((pomodoroEndTime - Date.now()) / 1000);
+      if(mbetur <= 0){ pomodoroSeconds = 0; isRunning = false; pomodoroPaused = false; ruajPomodoro(); }
+      else { pomodoroSeconds = mbetur; pomodoroTimer = setInterval(pomodoroTick, 1000); }
+    } else { pomodoroSeconds = d.seconds || pomodoroTotal; isRunning = false; }
+  }catch(e){}
+}
 function updatePomodoroDisplay(){
   var m = Math.floor(pomodoroSeconds/60);
   var s = pomodoroSeconds%60;
@@ -617,36 +798,83 @@ function updatePomodoroDisplay(){
   var st = document.getElementById('pomodoroStatus'); if(st) st.innerText = window.getPomodoroStatusText(currentLang);
 }
 function pomodoroTick(){
-  if(pomodoroSeconds>0){ pomodoroSeconds--; updatePomodoroDisplay(); }
-  else {
+  var mbetur = Math.round((pomodoroEndTime - Date.now()) / 1000);
+  if(mbetur <= 0){
+    pomodoroSeconds = 0;
+    updatePomodoroDisplay();
     clearInterval(pomodoroTimer); pomodoroTimer=null; isRunning=false; pomodoroPaused=false;
+    ruajPomodoro();
     try{ var a=new AudioContext(); var o=a.createOscillator(); o.connect(a.destination); o.start(); setTimeout(function(){o.stop(); a.close();}, 800); }catch(e){}
     alert(currentLang==='en' ? '⏰ Time is up! Take a break.' : '⏰ Koha mbaroi! Bëj pushim.');
     updatePomodoroDisplay();
+    return;
   }
+  pomodoroSeconds = mbetur;
+  updatePomodoroDisplay();
 }
-window.pomodoroStart = function(){ if(isRunning) return; isRunning=true; pomodoroPaused=false; pomodoroTimer=setInterval(pomodoroTick,1000); updatePomodoroDisplay(); };
-window.pomodoroPause = function(){ if(pomodoroTimer){ clearInterval(pomodoroTimer); pomodoroTimer=null; } isRunning=false; pomodoroPaused=true; updatePomodoroDisplay(); };
-window.pomodoroReset = function(){ if(pomodoroTimer){ clearInterval(pomodoroTimer); pomodoroTimer=null; } isRunning=false; pomodoroPaused=false; pomodoroSeconds=pomodoroTotal; updatePomodoroDisplay(); };
-window.pomodoroSet = function(min){ if(pomodoroTimer){ clearInterval(pomodoroTimer); pomodoroTimer=null; } isRunning=false; pomodoroPaused=false; pomodoroMode = (min===5) ? 'break' : 'study'; pomodoroTotal=min*60; pomodoroSeconds=pomodoroTotal; updatePomodoroDisplay(); };
-window.pranoCookies = function(){ try{ if(storageAvailable()) localStorage.setItem('sb-cookie','accepted'); }catch(e){} document.getElementById('cookie-banner').style.display='none'; window.loadGA(); };
-window.refuzoCookies = function(){ try{ if(storageAvailable()) localStorage.setItem('sb-cookie','declined'); }catch(e){} document.getElementById('cookie-banner').style.display='none'; };
-window.resetCookieChoice = function(){ try{ if(storageAvailable()) localStorage.removeItem('sb-cookie'); }catch(e){} document.getElementById('cookie-banner').style.display='block'; };
-try{
-  var savedCookie = null; try{ if(storageAvailable()) savedCookie = localStorage.getItem('sb-cookie'); }catch(e){}
-  if(!savedCookie){ document.getElementById('cookie-banner').style.display='block'; }
-  else if(savedCookie==='accepted'){ window.loadGA(); }
-}catch(e){ document.getElementById('cookie-banner').style.display='block'; }
-try{ window.setLang(currentLang); }catch(e){}
-updatePomodoroDisplay();
+window.pomodoroStart = function(){
+  if(isRunning) return;
+  isRunning=true; pomodoroPaused=false;
+  pomodoroEndTime = Date.now() + pomodoroSeconds*1000;
+  if(pomodoroTimer) clearInterval(pomodoroTimer);
+  pomodoroTimer = setInterval(pomodoroTick, 1000);
+  updatePomodoroDisplay(); ruajPomodoro();
+};
+window.pomodoroPause = function(){
+  if(!isRunning) return;
+  clearInterval(pomodoroTimer); pomodoroTimer=null; isRunning=false; pomodoroPaused=true;
+  pomodoroSeconds = Math.max(0, Math.round((pomodoroEndTime - Date.now())/1000));
+  updatePomodoroDisplay(); ruajPomodoro();
+};
+window.pomodoroReset = function(){
+  clearInterval(pomodoroTimer); pomodoroTimer=null; isRunning=false; pomodoroPaused=false;
+  pomodoroSeconds = pomodoroTotal; pomodoroEndTime=0;
+  updatePomodoroDisplay(); ruajPomodoro();
+};
+window.pomodoroSet = function(min){
+  clearInterval(pomodoroTimer); pomodoroTimer=null; isRunning=false; pomodoroPaused=false;
+  pomodoroTotal = min*60; pomodoroSeconds = pomodoroTotal;
+  pomodoroMode = (min===5) ? 'break' : 'study';
+  pomodoroEndTime=0;
+  updatePomodoroDisplay(); ruajPomodoro();
+};
+window.pranoCookies = function(){
+  try{ if(storageAvailable()) localStorage.setItem('sb-cookie', 'accepted'); }catch(e){}
+  document.getElementById('cookie-banner').style.display='none';
+  window.loadGA();
+  try{ if(window.gtag) gtag('event','cookie_accept'); }catch(e){}
+};
+window.refuzoCookies = function(){
+  try{ if(storageAvailable()) localStorage.setItem('sb-cookie', 'declined'); }catch(e){}
+  document.getElementById('cookie-banner').style.display='none';
+  window.__SB_GA_DISABLED = true;
+};
+window.resetCookieChoice = function(){
+  try{ if(storageAvailable()) localStorage.removeItem('sb-cookie'); }catch(e){}
+  document.getElementById('cookie-banner').style.display='block';
+  var txt=document.getElementById('cookieText');
+  if(txt) txt.innerText = currentLang==='en' ? 'We use Google Analytics only if you accept. Choose:' : 'Ne përdorim Google Analytics vetëm nëse e pranoni. Zgjidhni:';
+};
+(function init(){
+  try{
+    var saved = null;
+    try{ if(storageAvailable()) saved = localStorage.getItem('sb-cookie'); }catch(e){}
+    if(!saved){
+      var b=document.getElementById('cookie-banner'); if(b) b.style.display='block';
+    } else if(saved==='accepted'){ window.loadGA(); }
+    else if(saved==='declined'){ window.__SB_GA_DISABLED = true; }
+    var path = window.location.pathname;
+    var isEnPage = path.indexOf('/en/') !== -1 || path.endsWith('/en');
+    var langToUse = isEnPage ? 'en' : (path.endsWith('/Studybuddy/') || path.endsWith('/Studybuddy') ? 'sq' : currentLang);
+    window.setLang(langToUse);
+    rikthePomodoro();
+    updatePomodoroDisplay();
+    setInterval(function(){ try{ updatePomodoroDisplay(); }catch(e){} }, 30000);
+  }catch(e){}
+})();
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Enter' && document.activeElement && document.activeElement.id === 'pyetja'){ window.pyetIA(); }
+});
 </script>
-<section id="seo-eu" style="display:block !important; padding:20px; text-align:center;">
-<h1>Study Smarter - Upload Your PDF and PowerPoint and Learn Faster</h1>
-<p>Online study tool for European students. Upload your PDF and PowerPoint, get notes, summaries and quizzes. For students in Germany, Italy, UK and Switzerland.</p>
-<h2>Upload PDF and PowerPoint - Learn in Minutes</h2>
-<p>Upload your university PDF or PowerPoint presentation. Learn faster with smart notes, flashcards and questions made from YOUR files.</p>
-<p>Study tool for students in Europe - Berlin, Rome, London, Zurich</p>
-<h2>For European Students</h2>
-<p>Made for European students. Upload, learn, pass your exams.</p>
-</section> </body>
+</body>
 </html>
